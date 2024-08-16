@@ -1,69 +1,107 @@
 <p align="center"><a href="https://www.codechefvit.com" target="_blank"><img src="https://i.ibb.co/4J9LXxS/cclogo.png" width=160 title="CodeChef-VIT" alt="Codechef-VIT"></a>
 </p>
 
-<h2 align="center"> Project Title </h2>
+<h2 align="center"> Project Name </h2>
 <br/>
 
-> Include project description here.
+> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed euismod nisi porta lorem mollis aliquam ut. Non enim praesent elementum facilisis leo. Vitae congue eu consequat ac felis donec et odio. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Viverra orci sagittis eu volutpat odio facilisis mauris.
 
----
-
-[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
-  [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
-[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-## Features
-- Insert list of features here
-
-## Screenshots
-<p align="center">
-<img src="https://i.ibb.co/VppxmWZ/cet.png" alt="Common-Entry-Test" width="400px"/>
 </p>
 
+## 🌐 Deploy
 
-## Dependencies
- - < dependency >
- - < dependency >
-## Instructions
+[https://project-name.codechefvit.com/](https://project-name.codechefvit.com/)
 
-#### Directions to Install
-```sh
-$ git clone https://github.com/CodeChefVIT/<Project>
-$ cd <Project>
-$ npm install
+## ⚙️ Tech Stack:
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+## 💡 Features:
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+## 🖼 Screenshots
+
+<p align="center">
+
+#### Page 1
+
+<img width="1440" alt="image" src="">
+
+#### Page 2
+
+<img width="1440" alt="image" src="">
+
+### Page 3
+
+<img width="1440" alt="image" src="">
+
+</p>
+
+## 🏁 Get Started
+
+To get started, fork your own copy and clone the master branch. To clone a branch you can run the following:
+
+```bash
+git clone -b master https://github.com/<Your username>/<repo-name>
 ```
-#### Directions to Run
-```sh
-$ npm serve
+
+Run these commands on your bash/terminal and open it in a code editor of your choice.
+
+Run the following to install all the dependencies:
+
+```bash
+pnpm i
 ```
-## Contributors
+
+To start your development server run:
+
+```bash
+pnpm dev
+```
+
+## 📝 Note:
+
+Add Note
+
+## 🚀 Contributors
+
 <table>
-	<tr align="center" style="font-weight:bold">
-		<td>
-		John Doe
-		<p align="center">
-			<img src = "https://i.ibb.co/4J9LXxS/cclogo.png" width="150" height="150" alt="Your Name Here (Insert Your Image Link In Src">
-		</p>
-			<p align="center">
-				<a href = "https://github.com/<GitHub-username>">
-					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
-				</a>
-			</p>
-		</td>
-				<td>
-		John Doe
-		<p align="center">
-			<img src = "https://i.ibb.co/4J9LXxS/cclogo.png" width="150" height="150" alt="Your Name Here (Insert Your Image Link In Src">
-		</p>
-			<p align="center">
-				<a href = "https://github.com/<GitHub-username>">
-					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
-				</a>
-			</p>
-		</td>
-	</tr>
+<tr align="center">
+	<td>
+	<p align="center">
+		<img src = "copy-github-avatar-url" width="200" height="200" alt="john" style="border: 2px solid grey; width: 170px; height: 170px">
+	</p>
+	<p style="font-size:17px; font-weight:600;">John Doe</p>
+	<p align="center">
+		<a href = "https://github.com/john-doe"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
+		<a href = "https://www.linkedin.com/in/john-doe/">
+			<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
+		</a>
+	</p>
+  </td>
+	<td>
+	<p align="center">
+		<img src = "copy-github-avatar-url" width="200" height="200" alt="john" style="border: 2px solid grey; width: 170px; height: 170px">
+	</p>
+	<p style="font-size:17px; font-weight:600;">John Doe</p>
+	<p align="center">
+		<a href = "https://github.com/john-doe"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
+		<a href = "https://www.linkedin.com/in/john-doe/">
+			<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
+		</a>
+	</p>
+  </td>
+
+</tr>
 </table>
 
 ## License
+
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 <p align="center">

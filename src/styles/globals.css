@@ -71,7 +71,7 @@
 
 /* Add this CSS to your stylesheet */
 .grid-container .grid-item {
-  border-top: 1px solid #ccc;
+  border-top: 2px solid #ccc;
 }
 
 @layer base {

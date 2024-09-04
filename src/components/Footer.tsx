@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import DiscordIcon from "./../assets/images/Discord.svg";
 import FacebookIcon from "./../assets/images/Facebook.svg";
@@ -47,53 +48,19 @@ const Footer: React.FC = () => {
           “TECHNOLOGY IS THE BEST WHEN IT BRINGS PEOPLE TOGETHER”.
         </p>
         <div className="grid grid-cols-2 border-l-2 border-white grid-container">
-          <div className="grid-item ">
-            <a
-              href="#"
-              className="bg-red-500 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white min-w-48 "
-            >
-            HOME
-            </a>
+          <div className="grid-item grid grid-cols-2  w-[700px]">
+            <FooterButton label={"HOME"} redirect={"#"}/>
+            <FooterButton label={"PROJECTS"} redirect={"#"}/>
           </div>
-          <div className="grid-item">
-            <a
-              href="#"
-              className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white "
-            >
-              PROJECTS
-            </a>
+          <br></br>
+          <div className="grid-item grid grid-cols-2  w-[700px]">
+          <FooterButton label={"BOARD"} redirect={"#"}/>
+            <FooterButton label={"DEVSOC"} redirect={"#"}/>
           </div>
-          <div className="grid-item">
-            <a
-              href="#"
-              className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white max-w-screen-lg"
-            >
-              BOARD
-            </a>
-          </div>
-          <div className="grid-item">
-            <a
-              href="#"
-              className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white max-w-screen-lg"
-            >
-              DEVSOC
-            </a>
-          </div>
-          <div className="grid-item">
-            <a
-              href="#"
-              className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white max-w-screen-lg"
-            >
-              EVENTS
-            </a>
-          </div>
-          <div className="grid-item">
-            <a
-              href="#"
-              className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white max-w-screen-lg"
-            >
-              BLOG
-            </a>
+          <br></br>
+          <div className="grid-item grid grid-cols-2   w-[700px]">
+          <FooterButton label={"EVENTS"} redirect={"#"}/>
+            <FooterButton label={"BLOG"} redirect={"#"}/>
           </div>
         </div>
       </div>
@@ -175,3 +142,18 @@ const Footer: React.FC = () => {
 
 export default Footer;
 
+const FooterButton = ({
+  label,
+  redirect,
+}: {
+  label: string;
+  redirect: string;
+}) => {
+  return (
+    <Link href={redirect}>
+      <div className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white">
+        {label}
+      </div>
+    </Link>
+  );
+};

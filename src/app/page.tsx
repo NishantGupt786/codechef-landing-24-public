@@ -1,13 +1,11 @@
-import Events from '@/components/sections/Events';
-import BoardPage from  '@/components/boardPage/BoardPage';
-import BlogCard from "@/components/BlogCard";
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
     <main>
       {/* <Events/> */}
-      <BoardPage />
-      
+      {/* <BoardPage /> */}
+      <Footer/>
     </main>
   );
 }

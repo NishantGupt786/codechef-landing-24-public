@@ -64,6 +64,14 @@
   }
 }
 
+.hex4 {
+  clip-path: polygon(20% 0, 77% 0, 77% 74%, 68% 91%, 20% 91%, 20% 50%);
+}
+
+.grid-container .grid-item {
+  border-top: 2px solid #ccc;
+}
+
 @layer base {
   * {
     @apply border-border;

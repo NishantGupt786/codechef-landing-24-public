@@ -13,15 +13,13 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+{
   return (
     <html lang="en">
       <body className={`${inter.className} overflow-x-hidden w-screen`}>
-        
-
         {children}
-      
         </body>
-    </html>
-  );
+      </html>
+);
 }

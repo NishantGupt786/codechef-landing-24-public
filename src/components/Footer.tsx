@@ -35,41 +35,44 @@ const Footer: React.FC = () => {
     <footer className="bg-black text-white pt-10">
       <div className="text-center mb-4 mt-44 font-enigma">
         <span
-          className={`text-9xl ${isAtBottom ? "text-[#FF3B00]" : "text-white"}`}
+          className={`text-6xl sm:text-9xl ${
+            isAtBottom ? "text-[#FF3B00]" : "text-white"
+          }`}
         >
           CODECHEF
         </span>
       </div>
-      <div className="grid grid-cols-2 gap-4 border-t-2 border-b-2 border-white font-enigma">
+      <div className="grid grid-cols-2 border-t-2 border-b-2 border-white font-enigma">
         <p className="text-xl mx-auto p-4">
           CODECHEF-VIT IS A NON-COMMERCIAL ORGANISATION WITH A GOAL TO PROVIDE A
           PLATFORM FOR PROGRAMMERS AND DEVELOPERS EVERYWHERE TO MEET, COMPETE &
           HAVE FUN. AT CODECHEF-VIT, WE BELIEVE IN THE WORDS OF MATT MULLENWEG –
           “TECHNOLOGY IS THE BEST WHEN IT BRINGS PEOPLE TOGETHER”.
         </p>
-        <div className="grid grid-cols-2 border-l-2 border-white grid-container">
-          <div className="grid-item grid grid-cols-2  w-[700px]">
+        <div className="grid grid-cols-2 border-l-2 border-white grid-container ">
+          <div className="grid-item grid grid-cols-2 w-[700px] h-[50px]">
             <FooterButton label={"HOME"} redirect={"#"}/>
             <FooterButton label={"PROJECTS"} redirect={"#"}/>
           </div>
           <br></br>
-          <div className="grid-item grid grid-cols-2  w-[700px]">
+          <div className="grid-item grid grid-cols-2  w-[700px]  h-[50px]">
           <FooterButton label={"BOARD"} redirect={"#"}/>
             <FooterButton label={"DEVSOC"} redirect={"#"}/>
           </div>
           <br></br>
-          <div className="grid-item grid grid-cols-2   w-[700px]">
+          <div className="grid-item grid grid-cols-2   w-[700px]  h-[50px]">
           <FooterButton label={"EVENTS"} redirect={"#"}/>
             <FooterButton label={"BLOG"} redirect={"#"}/>
           </div>
         </div>
       </div>
-
-      <div className="flex justify-between items-center border-t border-white py-4">
-        <div className="text-gray-400 ml-10">© 2024 CODECHEF</div>
-        <div className="flex space-x-4 gap-8">
+      <div className="flex flex-col lg:flex-row justify-between items-center border-t border-white py-4">
+        <div className="text-gray-400 text-sm lg:text-base ml-10 mb-4 lg:mb-0">
+          © 2024 CODECHEF
+        </div>
+        <div className="flex flex-wrap justify-center gap-4">
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className=" rounded-full p-3">
+            <div className="rounded-full p-3">
               <Image
                 src={FacebookIcon}
                 alt="facebook-icon"
@@ -80,7 +83,7 @@ const Footer: React.FC = () => {
             </div>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className=" rounded-full p-3">
+            <div className="rounded-full p-3">
               <Image
                 src={TwitterIcon}
                 alt="twitter-icon"
@@ -91,7 +94,7 @@ const Footer: React.FC = () => {
             </div>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className=" rounded-full p-3">
+            <div className="rounded-full p-3">
               <Image
                 src={YouTubeIcon}
                 alt="youtube-icon"
@@ -102,7 +105,7 @@ const Footer: React.FC = () => {
             </div>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className=" rounded-full p-3">
+            <div className="rounded-full p-3">
               <Image
                 src={InstagramIcon}
                 alt="instagram-icon"
@@ -124,7 +127,7 @@ const Footer: React.FC = () => {
             </div>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className=" rounded-full p-3">
+            <div className="rounded-full p-3">
               <Image
                 src={DiscordIcon}
                 alt="discord-icon"
@@ -151,7 +154,7 @@ const FooterButton = ({
 }) => {
   return (
     <Link href={redirect}>
-      <div className="bg-gray-800 text-white p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-8 border-r-4 border-white">
+      <div className="bg-gray-800 text-white p-2 sm:p-3 text-center rounded hover:bg-[#FF3B00] transition hex4 border-b-4 sm:border-b-8 border-r-2 sm:border-r-4 border-white">
         {label}
       </div>
     </Link>

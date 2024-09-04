@@ -65,11 +65,9 @@
 }
 
 .hex4 {
-  clip-path: polygon(10% 0, 90% 0, 90% 74%, 81% 91%, 10% 91%, 10% 50%);
-  
+  clip-path: polygon(20% 0, 77% 0, 77% 74%, 68% 91%, 20% 91%, 20% 50%);
 }
 
-/* Add this CSS to your stylesheet */
 .grid-container .grid-item {
   border-top: 2px solid #ccc;
 }
@@ -78,7 +76,24 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
+.card {
+  height: 340px;
+  background-repeat: no-repeat;
+  width: 250px;
+  background-size: 250px 350px;
+}
+
+
+.h-img {
+  width: 74.5% !important;
+  position: relative;
+  bottom: 22.4px;
+  left: 26px;
+}
+

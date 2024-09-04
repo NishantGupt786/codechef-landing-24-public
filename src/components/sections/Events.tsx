@@ -1,6 +1,7 @@
+import React from "react";
 import Image from "next/image";
-import headImage from "./../../assets/images/image.png";
-import people from "./../../assets/images/people.png";
+import headImage from '@/assets/images/image.png';
+import people from '@/assets/images/people.png';
 
 const Component1 = () => {
   return (

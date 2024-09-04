@@ -1,9 +1,10 @@
-import Footer from "@/components/Footer";
-import Events from "@/components/sections/Events";
+import Footer from '@/components/Footer';
+
 export default function Home() {
   return (
     <main>
-      <Events/>
+      {/* <Events/> */}
+      {/* <BoardPage /> */}
       <Footer/>
     </main>
   );

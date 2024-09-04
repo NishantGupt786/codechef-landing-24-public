@@ -1,7 +1,6 @@
 import lower from "@/assets/images/lower.svg";
 import upper from "@/assets/images/upper.svg";
 import BlogCard from "@/components/BlogCard";
-import SmoothScrolling from "@/components/smoothscrolling";
 import Image from "next/image";
 import "../../styles/enigma-font.css";
 
@@ -45,7 +44,6 @@ const dummyData = [
 
 export default function Blog() {
   return (
-    <SmoothScrolling>
       <div className="bg-black text-white h-full font-enigma z-0 w- overflow-hidden">
         <h1 className="font-bold pt-8 text-5xl text-center mb-8 font-enigma">
           BLOGS
@@ -70,6 +68,5 @@ export default function Blog() {
           </div>
         </div>
       </div>
-    </SmoothScrolling>
   );
 }

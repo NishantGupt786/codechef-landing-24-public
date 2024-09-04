@@ -1,5 +1,6 @@
 "use client";
 import ContactifyImg from "@/assets/images/contactify.svg";
+import KalculateImg from "@/assets/images/kalculate.svg";
 import lower from "@/assets/images/lower.svg";
 import upper from "@/assets/images/upper.svg";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
@@ -9,14 +10,13 @@ import Image from "next/image";
 
 const OPTIONS: EmblaOptionsType = {};
 const SLIDES = [
-  { title: "Kalculate", index: 0, image: ContactifyImg },
-  { title: "Contactify", index: 1, image: ContactifyImg },
-  { title: "Quizzie", index: 2, image: ContactifyImg },
+  { title: "Contactify", index: 0, image: ContactifyImg },
+  { title: "Kalculate", index: 1, image: KalculateImg },
 ];
 
 export const Project = () => {
   return (
-    <section className="bg-black h-full w- overflow-visible z-0 pt-5">
+    <section className="bg-black h-full w-screen overflow-x-hidden z-0 pt-5">
       <h1 className="text-white z-20 font-semibold font-enigma text-3xl text-center md:text-7xl pb-10">
         PROJECTS
       </h1>
@@ -29,7 +29,7 @@ export const Project = () => {
       />
       <Image
         src={lower}
-        className="absolute z-0 -bottom-[90%] -right-[30%] h-[1148px] w-auto"
+        className="absolute z-0 md:-bottom-[90%] -right-[30%] h-[1148px] w-auto"
         height={1000}
         width={1000}
         alt="lower-element"

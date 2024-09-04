@@ -1,0 +1,14 @@
+.p-parent p{
+    font-family: "Enigma", sans-serif;
+}
+
+.t-r{
+    transform: rotateY(180deg);
+    transition: all 0.4s;
+}
+/* 
+height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 36px; */

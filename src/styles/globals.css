@@ -68,10 +68,27 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
+.card {
+  height: 340px;
+  background-repeat: no-repeat;
+  width: 250px;
+  background-size: 250px 350px;
+}
+
+
+.h-img {
+  width: 74.5% !important;
+  position: relative;
+  bottom: 22.4px;
+  left: 26px;
+}
+
 
 .gradient-text {
   background: linear-gradient(to right, #FF2D00, #fa6262, #f1f1f1);
@@ -83,7 +100,7 @@
 .embla {
   max-width: screen;
   margin: auto;
-  --slide-height: 20rem;
+  --slide-height: 18rem;
   --slide-spacing: 1rem;
   --slide-size: 100%;
 }
@@ -101,6 +118,7 @@
   min-width: 0;
   padding-left: var(--slide-spacing);
 }
+
 .embla__controls {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

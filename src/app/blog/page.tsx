@@ -1,7 +1,7 @@
 import BlogCard from "@/components/BlogCard";
 import Image from "next/image";
-import lower from "../../../public/lower.svg";
-import upper from "../../../public/upper.svg";
+import lower from "../../assets/images/lower.svg";
+import upper from "../../assets/images/upper.svg";
 import "../../styles/enigma-font.css";
 
 const dummyData = [

@@ -8,40 +8,6 @@ interface BlogCardProps {
   slug: string;
 }
 
-const dummyData = [
-    {
-        slug: "blog1",
-        title: "blog1",
-        description: "Lorem ipsum dolor sit amet consectetur. Arcu feugiat neque curabitur porttitor viverra nunc laoreet. Tortor neque odio auctor est in egestas arcu mattis enim.",
-        image: "https://placehold.co/200x200" 
-    },
-    {
-        slug: "blog2",
-        title: "blog2",
-        description: "Lorem ipsum dolor sit amet consectetur. Arcu feugiat neque curabitur porttitor viverra nunc laoreet. Tortor neque odio auctor est in egestas arcu mattis enim.",
-        image: "https://placehold.co/200x200" 
-    },
-    {
-        slug: "blog3",
-        title: "blog3",
-        description: "Lorem ipsum dolor sit amet consectetur. Arcu feugiat neque curabitur porttitor viverra nunc laoreet. Tortor neque odio auctor est in egestas arcu mattis enim.",
-        image: "https://placehold.co/200x200" 
-    },
-    {
-        slug: "blog4",
-        title: "blog4",
-        description: "Lorem ipsum dolor sit amet consectetur. Arcu feugiat neque curabitur porttitor viverra nunc laoreet. Tortor neque odio auctor est in egestas arcu mattis enim.",
-        image: "https://placehold.co/200x200" 
-    },
-    {
-        slug: "blog5",
-        title: "blog5",
-        description: "Lorem ipsum dolor sit amet consectetur. Arcu feugiat neque curabitur porttitor viverra nunc laoreet. Tortor neque odio auctor est in egestas arcu mattis enim.",
-        image: "https://placehold.co/200x200" 
-    },
-    
-];
-
 const BlogCard: React.FC<BlogCardProps> = ({ title, description, image, slug }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (

@@ -1,9 +1,12 @@
 
+import Footer from '@/components/Footer';
 import BoardCard from './BoardCard';
 import "./style.css";
+import "@/components/Footer"
 
 export default function BoardPage() {
   return (
+    <>
     <div className="bg-black flex flex-col items-center">
       <div className=" pt-[5rem] text-center text-white p-parent">
         <p className="sm:text-[2.5rem] text-[1.95rem] uppercase">meet our</p>
@@ -15,5 +18,7 @@ export default function BoardPage() {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }

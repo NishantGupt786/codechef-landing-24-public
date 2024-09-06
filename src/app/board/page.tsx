@@ -2,7 +2,7 @@
 import Footer from '@/components/Footer';
 import BoardCard from './BoardCard';
 import "./style.css";
-import "@/components/Footer"
+
 
 export default function BoardPage() {
   return (
@@ -18,7 +18,7 @@ export default function BoardPage() {
         ))}
       </div>
     </div>
-    <Footer/>
+    
     </>
   );
 }

@@ -10,14 +10,24 @@ import Image from "next/image";
 
 const OPTIONS: EmblaOptionsType = {};
 const SLIDES = [
-  { title: "Contactify", index: 0, image: ContactifyImg },
-  { title: "Kalculate", index: 1, image: KalculateImg },
+  {
+    title: "Contactify",
+    index: 0,
+    image: ContactifyImg,
+    classe: "h-[270px] w-[270px]",
+  },
+  {
+    title: "Kalculate",
+    index: 1,
+    image: KalculateImg,
+    classe: "h-[280px] w-[280px] scale-125",
+  },
 ];
 
-export const Project = () => {
+export default function Project() {
   return (
-    <section className="bg-black h-full w-screen overflow-x-hidden z-0 pt-5">
-      <h1 className="text-white z-20 font-semibold font-enigma text-3xl text-center md:text-7xl pb-10">
+    <section className="bg-black h-full w-screen overflow-hidden z-0">
+      <h1 className="text-white z-20 font-semibold font-enigma text-3xl text-center md:text-7xl lg:text-[128px] pb-10 pt-5">
         PROJECTS
       </h1>
       <Image
@@ -29,12 +39,12 @@ export const Project = () => {
       />
       <Image
         src={lower}
-        className="absolute z-0 md:-bottom-[90%] -right-[30%] h-[1148px] w-auto"
+        className="absolute z-0 md:-bottom-[90%] -right-[30%] h-[1148px] w-auto smh-object"
         height={1000}
         width={1000}
         alt="lower-element"
       />
-      <p className="text-white z-20 font-enigma text-xs md:text-lg text-center px-2 md:px-5">
+      <p className="text-white z-20 font-enigma text-xs md:text-lg lg:text-xl text-center px-2 md:px-5 pb-10">
         OUR CORE MEMBERS HAVE CREATED INDUSTRIAL LEVEL
         <br />
         <span className="text-[#FF4D00]">PROJECTS</span>
@@ -44,4 +54,4 @@ export const Project = () => {
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
     </section>
   );
-};
+}

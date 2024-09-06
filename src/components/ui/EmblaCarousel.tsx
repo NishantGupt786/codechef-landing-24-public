@@ -1,5 +1,4 @@
 "use client";
-import projectCardBG from "@/assets/images/carouselbg.svg";
 import {
   NextButton,
   PrevButton,
@@ -18,6 +17,7 @@ type SlideType = {
   title: string;
   index: number;
   image: string;
+  classe: string;
 };
 
 type PropType = {
@@ -46,23 +46,19 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
               <div className="relative w-full h-full">
-                <Image
-                  src={projectCardBG}
-                  alt="bgimg"
-                  className="mx-auto px-6 md:px-0 h-[450px] w-[450px] md:h-[600px] md:w-[600px]"
-                />
-                <Image
-                  src={slide.image}
-                  alt="img"
-                  className="absolute h-[300px] w-[300px] md:h-[475px] md:w-[475px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-contain"
-                />
+                <div className="polygon mx-auto">
+                  <div className="overlay">
+                    <Image
+                      src={slide.image}
+                      alt="img"
+                      className={`absolute mx-auto px-6 md:px-0 md:h-[475px] md:w-[475px] sm:bottom-0 sm:left-[10%] ${slide.classe}`}
+                    />
+                    <h1 className="absolute z-50 font-enigma left-[90%] md:left-[85%] top-[75%] transform -rotate-90 inset-0 max-w-fit max-h-fit text-lg md:text-5xl font-bold bg-gradient-to-r from-[#ff3b00] to-[#f1f1f1] bg-clip-text text-[#ff3b00]">
+                      {slide.title}
+                    </h1>
+                  </div>
+                </div>
               </div>
-              <h1 className="hidden md:absolute md:block z-50 font-enigma left-[60%] top-[40%] md:left-[54%] md:top-[45%] transform -rotate-90 max-w-fit max-h-fit inset-0 text-xl md:text-5xl font-bold gradient-text">
-                {slide.title}
-              </h1>
-              <h1 className="md:hidden absolute font-enigma max-w-fit max-h-fit top-[90%] left-[35%] inset-0 text-xl md:text-5xl font-bold gradient-text">
-                {slide.title}
-              </h1>
             </div>
           ))}
         </div>

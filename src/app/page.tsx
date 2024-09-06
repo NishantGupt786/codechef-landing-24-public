@@ -1,17 +1,12 @@
 import Footer from "@/components/Footer";
-import BoardPage from "@/components/boardPage/BoardPage";
-import { Project } from "@/components/sections/Projects";
+import Events from "@/components/sections/Events";
 
 export default function Home() {
   return (
     <main>
-      {/* <Events/> */}
-      {/* <BoardPage /> */}
+      <Events />
       <Footer />
-      <BoardPage />
-
-      {/* <Events /> */}
-      <Project />
+      {/* <BoardPage /> */}
     </main>
   );
 }

@@ -1,12 +1,11 @@
-"use client"
-import { ReactLenis } from '@studio-freight/react-lenis';
-import { Inter } from 'next/font/google';
-import React from 'react';
+"use client";
+import { ReactLenis } from "@studio-freight/react-lenis";
+import { Inter } from "next/font/google";
+import React from "react";
+import "../styles/globals.css";
+import Footer from "@/components/Footer";
 
-import '../styles/globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
-
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -25,6 +24,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${inter.className} overflow-x-hidden w-screen`}>
           {children}
+        <Footer />
         </body>
       </html>
     </ReactLenis>

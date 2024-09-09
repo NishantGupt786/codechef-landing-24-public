@@ -1,12 +1,9 @@
-"use client"
-import { ReactLenis } from '@studio-freight/react-lenis';
-import { Inter } from 'next/font/google';
-import React from 'react';
+"use client";
+import ReactLenis from "@studio-freight/react-lenis";
+import { Inter } from "next/font/google";
+import "../styles/globals.css";
 
-import '../styles/globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
-
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -15,7 +12,7 @@ export default function RootLayout({
 }>) {
   const lenisOptions = {
     lerp: 5,
-    duration: 3,
+    duration: 1.2,
     smoothTouch: false,
     smooth: true,
   };

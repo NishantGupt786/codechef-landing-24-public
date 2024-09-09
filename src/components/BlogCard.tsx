@@ -1,29 +1,37 @@
-'use client'; 
-import Link from 'next/link';
+'use client';
+import Image from 'next/image';
 import React, { useState } from 'react';
 interface BlogCardProps {
   title: string;
   description: string;
-  image: string;
-  slug: string;
+  image: {
+    src: string;
+  };
+  link: string;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ title, description, image, slug }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ title, description, image, link }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className={`card bg-white rounded-md z-10 ${isHovered ? 'hovered' : ''}`} 
-    onMouseEnter={() => setIsHovered(true)} 
-    onMouseLeave={() => setIsHovered(false)}>
-      <Link href={`/blog/${slug}`}>
-        <div className=' flex p-2'>
-          <img src={image} alt={title} className="card-image p-3 rounded-md h-200 flex-col sm:flex-row" />
-          <div className="card-content p-3 flex flex-col sm:flex-col">
-            <h2 className="card-title py-2 font-bold">{title}</h2>
-            <p className="card-description">{description}</p>
-            <p className="read-more pt-10 pl-100" style={{ color: isHovered ? 'red' : 'black', fontWeight: isHovered ? '600' : '400' }}>Read More </p> 
+    <div className={`bg-white rounded-md z-10 ${isHovered ? 'hovered' : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
+      <a href={link}>
+        <div className=' flex flex-col p-2 sm:flex-row'>
+          <Image
+            src={`/assets/images/${image.src}`}
+            alt={title}
+            width={200}
+            height={200}
+            className="p-2 lg:w-400 lg:h-400 sm:w-200 sm:h-200"
+          />
+          <div className="p-3 flex flex-col sm:flex-col">
+            <h2 className="py-2 font-bold">{title}</h2>
+            <p className="">{description}</p>
+            <p className="pt-10 pl-100" style={{ color: isHovered ? 'red' : 'black', fontWeight: isHovered ? '600' : '400' }}>Read More </p>
           </div>
         </div>
-      </Link>
+      </a>
     </div>
   );
 };

@@ -49,7 +49,7 @@ const Component1 = () => {
           width={1310}
           height={512}
         />
-        <div className="absolute inset-0 items-start justify-start">
+        <div className="absolute inset-0 flex flex-col justify-start items-start">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
           <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">
             Events
@@ -57,10 +57,10 @@ const Component1 = () => {
         </div>
       </div>
 
-      <div className="r">
+      <div className="relative">
         <svg
           className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
-          viewBox="0 0 800 2200" 
+          viewBox="0 0 800 2200"
           preserveAspectRatio="xMidYMid meet"
         >
           <path
@@ -97,11 +97,9 @@ const Component1 = () => {
             <h1 className="lg:text-3xl xs:text-xs">Devsoc'24</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-14 mt-1 xs:text-3xs lg:text-xl">
-            Events and hackathons are the two cornerstones that make
-            CodeChef-VIT one of the campus' most deemed and reputed chapters.
-            Our teamwork, dedication, and determination is what propels and
-            inspires our events to take greater strides and achieve greater
-            heights.
+            Events and hackathons are the two cornerstones that make CodeChef-VIT
+            one of the campus' most reputed chapters. Our teamwork, dedication,
+            and determination propel and inspire our events to achieve greater heights.
           </p>
         </div>
         <Image
@@ -126,11 +124,9 @@ const Component1 = () => {
             <h1 className="lg:text-3xl xs:text-xs">Cook-Off 8.0</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
-            Events and hackathons are the two cornerstones that make
-            CodeChef-VIT one of the campus' most deemed and reputed chapters.
-            Our teamwork, dedication, and determination is what propels and
-            inspires our events to take greater strides and achieve greater
-            heights.
+            Events and hackathons are the two cornerstones that make CodeChef-VIT
+            one of the campus' most reputed chapters. Our teamwork, dedication, 
+            and determination propel and inspire our events to achieve greater heights.
           </p>
         </div>
       </div>
@@ -141,9 +137,9 @@ const Component1 = () => {
             <h1 className="lg:text-3xl xs:text-xs">Cook-Off 9.0</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-14 mt-1 xs:text-3xs lg:text-xl">
-            CodeChef's Cook-Off 9.0 event brings programmers together to
-            showcase their talent and skills. Through this competition, students
-            learn problem-solving, teamwork, and creative thinking.
+            CodeChef's Cook-Off 9.0 brings programmers together to showcase their talent
+            and skills. Through this competition, students learn problem-solving, teamwork, 
+            and creative thinking.
           </p>
         </div>
         <Image
@@ -168,9 +164,9 @@ const Component1 = () => {
             <h1 className="lg:text-3xl xs:text-xs">Devsoc'25</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
-            Devsoc'25 promises to bring another wave of innovation and
-            collaboration, allowing students to participate in hackathons that
-            challenge their creativity and problem-solving abilities.
+            Devsoc'25 promises to bring another wave of innovation and collaboration, 
+            allowing students to participate in hackathons that challenge their creativity 
+            and problem-solving abilities.
           </p>
         </div>
       </div>

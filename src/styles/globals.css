@@ -76,6 +76,7 @@
   border-top: 2px solid #ccc;
 }
 
+
 @layer base {
   * {
     @apply border-border;
@@ -84,6 +85,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.r {
+  overflow: visible; 
+  width: 100%;
+  height: auto;
 }
 
 .card {

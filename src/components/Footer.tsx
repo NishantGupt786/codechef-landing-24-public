@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, []); // <- Closing the useEffect block here
 
   return (
     <footer className="bg-black text-white pt-10">
@@ -71,70 +71,22 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex flex-wrap justify-center gap-4">
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className="rounded-full p-3">
-              <Image
-                src={FacebookIcon}
-                alt="facebook-icon"
-                height={20}
-                width={20}
-                className="h-auto w-auto"
-              />
-            </div>
+            <Image src={FacebookIcon} alt="facebook-icon" height={1000} width={1000} className="h-auto w-auto"/>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className="rounded-full p-3">
-              <Image
-                src={TwitterIcon}
-                alt="twitter-icon"
-                height={20}
-                width={20}
-                className="h-auto w-auto"
-              />
-            </div>
+            <Image src={TwitterIcon} alt="twitter-icon" height={1000} width={1000} className="h-auto w-auto"/>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className="rounded-full p-3">
-              <Image
-                src={YouTubeIcon}
-                alt="youtube-icon"
-                height={20}
-                width={20}
-                className="h-auto w-auto"
-              />
-            </div>
+            <Image src={YouTubeIcon} alt="youtube-icon" height={1000} width={1000} className="h-auto w-auto"/>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className="rounded-full p-3">
-              <Image
-                src={InstagramIcon}
-                alt="instagram-icon"
-                height={20}
-                width={20}
-                className="h-auto w-auto"
-              />
-            </div>
+            <Image src={InstagramIcon} alt="instagram-icon" height={1000} width={1000} className="h-auto w-auto"/>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className="rounded-full p-3">
-              <Image
-                src={LinkedInIcon}
-                alt="linkedin-icon"
-                height={20}
-                width={20}
-                className="h-auto w-auto"
-              />
-            </div>
+            <Image src={LinkedInIcon} alt="linkedin-icon" height={1000} width={1000} className="h-auto w-auto"/>
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <div className="rounded-full p-3">
-              <Image
-                src={DiscordIcon}
-                alt="discord-icon"
-                height={20}
-                width={20}
-                className="h-auto w-auto"
-              />
-            </div>
+            <Image src={DiscordIcon} alt="discord-icon" height={1000} width={1000} className="h-auto w-auto"/>
           </a>
         </div>
       </div>
@@ -164,4 +116,3 @@ const FooterButton = ({
     </Link>
   );
 };
-

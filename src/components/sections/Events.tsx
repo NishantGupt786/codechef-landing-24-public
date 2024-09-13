@@ -1,9 +1,9 @@
 "use client";
-import { motion, useScroll, useMotionValue } from "framer-motion";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
 import headImage from "@/assets/images/image.png";
 import people from "@/assets/images/people.png";
+import { motion, useMotionValue, useScroll } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 const Component1 = () => {
   const { scrollYProgress } = useScroll();
@@ -42,34 +42,42 @@ const Component1 = () => {
   return (
     <div className="bg-black h-full w-full overflow-x-hidden">
       <div className="relative h-3/4 w-5/6 lg:ml-28 xs:ml-8 laptop:ml-24 surface:ml-16">
-        <Image src={headImage} alt="Header Image" layout="responsive" width={1310} height={512} />
+        <Image
+          src={headImage}
+          alt="Header Image"
+          layout="responsive"
+          width={1310}
+          height={512}
+        />
         <div className="absolute inset-0 items-start justify-start">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
-          <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">Events</h1>
+          <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">
+            Events
+          </h1>
         </div>
       </div>
 
-      <div className="relative">
+      <div className="r">
         <svg
           className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
-          viewBox="0 0 800 2200"
+          viewBox="0 0 800 2200" 
+          preserveAspectRatio="xMidYMid meet"
         >
           <path
             ref={pathRef}
             d="M 650, 0
-               L 650, 100 
-               L 650, 500  
-               L 100, 500  
-               L 100, 1000  
-               L 670, 1000  
-               L 670, 1450 
-               L 100, 1450
-               L 100, 2000"
+            L 650, 100 
+            L 650, 500  
+            L 100, 500  
+            L 100, 1000  
+            L 670, 1000  
+            L 670, 1450 
+            L 100, 1450
+            L 100, 2000"
             stroke="white"
             strokeWidth="2"
             fill="transparent"
           />
-
           <motion.circle
             cx={progressX}
             cy={progressY}
@@ -89,10 +97,11 @@ const Component1 = () => {
             <h1 className="lg:text-3xl xs:text-xs">Devsoc'24</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-14 mt-1 xs:text-3xs lg:text-xl">
-            Events and hackathons are the two cornerstones that make CodeChef-VIT
-            one of the campus' most deemed and reputed chapters. Our teamwork,
-            dedication, and determination is what propels and inspires our events
-            to take greater strides and achieve greater heights.
+            Events and hackathons are the two cornerstones that make
+            CodeChef-VIT one of the campus' most deemed and reputed chapters.
+            Our teamwork, dedication, and determination is what propels and
+            inspires our events to take greater strides and achieve greater
+            heights.
           </p>
         </div>
         <Image
@@ -117,10 +126,11 @@ const Component1 = () => {
             <h1 className="lg:text-3xl xs:text-xs">Cook-Off 8.0</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
-            Events and hackathons are the two cornerstones that make CodeChef-VIT
-            one of the campus' most deemed and reputed chapters. Our teamwork,
-            dedication, and determination is what propels and inspires our events
-            to take greater strides and achieve greater heights.
+            Events and hackathons are the two cornerstones that make
+            CodeChef-VIT one of the campus' most deemed and reputed chapters.
+            Our teamwork, dedication, and determination is what propels and
+            inspires our events to take greater strides and achieve greater
+            heights.
           </p>
         </div>
       </div>

@@ -107,7 +107,7 @@ const Component1 = () => {
           alt="People"
           width={500}
           height={500}
-          className="xs:w-40 laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10"
+          className="xs:w-40 laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10 2xl:left-72"
         />
       </div>
 
@@ -147,7 +147,7 @@ const Component1 = () => {
           alt="alt"
           width={500}
           height={500}
-          className="xs:w-40 laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10"
+          className="xs:w-40 laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10 2xl:left-72"
         />
       </div>
 

@@ -1,9 +1,16 @@
-import Footer from "@/components/Footer";
 import Events from "@/components/sections/Events";
-export default function Home() {
+import ClientComponent from "@/components/ClientComponent";
+import Loader from "@/components/loader";
+const Home: React.FC = () => {
   return (
     <main>
-      <Events />      
+      <ClientComponent>
+      <Events />
+      </ClientComponent>
+      
+      
     </main>
   );
-}
+};
+
+export default Home;

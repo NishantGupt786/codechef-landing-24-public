@@ -51,17 +51,17 @@ const Footer: React.FC = () => {
         <div className="sm:w-auto w-full grid item-center grid-row-3 sm:border-l-2 border-white grid-container sm:h-full">
           <div className="grid-item grid grid-cols-2 w-full h-[50px]">
             <FooterButton label={"HOME"} redirect={"#"} />
-            <FooterButton label={"PROJECTS"} redirect={"#"} />
+            <FooterButton label={"PROJECTS"} redirect={"/projects"} />
           </div>
 
           <div className="grid-item grid grid-cols-2  w-full  h-[50px]">
-            <FooterButton label={"BOARD"} redirect={"#"} />
+            <FooterButton label={"BOARD"} redirect={"/board"} />
             <FooterButton label={"DEVSOC"} redirect={"#"} />
           </div>
 
           <div className="grid-item grid grid-cols-2   w-full  h-[50px]">
             <FooterButton label={"EVENTS"} redirect={"#"} />
-            <FooterButton label={"BLOG"} redirect={"#"} />
+            <FooterButton label={"BLOG"} redirect={"/blog"} />
           </div>
         </div>
       </div>
@@ -70,23 +70,23 @@ const Footer: React.FC = () => {
           © 2024 CODECHEF
         </div>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={FacebookIcon} alt="facebook-icon" height={1000} width={1000} className="h-auto w-auto"/>
+          <a href="https://www.facebook.com/codechefvit/" className="text-gray-400 hover:text-white">
+            <Image src={FacebookIcon} alt="facebook-icon" height={1000} width={1000} className="h-auto w-auto" />
+          </a>
+          <a href="https://x.com/codechefvit?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" className="text-gray-400 hover:text-white">
+            <Image src={TwitterIcon} alt="twitter-icon" height={1000} width={1000} className="h-auto w-auto" />
+          </a>
+          <a href="https://www.youtube.com/c/CodeChefVIT" className="text-gray-400 hover:text-white">
+            <Image src={YouTubeIcon} alt="youtube-icon" height={1000} width={1000} className="h-auto w-auto" />
+          </a>
+          <a href="https://www.instagram.com/codechefvit/" className="text-gray-400 hover:text-white">
+            <Image src={InstagramIcon} alt="instagram-icon" height={1000} width={1000} className="h-auto w-auto" />
+          </a>
+          <a href="https://www.linkedin.com/company/codechefvit/" className="text-gray-400 hover:text-white">
+            <Image src={LinkedInIcon} alt="linkedin-icon" height={1000} width={1000} className="h-auto w-auto" />
           </a>
           <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={TwitterIcon} alt="twitter-icon" height={1000} width={1000} className="h-auto w-auto"/>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={YouTubeIcon} alt="youtube-icon" height={1000} width={1000} className="h-auto w-auto"/>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={InstagramIcon} alt="instagram-icon" height={1000} width={1000} className="h-auto w-auto"/>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={LinkedInIcon} alt="linkedin-icon" height={1000} width={1000} className="h-auto w-auto"/>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={DiscordIcon} alt="discord-icon" height={1000} width={1000} className="h-auto w-auto"/>
+            <Image src={DiscordIcon} alt="discord-icon" height={1000} width={1000} className="h-auto w-auto" />
           </a>
         </div>
       </div>

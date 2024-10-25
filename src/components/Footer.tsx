@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
           <a href="https://www.facebook.com/codechefvit/" className="text-gray-400 hover:text-white">
             <Image src={FacebookIcon} alt="facebook-icon" height={1000} width={1000} className="h-auto w-auto" />
           </a>
-          <a href="https://x.com/codechefvit?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" className="text-gray-400 hover:text-white">
+          <a href="https://x.com/codechefvit" className="text-gray-400 hover:text-white">
             <Image src={TwitterIcon} alt="twitter-icon" height={1000} width={1000} className="h-auto w-auto" />
           </a>
           <a href="https://www.youtube.com/c/CodeChefVIT" className="text-gray-400 hover:text-white">

@@ -7,15 +7,33 @@ interface ClientComponentProps {
 }
 
 const ClientComponent: React.FC<ClientComponentProps> = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 15000); 
+  
+    if (typeof window !== 'undefined') {
+      const hasLoadedBefore = sessionStorage.getItem('hasLoadedBefore');
 
-    return () => clearTimeout(timer);
+      if (hasLoadedBefore) {
+      
+        setIsLoading(false);
+      } else {
+    
+        setIsLoading(true);
+        const timer = setTimeout(() => {
+          setIsLoading(false);
+          sessionStorage.setItem('hasLoadedBefore', 'true');
+        }, 15000);
+
+        return () => clearTimeout(timer);
+      }
+    }
   }, []);
+
+
+  if (isLoading === null) {
+    return null;
+  }
 
   return <>{isLoading ? <Loader /> : children}</>;
 };

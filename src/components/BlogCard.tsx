@@ -1,25 +1,25 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 interface BlogCardProps {
   title: string;
   description: string;
-  image: {
-    src: string;
-  };
+  image: string;
   link: string;
+  slug: string
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ title, description, image, link }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ title, slug, description, image, link }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div className={`bg-white rounded-md z-10 ${isHovered ? 'hovered' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}>
-      <a href={link}>
+      <Link href={`/blog/${slug}`}>
         <div className=' flex flex-col p-2 sm:flex-row'>
           <Image
-            src={`/assets/images/${image.src}`}
+            src={image}
             alt={title}
             width={200}
             height={200}
@@ -31,7 +31,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ title, description, image, link }) 
             <p className="pt-10 pl-100" style={{ color: isHovered ? 'red' : 'black', fontWeight: isHovered ? '600' : '400' }}>Read More </p>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

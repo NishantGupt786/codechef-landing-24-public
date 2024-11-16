@@ -22,7 +22,7 @@ export default function Blog() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('/api/getblog');
+        const response = await fetch('/api/route');
         const data = await response.json();
         const postsData = data.data.publication.posts.edges.map((edge: { node: Post }) => edge.node);
         setPosts(postsData);

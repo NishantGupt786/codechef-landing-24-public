@@ -14,18 +14,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       {
         query: `
           query Publication {
-            publication(host: "blogs.codechefvit.com") {
-              post(slug: "${slug}") {
-                title
-                // subtitle
-                brief
-                coverImage
-                // contentMarkdown
-                author {
-                    name
-              }
-            }
-          }
+  publication(host: "blogs.codechefvit.com") {
+    post(slug: ${slug}) {
+      title
+      subtitle
+      publishedAt
+      updatedAt
+      readTimeInMinutes
+      tags {
+        name
+      }
+      content {
+        html
+      }
+      coverImage {
+        url
+      }
+    }
         `,
       },
       {
@@ -36,7 +41,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     );
 
     const post = response.data.data.post;
-
     if (!post) {
       return res.status(404).json({ error: 'Post not found' });
     }

@@ -5,12 +5,13 @@ import "../../styles/enigma-font.css";
 
 interface Post {
   title: string;
-  brief: string;
   coverImage: {
     url: string;
   };
   slug: string;
-  link: string;
+  content: {
+    html: string;
+  };
 }
 
 export default function Blog() {
@@ -19,14 +20,19 @@ export default function Blog() {
   const limit = 10;
   const [totalPages, setTotalPages] = useState(1);
 
+  const truncateContent = (html: string, wordLimit: number) => {
+    const plainText = html.replace(/<[^>]+>/g, "");
+    const words = plainText.split(/\s+/);
+    return words.slice(0, wordLimit).join(" ") + (words.length > wordLimit ? "..." : "");
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('/api/route');
+        const response = await fetch('/api/blog');
         const data = await response.json();
-        const postsData = data.data.publication.posts.edges.map((edge: { node: Post }) => edge.node);
-        setPosts(postsData);
-        setTotalPages(Math.ceil(postsData.length / limit));
+        setPosts(data);
+        setTotalPages(Math.ceil(data.length / limit));
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -45,9 +51,8 @@ export default function Blog() {
             <BlogCard
               key={index}
               title={post.title}
-              description={post.brief}
+              description={truncateContent(post.content.html, 20)}
               image={post.coverImage.url}
-              link={post.link}
               slug={post.slug}
             />
           ))}

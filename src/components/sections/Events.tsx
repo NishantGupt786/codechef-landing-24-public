@@ -40,7 +40,7 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY]);
 
   return (
-    <div className="bg-black h-full w-full overflow-x-hidden">
+    <div className="bg-black min-h-screen w-full ">
       <div className="relative h-3/4 w-5/6 lg:ml-28 xs:ml-8 laptop:ml-24 surface:ml-16 2xl:ml-[210px]">
         <Image
           src={headImage}
@@ -121,7 +121,7 @@ const Component1 = () => {
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
             Events and hackathons are the two cornerstones that make CodeChef-VIT
-            one of the campus' most reputed chapters. Our teamwork, dedication, 
+            one of the campus' most reputed chapters. Our teamwork, dedication,
             and determination propel and inspire our events to achieve greater heights.
           </p>
         </div>
@@ -134,7 +134,7 @@ const Component1 = () => {
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-14 mt-1 xs:text-3xs lg:text-xl">
             CodeChef's Cook-Off 9.0 brings programmers together to showcase their talent
-            and skills. Through this competition, students learn problem-solving, teamwork, 
+            and skills. Through this competition, students learn problem-solving, teamwork,
             and creative thinking.
           </p>
         </div>
@@ -146,7 +146,7 @@ const Component1 = () => {
           className="xs:w-40 2xl:w-[600px] 2xl:h-[400px] laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10 2xl:ml-[500px]"
         />
       </div>
-      
+
       <div className="flex mt-40 2xl:ml-72 2xl:mt-28 laptop:ml-24 relative z-10 flex-wrap">
         <Image
           src={people}
@@ -155,13 +155,13 @@ const Component1 = () => {
           height={500}
           className="xs:w-40 2xl:w-[600px] 2xl:h-[400px] laptop:ml-1 laptop:h-computer laptop:w-computer promax:ml-5 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10"
         />
-       <div className=" 2xl:ml-72 2xl:mt-8 ">
+        <div className=" 2xl:ml-72 2xl:mt-8 ">
           <div className="text-white border lg:mt-10 lg:w-48 lg:ml-64 flex justify-center xs:w-20 xs:ml-14 promax:ml-20 laptop:ml-72">
             <h1 className="lg:text-3xl xs:text-xs">Devsoc'25</h1>
           </div>
           <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
-            Devsoc'25 promises to bring another wave of innovation and collaboration, 
-            allowing students to participate in hackathons that challenge their creativity 
+            Devsoc'25 promises to bring another wave of innovation and collaboration,
+            allowing students to participate in hackathons that challenge their creativity
             and problem-solving abilities.
           </p>
         </div>

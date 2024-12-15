@@ -1,7 +1,7 @@
 "use client";
 import BlogCard from '@/components/BlogCard';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import "../../styles/enigma-font.css";
 
 interface Post {
   title: string;
@@ -15,10 +15,17 @@ interface Post {
 }
 
 export default function Blog() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [page, setPage] = useState(1);
-  const limit = 10;
-  const [totalPages, setTotalPages] = useState(1);
+  const [posts, setPosts] = useState<Post[] | null>(null);
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const [hasPreviousPage, setHasPreviousPage] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const limit = 9;
+
+  const page = parseInt(searchParams.get("page") || "1", 10);
 
   const truncateContent = (html: string, wordLimit: number) => {
     const plainText = html.replace(/<[^>]+>/g, "");
@@ -28,28 +35,57 @@ export default function Blog() {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const response = await fetch('/api/blog');
+        const response = await fetch(`/api/blog?page=${page}`);
+        if (!response.ok) throw new Error("Failed to fetch posts.");
         const data = await response.json();
-        setPosts(data);
-        setTotalPages(Math.ceil(data.length / limit));
-      } catch (error) {
-        console.error('Error fetching posts:', error);
+        if (data?.nodes) {
+          setPosts(data.nodes);
+          setHasNextPage(data.pageInfo?.hasNextPage || false);
+          setHasPreviousPage(data.pageInfo?.hasPreviousPage || false);
+        } else {
+          setPosts([]);
+        }
+      } catch (err) {
+        setPosts(null);
+      } finally {
+        setLoading(false);
       }
     };
-    fetchPosts();
-  }, []);
 
-  const paginatedPosts = posts.slice((page - 1) * limit, page * limit);
+    fetchPosts();
+  }, [page]);
+
+  const handlePageChange = (newPage: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", newPage.toString());
+    router.push(`/blog?${params.toString()}`);
+  };
+
+  if (loading) {
+    return <div className="text-white text-center py-10 font-Space_Grotesk">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-white text-center py-10 font-Space_Grotesk">Error: {error}</div>;
+  }
+
+  if (!posts || posts.length === 0) {
+    return <div className="text-white text-center py-10 font">No posts available.</div>;
+  }
 
   return (
-    <div className="bg-black text-white font-enigma">
-      <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-7xl pb-10 pt-5">BLOGS</h1>
+    <div className="bg-black text-white px-4 py-10">
+      <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-7xl pt-5">
+        BLOGS
+      </h1>
       <div className="text-black">
-        <div className="grid gap-8 p-5 rounded-lg">
-          {paginatedPosts.map((post, index) => (
+        <div className="grid justify-items-center sm:grid-cols-1 lg:grid-cols-3 m-24 gap-y-10">
+          {posts.map((post) => (
             <BlogCard
-              key={index}
+              key={post.slug}
               title={post.title}
               description={truncateContent(post.content.html, 20)}
               image={post.coverImage.url}
@@ -57,19 +93,22 @@ export default function Blog() {
             />
           ))}
         </div>
-        <div className="flex justify-end items-center space-x-4 mt-6 mr-10">
+        <div className="flex justify-end items-center space-x-4 mt-6 mr-10 font-enigma">
           <button
-            onClick={() => setPage((prev) => (prev > 1 ? prev - 1 : prev))}
-            className="px-4 py-2 bg-slate-50 rounded text-black opacity-75"
-            disabled={page === 1}
+            onClick={() => handlePageChange(page - 1)}
+            className={`px-4 py-2 bg-slate-50 rounded text-black opacity-75 ${!hasPreviousPage ? "cursor-not-allowed opacity-50" : ""
+              }`}
+            disabled={!hasPreviousPage}
+            aria-label="Previous Page"
           >
             Previous
           </button>
-          <span className="text-white">{`Page ${page} of ${totalPages}`}</span>
           <button
-            onClick={() => setPage((prev) => (prev < totalPages ? prev + 1 : prev))}
-            className="px-4 py-2 bg-slate-50 rounded text-black opacity-75"
-            disabled={page === totalPages}
+            onClick={() => handlePageChange(page + 1)}
+            className={`px-4 py-2 bg-slate-50 rounded text-black opacity-75 ${!hasNextPage ? "cursor-not-allowed opacity-50" : ""
+              }`}
+            disabled={!hasNextPage}
+            aria-label="Next Page"
           >
             Next
           </button>

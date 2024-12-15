@@ -2,44 +2,48 @@ import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url); 
+  const page = parseInt(searchParams.get('page') || '1', 10); 
+  const pageSize = 9;
   try {
     const response = await axios.post(
       'https://gql.hashnode.com/',
       {
         query: `
-          query Publication {
+          query Publication($page: Int!, $pageSize: Int!) {
             publication(host: "blogs.codechefvit.com") {
-              posts(first: 50) {
-                edges {
-                  node {
-                    title
-                    slug
-                    content{
-                      html
-                    }
-                    coverImage {
-                      url
-                    }
+              postsViaPage(page: $page, pageSize: $pageSize) {
+                nodes {
+                  title
+                  slug
+                  coverImage {
+                    url
                   }
+                  content {
+                    html
+                  }
+                }
+                pageInfo {
+                  hasNextPage
+                  hasPreviousPage
                 }
               }
             }
           }
         `,
+        variables: {
+          page,
+          pageSize,
+        },
       },
       {
         headers: {
-          Authorization: process.env.NEXT_PUBLIC_HASHNODE_KEY, // Use your key from environment variables
+          Authorization: `Bearer ${process.env.HASHNODE_KEY}`, 
         },
       }
     );
 
-    // Extract posts data
-    const posts = response.data.data.publication.posts.edges.map(
-      (edge: { node: any }) => edge.node
-    );
-
-    // Return the blogs as JSON
+    const posts = response.data.data.publication.postsViaPage;
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
     console.error('Error fetching blogs:', error);

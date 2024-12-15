@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ReactLenis from "@studio-freight/react-lenis";
 import { Inter } from "next/font/google";
-import Script from "next/script";
-import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Script from "next/script";
+import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

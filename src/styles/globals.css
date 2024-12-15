@@ -24,6 +24,10 @@
   margin: 20px auto;
   object-fit: contain;
 }
+
+.content-post p {
+  margin-top: 35px;
+}
 .space-grotesk {
   font-family: "Space Grotesk", serif;
   font-weight: 400;

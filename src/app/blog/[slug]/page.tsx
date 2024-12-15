@@ -1,5 +1,6 @@
 "use client";
 import AlsoRead from "@/components/AlsoRead";
+import Loader from "@/components/loader";
 import "@/styles/globals.css";
 import { ChevronLeft, MoveRight } from 'lucide-react';
 import Link from "next/link";
@@ -76,13 +77,8 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     };
 
     if (loading) {
-        return <p className="text-white text-center py-10 font-Space_Grotesk">Loading...</p>;
+        <Loader />
     }
-
-    if (error) {
-        return <p className="text-white text-center py-10 font-Space_Grotesk">Error: {error}</p>;
-    }
-
     if (!post) {
         return <p className="text-white text-center py-10 font-Space_Grotesk">Post not found.</p>;
     }
@@ -101,7 +97,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 </div>
                 <hr className="border-1 border-white w-full" />
             </div>
-            <div className="flex flex-col justify-center items-center mx-auto gap-4 px-24 sm:text-lg lg:text-xl font-Space_Grotesk text-white">
+            <div className="flex flex-col max-w-7xl justify-items-center mx-auto gap-4 px-24 sm:text-lg lg:text-xl font-Space_Grotesk text-white">
                 <h1 className="text-center font-enigma px-24 sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-6 sm:pt-10 pb-6">
                     {post.title}
                 </h1>

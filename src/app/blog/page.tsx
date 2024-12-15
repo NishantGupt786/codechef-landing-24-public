@@ -65,7 +65,7 @@ export default function Blog() {
   };
 
   if (loading) {
-    return <div className="text-white text-center py-10 font-Space_Grotesk">Loading...</div>;
+    return <div className="text-white text-center text-5x1 mt-10 py-10 font-Space_Grotesk">Loading...</div>;
   }
 
   if (error) {

@@ -40,7 +40,7 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY]);
 
   return (
-    <div className="bg-black h-full w-full overflow-x-hidden font-enigma">
+    <div className="bg-black min-h-screen w-full ">
       <div className="relative h-3/4 w-5/6 lg:ml-28 xs:ml-8 laptop:ml-24 surface:ml-16 2xl:ml-[210px]">
         <Image
           src={headImage}

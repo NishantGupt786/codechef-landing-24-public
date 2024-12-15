@@ -31,7 +31,6 @@ const BlogCard: React.FC<BlogCardProps> = ({
             className="object-cover group-hover:scale-105"
           />
         </div>
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center"></div>
       </div>
       <div className="p-9">
         <p className="font-semibold pb-2">{title}</p>

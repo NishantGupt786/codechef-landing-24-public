@@ -27,7 +27,7 @@ const Component1 = () => {
         const point = pathElement.getPointAtLength(progress);
         progressX.set(point.x);
         progressY.set(point.y);
-        strokeDashoffset.set(1 - scrollPercent); // Update stroke offset for the red transition
+        strokeDashoffset.set(1 - scrollPercent);
       };
 
       updateCirclePosition(scrollYProgress.get());
@@ -59,7 +59,7 @@ const Component1 = () => {
       </div>
 
       {/* SVG Section */}
-      <div className="relative">
+      <div className="relative hidden lg:block">
         <svg
           className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
           viewBox="0 0 800 2200"
@@ -76,10 +76,10 @@ const Component1 = () => {
               L 670, 1450 
               L 100, 1450
               L 100, 2000"
-            stroke="url(#gradient)" // Add a gradient for color transition
+            stroke="url(#gradient)"
             strokeWidth="2"
             fill="transparent"
-            strokeDashoffset={strokeDashoffset} // Animate based on scroll
+            strokeDashoffset={strokeDashoffset}
           />
 
           <defs>
@@ -102,7 +102,7 @@ const Component1 = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center">
         <Card
           title="Devsoc'24"
           description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."

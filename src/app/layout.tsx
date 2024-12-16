@@ -3,7 +3,7 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import ReactLenis from "@studio-freight/react-lenis";
+import {ReactLenis, useLenis} from "@studio-freight/react-lenis";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
@@ -17,9 +17,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const [changes, setChanges] = useState(0);
+
+  useEffect(() => {
+    console.log(`Route changed to: ${pathname}`);
+    setChanges((prev) => prev + 1);
+  }, [pathname]);
+
+
+
   const lenisOptions = {
-    lerp: 5,
-    duration: 1.2,
+    lerp: 1,
+    duration: 1.5,
     smoothTouch: false,
     smooth: true,
   };
@@ -35,6 +45,7 @@ export default function RootLayout({
         setIsLoaderActive(true);
         const timer = setTimeout(() => {
           setIsLoaderActive(false);
+
           sessionStorage.setItem("hasLoadedBefore2", "true");
         }, 15000);
 
@@ -42,8 +53,6 @@ export default function RootLayout({
       }
     }
   }, []);
-
-  const pathname = usePathname();
 
   return (
     <ReactLenis root options={lenisOptions}>
@@ -54,7 +63,6 @@ export default function RootLayout({
         >
           {children}
 
-          {/* <Footer isLoaderActive={isLoaderActive} /> */}
           {!isLoaderActive && <Footer />}
           {!isLoaderActive && <Navbar />}
           <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />

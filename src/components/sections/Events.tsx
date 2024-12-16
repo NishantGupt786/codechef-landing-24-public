@@ -9,7 +9,6 @@ const Component1 = () => {
   const { scrollYProgress } = useScroll();
   const pathRef = useRef<SVGPathElement | null>(null);
 
-  const progressLength = useMotionValue(0);
   const progressX = useMotionValue(0);
   const progressY = useMotionValue(0);
 
@@ -28,9 +27,7 @@ const Component1 = () => {
         progressY.set(point.y);
       };
 
-      const initialScrollPosition = scrollYProgress.get();
-      updateCirclePosition(initialScrollPosition);
-
+      updateCirclePosition(scrollYProgress.get());
       const unsubscribe = scrollYProgress.onChange((scrollPercent) => {
         updateCirclePosition(scrollPercent);
       });
@@ -40,8 +37,9 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY]);
 
   return (
-    <div className="bg-black min-h-screen w-full ">
-      <div className="relative h-3/4 w-5/6 lg:ml-28 xs:ml-8 laptop:ml-24 surface:ml-16 2xl:ml-[210px]">
+    <div className="bg-black min-h-screen w-full font-enigma">
+      {/* Header Section */}
+      <div className="relative h-3/4 w-5/6 mx-auto">
         <Image
           src={headImage}
           alt="Header Image"
@@ -49,11 +47,13 @@ const Component1 = () => {
           width={1310}
           height={512}
         />
-        <div className="absolute inset-0 flex flex-col justify-start items-start">
+        <div className="absolute top-0 left-0 p-4 flex flex-col">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
           <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">Events</h1>
         </div>
       </div>
+
+      {/* SVG Section */}
       <div className="relative">
         <svg
           className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
@@ -87,7 +87,7 @@ const Component1 = () => {
           />
         </svg>
       </div>
-     
+
       {/* Content Section */}
       <div className="flex flex-col items-center justify-center">
         {/* First Section */}

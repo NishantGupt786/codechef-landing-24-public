@@ -1,6 +1,8 @@
 "use client";
+
 import headImage from "@/assets/images/image.png";
 import people from "@/assets/images/people.png";
+import Card from "@/components/Card";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -11,7 +13,7 @@ const Component1 = () => {
 
   const progressX = useMotionValue(0);
   const progressY = useMotionValue(0);
-
+  const strokeDashoffset = useMotionValue(1);
   const circleRadius = 40;
   const circleOffset = circleRadius / 20;
 
@@ -25,6 +27,7 @@ const Component1 = () => {
         const point = pathElement.getPointAtLength(progress);
         progressX.set(point.x);
         progressY.set(point.y);
+        strokeDashoffset.set(1 - scrollPercent); // Update stroke offset for the red transition
       };
 
       updateCirclePosition(scrollYProgress.get());
@@ -34,7 +37,7 @@ const Component1 = () => {
 
       return () => unsubscribe();
     }
-  }, [scrollYProgress, progressX, progressY]);
+  }, [scrollYProgress, progressX, progressY, strokeDashoffset]);
 
   return (
     <div className="bg-black min-h-screen w-full font-enigma">
@@ -49,7 +52,9 @@ const Component1 = () => {
         />
         <div className="absolute top-0 left-0 p-4 flex flex-col">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
-          <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">Events</h1>
+          <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">
+            Events
+          </h1>
         </div>
       </div>
 
@@ -60,21 +65,29 @@ const Component1 = () => {
           viewBox="0 0 800 2200"
           preserveAspectRatio="xMidYMid meet"
         >
-          <path
+          <motion.path
             ref={pathRef}
             d="M 650, 0
-            L 650, 100 
-            L 650, 500  
-            L 100, 500  
-            L 100, 1000  
-            L 670, 1000  
-            L 670, 1450 
-            L 100, 1450
-            L 100, 2000"
-            stroke="white"
+              L 650, 100 
+              L 650, 500  
+              L 100, 500  
+              L 100, 1000  
+              L 670, 1000  
+              L 670, 1450 
+              L 100, 1450
+              L 100, 2000"
+            stroke="url(#gradient)" // Add a gradient for color transition
             strokeWidth="2"
             fill="transparent"
+            strokeDashoffset={strokeDashoffset} // Animate based on scroll
           />
+
+          <defs>
+            <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor="white" />
+              <stop offset="100%" stopColor="red" />
+            </linearGradient>
+          </defs>
           <motion.circle
             cx={progressX}
             cy={progressY}
@@ -89,90 +102,33 @@ const Component1 = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col items-center justify-center">
-        {/* First Section */}
-        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-20 relative z-10 flex-wrap">
-          <div className="lg:w-96 lg:mr-36">
-            <div className="text-white border lg:w-72 flex justify-center mx-auto lg:mx-0">
-              <h1 className="lg:text-xl text-sm">Devsoc'24</h1>
-            </div>
-            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
-              Events and hackathons are the two cornerstones that make CodeChef-VIT
-              one of the campus' most reputed chapters. Our teamwork, dedication,
-              and determination propel and inspire our events to achieve greater heights.
-            </p>
-          </div>
-          <Image
-            src={people}
-            alt="People"
-            width={500}
-            height={500}
-            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
-          />
-        </div>
-
-        {/* Second Section */}
-        <div className="flex lg:flex-row flex-col lg:items-start items-center lg:mt-64 3xs:mt-28 relative z-10 flex-wrap">
-          <Image
-            src={people}
-            alt="People"
-            width={500}
-            height={500}
-            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-32"
-          />
-          <div className="lg:w-96 lg:ml-10">
-            <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
-              <h1 className="lg:text-xl text-sm">Cook-Off 8.0</h1>
-            </div>
-            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
-              Events and hackathons are the two cornerstones that make CodeChef-VIT
-              one of the campus' most reputed chapters. Our teamwork, dedication,
-              and determination propel and inspire our events to achieve greater heights.
-            </p>
-          </div>
-        </div>
-
-        {/* Third Section */}
-        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-44 relative z-10 flex-wrap">
-          <div className="lg:w-96 lg:mr-36">
-            <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
-              <h1 className="lg:text-xl text-sm">Cookoff9.0</h1>
-            </div>
-            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
-              Events and hackathons are the two cornerstones that make CodeChef-VIT
-              one of the campus' most reputed chapters. Our teamwork, dedication,
-              and determination propel and inspire our events to achieve greater heights.
-            </p>
-          </div>
-          <Image
-            src={people}
-            alt="People"
-            width={500}
-            height={500}
-            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
-          />
-        </div>
-
-        {/* Fourth Section */}
-        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-44 relative z-10 flex-wrap">
-          <Image
-            src={people}
-            alt="People"
-            width={500}
-            height={500}
-            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-32"
-          />
-          <div className="lg:w-96 lg:ml-10">
-            <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
-              <h1 className="lg:text-xl text-sm">Devsoc'25</h1>
-            </div>
-            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
-              Devsoc'25 promises to bring another wave of innovation and collaboration,
-              allowing students to participate in hackathons that challenge their
-              creativity and problem-solving abilities.
-            </p>
-          </div>
-        </div>
+      <div className="flex flex-col items-center justify-center ">
+        <Card
+          title="Devsoc'24"
+          description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."
+          imageSrc={people}
+          imageAlt="People"
+          reverse
+        />
+        <Card
+          title="Cook-Off 8.0"
+          description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."
+          imageSrc={people}
+          imageAlt="People"
+        />
+        <Card
+          title="Cookoff 9.0"
+          description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."
+          imageSrc={people}
+          imageAlt="People"
+          reverse
+        />
+        <Card
+          title="Devsoc'25"
+          description="Devsoc'25 promises to bring another wave of innovation and collaboration, allowing students to participate in hackathons that challenge their creativity and problem-solving abilities."
+          imageSrc={people}
+          imageAlt="People"
+        />
       </div>
     </div>
   );

@@ -94,7 +94,7 @@ const Component1 = () => {
         <div className="flex lg:flex-row flex-col lg:items-start items-center mt-20 relative z-10 flex-wrap">
           <div className="lg:w-96 lg:mr-36">
             <div className="text-white border lg:w-72 flex justify-center mx-auto lg:mx-0">
-              <h1 className="lg:text-3xl text-sm">Devsoc'24</h1>
+              <h1 className="lg:text-xl text-sm">Devsoc'24</h1>
             </div>
             <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
               Events and hackathons are the two cornerstones that make CodeChef-VIT
@@ -112,17 +112,17 @@ const Component1 = () => {
         </div>
 
         {/* Second Section */}
-        <div className="flex lg:flex-row flex-col lg:items-start items-center lg:mt-40 3xs:mt-28 relative z-10 flex-wrap">
+        <div className="flex lg:flex-row flex-col lg:items-start items-center lg:mt-64 3xs:mt-28 relative z-10 flex-wrap">
           <Image
             src={people}
             alt="People"
             width={500}
             height={500}
-            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-20"
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-32"
           />
           <div className="lg:w-96 lg:ml-10">
             <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
-              <h1 className="lg:text-2xl text-sm">Cook-Off 8.0</h1>
+              <h1 className="lg:text-xl text-sm">Cook-Off 8.0</h1>
             </div>
             <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
               Events and hackathons are the two cornerstones that make CodeChef-VIT
@@ -160,7 +160,7 @@ const Component1 = () => {
             alt="People"
             width={500}
             height={500}
-            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-32"
           />
           <div className="lg:w-96 lg:ml-10">
             <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">

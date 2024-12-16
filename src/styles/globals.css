@@ -282,3 +282,35 @@
   background-color: white;
   border-radius: 50%;
 }
+
+.ripple-container {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  animation: ripple 17s ease-out forwards;
+  transform-origin: center;
+}
+
+.ripple-border {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px; 
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid red;
+  transform: translate(-50%, -50%);
+}
+
+
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}

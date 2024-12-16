@@ -9,7 +9,6 @@ const Component1 = () => {
   const { scrollYProgress } = useScroll();
   const pathRef = useRef<SVGPathElement | null>(null);
 
-  const progressLength = useMotionValue(0);
   const progressX = useMotionValue(0);
   const progressY = useMotionValue(0);
 
@@ -28,9 +27,7 @@ const Component1 = () => {
         progressY.set(point.y);
       };
 
-      const initialScrollPosition = scrollYProgress.get();
-      updateCirclePosition(initialScrollPosition);
-
+      updateCirclePosition(scrollYProgress.get());
       const unsubscribe = scrollYProgress.onChange((scrollPercent) => {
         updateCirclePosition(scrollPercent);
       });
@@ -40,8 +37,9 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY]);
 
   return (
-    <div className="bg-black min-h-screen w-full ">
-      <div className="relative h-3/4 w-5/6 lg:ml-28 xs:ml-8 laptop:ml-24 surface:ml-16 2xl:ml-[210px]">
+    <div className="bg-black min-h-screen w-full font-enigma">
+      {/* Header Section */}
+      <div className="relative h-3/4 w-5/6 mx-auto">
         <Image
           src={headImage}
           alt="Header Image"
@@ -49,11 +47,13 @@ const Component1 = () => {
           width={1310}
           height={512}
         />
-        <div className="absolute inset-0 flex flex-col justify-start items-start">
+        <div className="absolute top-0 left-0 p-4 flex flex-col">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
           <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">Events</h1>
         </div>
       </div>
+
+      {/* SVG Section */}
       <div className="relative">
         <svg
           className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
@@ -87,83 +87,91 @@ const Component1 = () => {
           />
         </svg>
       </div>
-      <div className="flex mt-20 laptop:ml-10 relative z-10 flex-wrap">
-        <div className="ml-5  2xl:ml-[400px]">
-          <div className="text-white border lg:mt-10 lg:w-48 lg:ml-24 flex xs:w-20 xs:ml-4 justify-center">
-            <h1 className="lg:text-3xl xs:text-xs">Devsoc'24</h1>
-          </div>
-          <p className="text-white xs:w-36 lg:w-96 lg:ml-14 mt-1 xs:text-3xs lg:text-xl">
-            Events and hackathons are the two cornerstones that make CodeChef-VIT
-            one of the campus' most reputed chapters. Our teamwork, dedication,
-            and determination propel and inspire our events to achieve greater heights.
-          </p>
-        </div>
-        <Image
-          src={people}
-          alt="People"
-          width={500}
-          height={500}
-          className="xs:w-40 2xl:w-[600px] 2xl:h-[400px] laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10 2xl:ml-[500px]"
-        />
-      </div>
 
-      <div className="flex mt-44 2xl:ml-72 2xl:mt-28 laptop:ml-24 relative z-10 flex-wrap">
-        <Image
-          src={people}
-          alt="People"
-          width={500}
-          height={500}
-          className="xs:w-40 2xl:w-[600px] 2xl:h-[400px] laptop:ml-1 laptop:h-computer laptop:w-computer promax:ml-5 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10"
-        />
-        <div className=" 2xl:ml-72 2xl:mt-8 ">
-          <div className="text-white border lg:mt-10 lg:w-48 lg:ml-64 flex justify-center xs:w-20 xs:ml-14 promax:ml-20 laptop:ml-72 ">
-            <h1 className="lg:text-3xl xs:text-xs">Cook-Off 8.0</h1>
+      {/* Content Section */}
+      <div className="flex flex-col items-center justify-center">
+        {/* First Section */}
+        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-20 relative z-10 flex-wrap">
+          <div className="lg:w-96 lg:mr-36">
+            <div className="text-white border lg:w-72 flex justify-center mx-auto lg:mx-0">
+              <h1 className="lg:text-xl text-sm">Devsoc'24</h1>
+            </div>
+            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
+              Events and hackathons are the two cornerstones that make CodeChef-VIT
+              one of the campus' most reputed chapters. Our teamwork, dedication,
+              and determination propel and inspire our events to achieve greater heights.
+            </p>
           </div>
-          <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
-            Events and hackathons are the two cornerstones that make CodeChef-VIT
-            one of the campus' most reputed chapters. Our teamwork, dedication,
-            and determination propel and inspire our events to achieve greater heights.
-          </p>
+          <Image
+            src={people}
+            alt="People"
+            width={500}
+            height={500}
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
+          />
         </div>
-      </div>
 
-      <div className="flex mt-44 laptop:ml-10 relative z-10 flex-wrap 2xl:mt-24">
-        <div className="ml-5  2xl:ml-[400px]">
-          <div className="text-white border lg:mt-10 lg:w-48 lg:ml-24 flex xs:w-20 xs:ml-4 justify-center">
-            <h1 className="lg:text-3xl xs:text-xs">Cook-Off 9.0</h1>
+        {/* Second Section */}
+        <div className="flex lg:flex-row flex-col lg:items-start items-center lg:mt-64 3xs:mt-28 relative z-10 flex-wrap">
+          <Image
+            src={people}
+            alt="People"
+            width={500}
+            height={500}
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-32"
+          />
+          <div className="lg:w-96 lg:ml-10">
+            <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
+              <h1 className="lg:text-xl text-sm">Cook-Off 8.0</h1>
+            </div>
+            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
+              Events and hackathons are the two cornerstones that make CodeChef-VIT
+              one of the campus' most reputed chapters. Our teamwork, dedication,
+              and determination propel and inspire our events to achieve greater heights.
+            </p>
           </div>
-          <p className="text-white xs:w-36 lg:w-96 lg:ml-14 mt-1 xs:text-3xs lg:text-xl">
-            CodeChef's Cook-Off 9.0 brings programmers together to showcase their talent
-            and skills. Through this competition, students learn problem-solving, teamwork,
-            and creative thinking.
-          </p>
         </div>
-        <Image
-          src={people}
-          alt="alt"
-          width={500}
-          height={500}
-          className="xs:w-40 2xl:w-[600px] 2xl:h-[400px] laptop:ml-40 laptop:h-computer laptop:w-computer promax:ml-14 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10 2xl:ml-[500px]"
-        />
-      </div>
 
-      <div className="flex mt-40 2xl:ml-72 2xl:mt-28 laptop:ml-24 relative z-10 flex-wrap">
-        <Image
-          src={people}
-          alt="alt"
-          width={500}
-          height={500}
-          className="xs:w-40 2xl:w-[600px] 2xl:h-[400px] laptop:ml-1 laptop:h-computer laptop:w-computer promax:ml-5 xs:ml-5 lg:ml-56 lg:h-computer lg:w-computer surface:h-56 surface:ml-14 surface:w-72 surface:mt-10"
-        />
-        <div className=" 2xl:ml-72 2xl:mt-8 ">
-          <div className="text-white border lg:mt-10 lg:w-48 lg:ml-64 flex justify-center xs:w-20 xs:ml-14 promax:ml-20 laptop:ml-72">
-            <h1 className="lg:text-3xl xs:text-xs">Devsoc'25</h1>
+        {/* Third Section */}
+        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-44 relative z-10 flex-wrap">
+          <div className="lg:w-96 lg:mr-36">
+            <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
+              <h1 className="lg:text-xl text-sm">Cookoff9.0</h1>
+            </div>
+            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
+              Events and hackathons are the two cornerstones that make CodeChef-VIT
+              one of the campus' most reputed chapters. Our teamwork, dedication,
+              and determination propel and inspire our events to achieve greater heights.
+            </p>
           </div>
-          <p className="text-white xs:w-36 lg:w-96 lg:ml-48 mt-1 xs:text-3xs xs:ml-10 lg:text-xl promax:ml-14 surface:ml-40 laptop:ml-56">
-            Devsoc'25 promises to bring another wave of innovation and collaboration,
-            allowing students to participate in hackathons that challenge their creativity
-            and problem-solving abilities.
-          </p>
+          <Image
+            src={people}
+            alt="People"
+            width={500}
+            height={500}
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
+          />
+        </div>
+
+        {/* Fourth Section */}
+        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-44 relative z-10 flex-wrap">
+          <Image
+            src={people}
+            alt="People"
+            width={500}
+            height={500}
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-32"
+          />
+          <div className="lg:w-96 lg:ml-10">
+            <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">
+              <h1 className="lg:text-xl text-sm">Devsoc'25</h1>
+            </div>
+            <p className="text-white mt-1 lg:w-96 lg:ml-0 mx-auto text-xs lg:text-lg text-center lg:text-left">
+              Devsoc'25 promises to bring another wave of innovation and collaboration,
+              allowing students to participate in hackathons that challenge their
+              creativity and problem-solving abilities.
+            </p>
+          </div>
         </div>
       </div>
     </div>

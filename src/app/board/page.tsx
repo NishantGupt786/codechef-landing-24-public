@@ -1,6 +1,7 @@
 
 import Footer from '@/components/Footer';
 import BoardCard from './BoardCard';
+import Ripple from '@/components/Ripple';
 import "./style.css";
 
 
@@ -18,7 +19,7 @@ export default function BoardPage() {
         ))}
       </div>
     </div>
-    
+    <Ripple/>
     </>
   );
 }

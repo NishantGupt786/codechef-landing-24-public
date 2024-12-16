@@ -1,5 +1,5 @@
 "use client";
-import AlsoRead from "@/components/AlsoRead";
+import AlsoRead from "@/components/alsoread";
 import Loader from "@/components/loader";
 import "@/styles/globals.css";
 import { ChevronLeft, MoveRight } from 'lucide-react';

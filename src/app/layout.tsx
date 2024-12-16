@@ -24,15 +24,23 @@ export default function RootLayout({
     smooth: true,
   };
 
-  const [isLoaderActive, setIsLoaderActive] = useState(true); // State to track loader
-
+  const [isLoaderActive, setIsLoaderActive] = useState<boolean | null>(true);
   useEffect(() => {
-    // Simulate loader active state for 15 seconds
-    const timer = setTimeout(() => {
-      setIsLoaderActive(false);
-    }, 15000); // 15 seconds
+    if (typeof window !== "undefined") {
+      const hasLoadedBefore2 = sessionStorage.getItem("hasLoadedBefore2");
 
-    return () => clearTimeout(timer);
+      if (hasLoadedBefore2) {
+        setIsLoaderActive(false);
+      } else {
+        setIsLoaderActive(true);
+        const timer = setTimeout(() => {
+          setIsLoaderActive(false);
+          sessionStorage.setItem("hasLoadedBefore2", "true");
+        }, 15000);
+
+        return () => clearTimeout(timer);
+      }
+    }
   }, []);
 
   const pathname = usePathname();
@@ -40,19 +48,21 @@ export default function RootLayout({
   return (
     <ReactLenis root options={lenisOptions}>
       <html lang="en">
-        <head>
+        <head></head>
+        <body
+          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto`}
+        >
+          {children}
+
+          {/* <Footer isLoaderActive={isLoaderActive} /> */}
+          {!isLoaderActive && <Footer />}
+          {!isLoaderActive && <Navbar />}
           <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
           <Script
             src="/assets/navbar/js/modernizr-2.6.2.min.js"
             strategy="lazyOnload"
           />
           <Script src="/assets/navbar/js/polyfills.js" strategy="lazyOnload" />
-        </head>
-        <body className={`${inter.className} overflow-x-hidden w-screen  bg-black `}>
-          {children}
-
-          {!isLoaderActive && <Footer />}
-          {!isLoaderActive && <Navbar />}
         </body>
       </html>
     </ReactLenis>

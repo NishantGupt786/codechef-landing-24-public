@@ -287,7 +287,7 @@
   position: absolute;
   width: 0px;
   height: 0px;
-  animation: ripple 17s ease-out forwards;
+  animation: ripple 25s ease-out forwards;
   transform-origin: center;
 }
 
@@ -298,7 +298,7 @@
   width: 200px; 
   height: 200px;
   border-radius: 50%;
-  border: 1px solid red;
+  border: 1px solid #9e0404;
   transform: translate(-50%, -50%);
 }
 
@@ -307,7 +307,7 @@
 @keyframes ripple {
   0% {
     transform: scale(0);
-    opacity: 1;
+    opacity: .70;
   }
   100% {
     transform: scale(5);

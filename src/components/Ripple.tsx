@@ -75,7 +75,7 @@ const Ripple: React.FC<RippleCursorProps> = ({
           dispatch({ type: 'REMOVE_RIPPLE', payload: ripple.id });
         }, duration);
       }
-    }, 7000); // 5 seconds
+    }, 8000); // 7 seconds
 
     return () => {
       window.removeEventListener('mousemove', moveHandler);

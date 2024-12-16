@@ -107,18 +107,18 @@ const Component1 = () => {
             alt="People"
             width={500}
             height={500}
-            className="lg:h-80 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
           />
         </div>
 
         {/* Second Section */}
-        <div className="flex lg:flex-row flex-col lg:items-start items-center mt-44 relative z-10 flex-wrap">
+        <div className="flex lg:flex-row flex-col lg:items-start items-center lg:mt-40 3xs:mt-28 relative z-10 flex-wrap">
           <Image
             src={people}
             alt="People"
             width={500}
             height={500}
-            className="lg:h-80 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0"
+            className="lg:h-64 lg:w-96 mx-auto lg:ml-10 h-36 w-52 mt-10 lg:mt-0 lg:mr-20"
           />
           <div className="lg:w-96 lg:ml-10">
             <div className="text-white border lg:w-64 flex justify-center mx-auto lg:mx-0">

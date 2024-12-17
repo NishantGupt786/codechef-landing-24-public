@@ -8,8 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
 
-
-html{
+html {
   height: auto;
 }
 @font-face {
@@ -299,22 +298,41 @@ html{
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 200px; 
+  width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 1px solid #9e0404;
   transform: translate(-50%, -50%);
 }
 
-
-
 @keyframes ripple {
   0% {
     transform: scale(0);
-    opacity: .70;
+    opacity: 0.7;
   }
   100% {
     transform: scale(5);
     opacity: 0;
   }
+}
+
+canvas {
+  @apply block;
+}
+
+#imageContainer {
+  @apply relative w-full h-full overflow-hidden flex justify-center items-center  max-w-full filter transition-all ease-in duration-500;
+  @apply saturate-0;
+}
+
+#imageContainer:hover {
+  @apply saturate-100;
+}
+
+#imageContainer > * {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.jux-linx {
+  @apply flex flex-row items-center flex-wrap justify-start gap-2 absolute left-5 bottom-5;
 }

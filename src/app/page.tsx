@@ -1,8 +1,8 @@
 
 "use client"
-import Events from "@/components/Events";
 import ClientComponent from "@/components/ClientComponent";
-import Loader from "@/components/loader";
+import Events from "@/components/Events";
+import Ripple from "@/components/Ripple";
 import { useEffect, useState } from "react";
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
@@ -28,6 +28,7 @@ const Home: React.FC = () => {
     <main>
       <ClientComponent isLoading={isLoading}>
         <Events  />
+        <Ripple/>
       </ClientComponent>
     </main>
   );

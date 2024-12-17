@@ -1,12 +1,11 @@
 "use client";
-import AlsoRead from "@/components/alsoread";
-import Loader from "@/components/loader";
+import AlsoRead from "@/components/AlsoRead";
+import Spinner from "@/components/ui/Spinner";
 import "@/styles/globals.css";
 import { ChevronLeft, MoveRight } from 'lucide-react';
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
 interface Post {
     title: string;
     author: {
@@ -77,7 +76,11 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     };
 
     if (loading) {
-        <Loader />
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <Spinner />
+            </div>
+        );
     }
     if (!post) {
         return <p className="text-white text-center py-10 font-Space_Grotesk">Post not found.</p>;

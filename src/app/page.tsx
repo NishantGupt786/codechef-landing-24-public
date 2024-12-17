@@ -1,6 +1,6 @@
 
 "use client"
-import Events from "@/components/sections/Events";
+import Events from "@/components/Events";
 import ClientComponent from "@/components/ClientComponent";
 import Loader from "@/components/loader";
 import { useEffect, useState } from "react";

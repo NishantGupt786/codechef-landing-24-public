@@ -1,5 +1,6 @@
 "use client";
 import BlogCard from '@/components/BlogCard';
+import Spinner from "@/components/ui/Spinner";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -65,11 +66,11 @@ export default function Blog() {
   };
 
   if (loading) {
-    return <div className="text-white text-center text-5x1 mt-10 py-10 font-Space_Grotesk">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="text-white text-center py-10 font-Space_Grotesk">Error: {error}</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-black">
+        <Spinner />
+      </div>
+    );
   }
 
   if (!posts || posts.length === 0) {

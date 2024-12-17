@@ -1,6 +1,8 @@
 "use client";
+
 import headImage from "@/assets/images/image.png";
 import people from "@/assets/images/people.png";
+import Card from "@/components/Card";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -9,10 +11,9 @@ const Component1 = () => {
   const { scrollYProgress } = useScroll();
   const pathRef = useRef<SVGPathElement | null>(null);
 
-  const progressLength = useMotionValue(0);
   const progressX = useMotionValue(0);
   const progressY = useMotionValue(0);
-
+  const strokeDashoffset = useMotionValue(1);
   const circleRadius = 40;
   const circleOffset = circleRadius / 20;
 
@@ -26,18 +27,17 @@ const Component1 = () => {
         const point = pathElement.getPointAtLength(progress);
         progressX.set(point.x);
         progressY.set(point.y);
+        strokeDashoffset.set(1 - scrollPercent);
       };
 
-      const initialScrollPosition = scrollYProgress.get();
-      updateCirclePosition(initialScrollPosition);
-
+      updateCirclePosition(scrollYProgress.get());
       const unsubscribe = scrollYProgress.onChange((scrollPercent) => {
         updateCirclePosition(scrollPercent);
       });
 
       return () => unsubscribe();
     }
-  }, [scrollYProgress, progressX, progressY]);
+  }, [scrollYProgress, progressX, progressY, strokeDashoffset]);
 
   return (
     <div className="bg-black h-full w-full overflow-x-hidden">

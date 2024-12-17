@@ -3,11 +3,11 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import ReactLenis from "@studio-freight/react-lenis";
+import {ReactLenis, useLenis} from "@studio-freight/react-lenis";
 import { Inter } from "next/font/google";
-import Script from "next/script";
-import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Script from "next/script";
+import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,42 +17,60 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const [changes, setChanges] = useState(0);
+
+  useEffect(() => {
+    console.log(`Route changed to: ${pathname}`);
+    setChanges((prev) => prev + 1);
+  }, [pathname]);
+
+
+
   const lenisOptions = {
-    lerp: 5,
-    duration: 1.2,
+    lerp: 1,
+    duration: 1.5,
     smoothTouch: false,
     smooth: true,
   };
 
-  const [isLoaderActive, setIsLoaderActive] = useState(true); // State to track loader
-
+  const [isLoaderActive, setIsLoaderActive] = useState<boolean | null>(true);
   useEffect(() => {
-    // Simulate loader active state for 15 seconds
-    const timer = setTimeout(() => {
-      setIsLoaderActive(false);
-    }, 15000); // 15 seconds
+    if (typeof window !== "undefined") {
+      const hasLoadedBefore2 = sessionStorage.getItem("hasLoadedBefore2");
 
-    return () => clearTimeout(timer);
+      if (hasLoadedBefore2) {
+        setIsLoaderActive(false);
+      } else {
+        setIsLoaderActive(true);
+        const timer = setTimeout(() => {
+          setIsLoaderActive(false);
+
+          sessionStorage.setItem("hasLoadedBefore2", "true");
+        }, 15000);
+
+        return () => clearTimeout(timer);
+      }
+    }
   }, []);
-
-  const pathname = usePathname();
 
   return (
     <ReactLenis root options={lenisOptions}>
       <html lang="en">
-        <head>
+        <head></head>
+        <body
+          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto`}
+        >
+          {children}
+
+          {!isLoaderActive && <Footer />}
+          {!isLoaderActive && <Navbar />}
           <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
           <Script
             src="/assets/navbar/js/modernizr-2.6.2.min.js"
             strategy="lazyOnload"
           />
           <Script src="/assets/navbar/js/polyfills.js" strategy="lazyOnload" />
-        </head>
-        <body className={`${inter.className} overflow-x-hidden w-screen  bg-black `}>
-          {children}
-
-          {!isLoaderActive && <Footer />}
-          {!isLoaderActive && <Navbar />}
         </body>
       </html>
     </ReactLenis>

@@ -9,7 +9,11 @@ import LinkedInIcon from "./../assets/images/LinkedIn.svg";
 import TwitterIcon from "./../assets/images/Twitter.svg";
 import YouTubeIcon from "./../assets/images/Youtube.svg";
 
-const Footer: React.FC = () => {
+// interface footerProps{
+//   isLoaderActive: boolean | null;
+// }
+
+const Footer: React.FC = ({}) => {
   const [isAtBottom, setIsAtBottom] = useState(false);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ const Footer: React.FC = () => {
   }, []); // <- Closing the useEffect block here
 
   return (
-    <footer className="bg-black text-white pt-10">
+    <footer className={`bg-black text-white pt-10 ${1}`}>
       <div className="text-center mb-4 mt-44 font-enigma">
         <span
           className={`text-5xl sm:text-7xl md:text-8xl ${isAtBottom ? "text-[#FF3B00]" : "text-white"
@@ -50,7 +54,7 @@ const Footer: React.FC = () => {
         </p>
         <div className="sm:w-auto w-full grid item-center grid-row-3 sm:border-l-2 border-white grid-container sm:h-full">
           <div className="grid-item grid grid-cols-2 w-full h-[50px]">
-            <FooterButton label={"HOME"} redirect={"#"} />
+            <FooterButton label={"HOME"} redirect={"/"} />
             <FooterButton label={"PROJECTS"} redirect={"/projects"} />
           </div>
 

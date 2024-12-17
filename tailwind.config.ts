@@ -51,6 +51,23 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        screens: {
+          '3xs': '320px', // Example: For very small devices
+          '2xs': '375px', // Example: Slightly larger than 3xs
+          'xs': '475px',
+          'iphonexr':'414px',
+          'laptop': '1024px', // Custom breakpoint for laptop
+        'surfacepro': '1280px'  // Example: A standard small device breakpoint
+        },
+        fontSize: {
+          '2xs': '0.625rem', // 2xs text size
+          '3xs': '0.5rem',   // 3xs text size
+        },
+      },
+      screens: {
+        '3xs': '320px', // Example: For very small devices
+        '2xs': '375px', // Example: Slightly larger than 3xs
+        'xs': '475px',  // Example: A standard small device breakpoint
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -72,7 +89,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        enigma: ['Enigma']
+        enigma: ['Enigma'],
+        Space_Grotesk:['Space Grotesk', 'sans-serif']
       }
     },
   },

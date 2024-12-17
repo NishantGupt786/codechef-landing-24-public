@@ -1,4 +1,4 @@
-// RootLayout.js
+
 "use client";
 
 import Footer from "@/components/Footer";
@@ -7,7 +7,7 @@ import {ReactLenis, useLenis} from "@studio-freight/react-lenis";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -62,8 +62,9 @@ export default function RootLayout({
           className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto`}
         >
           {children}
+          
 
-          {!isLoaderActive && <Footer />}
+          {!isLoaderActive && pathname !== "/home" && <Footer />}
           {!isLoaderActive && <Navbar />}
           <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
           <Script

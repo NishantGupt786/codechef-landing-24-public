@@ -36,7 +36,7 @@ const Footer: React.FC = ({}) => {
   }, []); // <- Closing the useEffect block here
 
   return (
-    <footer className={`bg-black text-white pt-10 ${1}`}>
+    <footer className={`bg-black text-white  ${1}`}>
       <div className="text-center mb-4 mt-44 font-enigma">
         <span
           className={`text-5xl sm:text-7xl md:text-8xl ${isAtBottom ? "text-[#FF3B00]" : "text-white"

@@ -42,7 +42,7 @@ const Component1 = () => {
   return (
     <div className="bg-black min-h-screen w-full font-enigma">
       {/* Header Section */}
-      <div className="relative h-3/4 w-5/6 mx-auto">
+      <div className="relative h-3/4 w-5/6 mx-auto mt-12">
         <Image
           src={headImage}
           alt="Header Image"
@@ -67,15 +67,15 @@ const Component1 = () => {
         >
           <motion.path
             ref={pathRef}
-            d="M 650, 0
-              L 650, 100 
-              L 650, 500  
+            d="M 700, 0
+              L 700, 80 
+              L 700, 500  
               L 100, 500  
-              L 100, 1000  
-              L 670, 1000  
-              L 670, 1450 
+              L 100, 980  
+              L 700, 980  
+              L 700, 1450 
               L 100, 1450
-              L 100, 2000"
+              L 100, 1700"
             stroke="url(#gradient)" // Add a gradient for color transition
             strokeWidth="2"
             fill="transparent"
@@ -102,7 +102,7 @@ const Component1 = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col gap-6 items-center justify-center ">
         <Card
           title="Devsoc'24"
           description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."

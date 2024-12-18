@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import BlogCard from '@/components/BlogCard';
 import Spinner from "@/components/ui/Spinner";
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -74,7 +74,7 @@ export default function Blog() {
   }
 
   if (!posts || posts.length === 0) {
-    return <div className="text-white text-center py-10 font">No posts available.</div>;
+    return <div className="text-white text-center py-10">No posts available.</div>;
   }
 
   return (
@@ -83,7 +83,7 @@ export default function Blog() {
         BLOGS
       </h1>
       <div className="text-black">
-        <div className="grid justify-items-center sm:grid-cols-1 lg:grid-cols-3 m-24 gap-y-10">
+        <div className="grid justify-items-center gap-y-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8">
           {posts.map((post) => (
             <BlogCard
               key={post.slug}
@@ -94,11 +94,10 @@ export default function Blog() {
             />
           ))}
         </div>
-        <div className="flex justify-end items-center space-x-4 mt-6 mr-10 font-enigma">
+        <div className="flex justify-center items-center space-x-4 mt-6 font-enigma">
           <button
             onClick={() => handlePageChange(page - 1)}
-            className={`px-4 py-2 bg-slate-50 rounded text-black opacity-75 ${!hasPreviousPage ? "cursor-not-allowed opacity-50" : ""
-              }`}
+            className={`w-34 px-4 py-2 bg-slate-50 rounded text-black opacity-75 ${!hasPreviousPage ? "cursor-not-allowed opacity-50" : ""}`}
             disabled={!hasPreviousPage}
             aria-label="Previous Page"
           >
@@ -106,8 +105,7 @@ export default function Blog() {
           </button>
           <button
             onClick={() => handlePageChange(page + 1)}
-            className={`px-4 py-2 bg-slate-50 rounded text-black opacity-75 ${!hasNextPage ? "cursor-not-allowed opacity-50" : ""
-              }`}
+            className={`w-32 px-4 py-2 bg-slate-50 rounded text-black opacity-75 ${!hasNextPage ? "cursor-not-allowed opacity-50" : ""}`}
             disabled={!hasNextPage}
             aria-label="Next Page"
           >

@@ -1,11 +1,12 @@
-"use client";
-import AlsoRead from "@/components/alsoread";
+'use client';
+import AlsoRead from "@/components/AlsoRead";
 import Spinner from "@/components/ui/Spinner";
 import "@/styles/globals.css";
 import { ChevronLeft, MoveRight } from 'lucide-react';
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+
 interface Post {
     title: string;
     author: {
@@ -82,36 +83,37 @@ export default function BlogPostPage({ params }: BlogPostProps) {
             </div>
         );
     }
+
     if (!post) {
         return <p className="text-white text-center py-10 font-Space_Grotesk">Post not found.</p>;
     }
 
     return (
         <div className="blog-post">
-            <div className="pt-5">
-                <hr className="border-1 border-white w-full" />
-                <div className="flex items-center pl-4 gap-2 sm:pl-4">
+            <div className="pt-6">
+                <hr className="border-1 border-white max-width margin:auto" />
+                <div className="flex items-center gap-1 pt-2">
                     <Link href="/blog">
-                        <ChevronLeft className="text-red-600 h-12 w-12" />
+                        <ChevronLeft className="text-red-600 h-10 w-10 sm:h-12 sm:w-12 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16 2xl:h-18 2xl:w-18" />
                     </Link>
-                    <h1 className="text-white font-semibold font-enigma text-2xl sm:text-3xl md:text-4xl lg:text-5xl sm:pb-9 sm:pt-8">
+                    <h1 className="text-white font-semibold font-enigma text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                         BLOGS
                     </h1>
                 </div>
-                <hr className="border-1 border-white w-full" />
+                <hr className="border-1 border-white w-full mt-3" />
             </div>
-            <div className="flex flex-col max-w-7xl justify-items-center mx-auto gap-4 px-24 sm:text-lg lg:text-xl font-Space_Grotesk text-white">
-                <h1 className="text-center font-enigma px-24 sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-6 sm:pt-10 pb-6">
+            <div className="flex flex-col max-w-7xl mx-auto gap-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 sm:text-lg lg:text-xl font-Space_Grotesk text-white">
+                <h1 className="justify-center font-enigma text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold pt-6 sm:pt-10 pb-6 text-center">
                     {post.title}
                 </h1>
-                <div className="p-4 sm:p-6 md:p-8 lg:p-10 font-Space_Grotesk">
+                <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-14 font-Space_Grotesk">
                     <div
                         dangerouslySetInnerHTML={{ __html: post.content.html }}
-                        className="content-post mt-4 sm:text-lg lg:text-xl"
+                        className="content-post mt-4 sm:text-lg lg:text-xl text-left"
                     />
                 </div>
             </div>
-            <div className="flex gap-2 text-white font-enigma pl-10 pb-4">
+            <div className="flex gap-2 text-white font-enigma justify-center pb-4">
                 <h1 className="font-semibold text-2xl sm:text-3xl lg:text-4xl">
                     ALSO
                 </h1>

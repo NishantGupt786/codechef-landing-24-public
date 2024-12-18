@@ -37,9 +37,9 @@ const Footer: React.FC = ({}) => {
 
   return (
     <footer className={`bg-black text-white  ${1}`}>
-      <div className="text-center mb-4 mt-44 font-enigma">
+      <div className="text-center mb-16 mt-44 font-enigma">
         <span
-          className={`text-5xl sm:text-7xl md:text-8xl ${isAtBottom ? "text-[#FF3B00]" : "text-white"
+          className={`text-5xl sm:text-7xl md:text-8xl  ${isAtBottom ? "text-[#FF3B00]" : "text-white"
             }`}
         >
           CODECHEF

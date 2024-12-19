@@ -78,12 +78,12 @@ export default function Blog() {
   }
 
   return (
-    <div className="bg-black text-white px-4 py-10">
+    <div className="bg-black text-white px-6 py-10">
       <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-7xl pt-5">
         BLOGS
       </h1>
       <div className="text-black">
-        <div className="grid justify-items-center gap-y-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 px-4 py-8">
           {posts.map((post) => (
             <BlogCard
               key={post.slug}

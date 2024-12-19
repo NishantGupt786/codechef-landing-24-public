@@ -1,5 +1,5 @@
 import React from 'react'
-import CodeChefHeader from '@/components/hpg1'
+import CodeChefHeader from '@/components/HomePage'
 
 
 

@@ -102,7 +102,7 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.14)
       three:
-        specifier: ^0.167.0
+        specifier: ^0.167.1
         version: 0.167.1
     devDependencies:
       '@types/cors':

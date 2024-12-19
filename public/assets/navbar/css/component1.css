@@ -1,6 +1,3 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-
-
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -8,16 +5,6 @@
   padding: 0;
   list-style: none;
   position: relative;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background: #f06060;
-  color: #fff;
 }
 
 .csstransforms .cn-wrapper {
@@ -93,7 +80,6 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Floating shadow effect */
 }
 
-
 .cn-button:hover,
 .cn-button:active,
 .cn-button:focus {
@@ -137,19 +123,28 @@ body {
   -ms-transform: skew(-50deg) rotate(-70deg) scale(1);
   -moz-transform: skew(-50deg) rotate(-70deg) scale(1);
   transform: skew(-50deg) rotate(-70deg) scale(1);
-  -webkit-backface-visibility: hidden;
   -webkit-transition: opacity 0.3s, color 0.3s;
   -moz-transition: opacity 0.3s, color 0.3s;
   transition: opacity 0.3s, color 0.3s;
   border: 1px solid #FFF;
 }
 
-.csstransforms .cn-wrapper li a span {
-  font-size: 1.1em;
-  opacity: 0.7;
-
+.csstransforms .cn-wrapper li a img {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  margin-top: 0.1em; 
+  width: 45px;
+  height: 45px;
 }
 
+.csstransforms .cn-wrapper li:first-child img {
+  margin-left: 10px;
+}
+
+.csstransforms .cn-wrapper li:nth-child(5) img{
+  margin-right: 12px;
+}
 
 .csstransforms .cn-wrapper li:first-child {
   -webkit-transform: rotate(-10deg) skew(50deg);
@@ -192,85 +187,23 @@ body {
 }
 
 .csstransforms .cn-wrapper li:nth-child(odd) a {
-  /* background-color: #a11313; */
   background-color: #272626;
 }
 
 .csstransforms .cn-wrapper li:nth-child(even) a {
-  /* background-color: #a61414; */
   background-color: #272626;
 }
 
-/* active style */
 .csstransforms .cn-wrapper li.active a {
-  background-color: #b31515;
   background-color: hsla(0, 88%, 70%, 1);
 }
 
-/* hover style */
 .csstransforms .cn-wrapper li:not(.active) a:hover,
 .csstransforms .cn-wrapper li:not(.active) a:active,
 .csstransforms .cn-wrapper li:not(.active) a:focus {
-  background-color: #b31515;
   background-color: #FF3B00;
 }
-.csstransforms .cn-wrapper li:not(.active) a:focus {
-  position: fixed;
-}
 
-/* fallback */
-.no-csstransforms .cn-button {
-  display: none;
-}
-
-.no-csstransforms .cn-wrapper li {
-  position: static;
-  float: left;
-  font-size: 1em;
-  height: 5em;
-  width: 5em;
-  background-color: #eee;
-  text-align: center;
-  line-height: 5em;
-}
-
-.no-csstransforms .cn-wrapper li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.3em;
-  border-right: 1px solid #ddd;
-}
-
-.no-csstransforms .cn-wrapper li a:last-child {
-  border: none;
-}
-
-.no-csstransforms .cn-wrapper li a:hover,
-.no-csstransforms .cn-wrapper li a:active,
-.no-csstransforms .cn-wrapper li a:focus {
-  background-color: white;
-}
-
-.no-csstransforms .cn-wrapper li.active a {
-  background-color: #6f325c;
-  color: #fff;
-}
-
-.no-csstransforms .cn-wrapper {
-  font-size: 1em;
-  height: 5em;
-  width: 25.15em;
-  bottom: 0;
-  margin-left: -12.5em;
-  overflow: hidden;
-  position: fixed;
-  z-index: 10;
-  left: 50%;
-  border: 1px solid #ddd;
-}
 
 @media screen and (max-width: 480px) {
   .csstransforms .cn-wrapper {

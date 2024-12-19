@@ -2,16 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import DiscordIcon from "./../assets/images/Discord.svg";
-import FacebookIcon from "./../assets/images/Facebook.svg";
-import InstagramIcon from "./../assets/images/Instagram.svg";
-import LinkedInIcon from "./../assets/images/LinkedIn.svg";
-import TwitterIcon from "./../assets/images/Twitter.svg";
-import YouTubeIcon from "./../assets/images/Youtube.svg";
 
-// interface footerProps{
-//   isLoaderActive: boolean | null;
-// }
 
 const Footer: React.FC = ({}) => {
   const [isAtBottom, setIsAtBottom] = useState(false);
@@ -70,28 +61,39 @@ const Footer: React.FC = ({}) => {
         </div>
       </div>
       <div className="flex flex-col lg:flex-row justify-between items-center border-t border-white py-4">
-        <div className="text-gray-400 text-sm lg:text-base ml-10 mb-4 lg:mb-0">
+        <div className="text-gray-400 text-sm lg:text-base ml-10 mb-4 lg:mb-0 font-enigma">
           © 2024 CODECHEF
         </div>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://www.facebook.com/codechefvit/" className="text-gray-400 hover:text-white">
-            <Image src={FacebookIcon} alt="facebook-icon" height={1000} width={1000} className="h-auto w-auto" />
-          </a>
-          <a href="https://x.com/codechefvit" className="text-gray-400 hover:text-white">
-            <Image src={TwitterIcon} alt="twitter-icon" height={1000} width={1000} className="h-auto w-auto" />
-          </a>
-          <a href="https://www.youtube.com/c/CodeChefVIT" className="text-gray-400 hover:text-white">
-            <Image src={YouTubeIcon} alt="youtube-icon" height={1000} width={1000} className="h-auto w-auto" />
-          </a>
-          <a href="https://www.instagram.com/codechefvit/" className="text-gray-400 hover:text-white">
-            <Image src={InstagramIcon} alt="instagram-icon" height={1000} width={1000} className="h-auto w-auto" />
-          </a>
-          <a href="https://www.linkedin.com/company/codechefvit/" className="text-gray-400 hover:text-white">
-            <Image src={LinkedInIcon} alt="linkedin-icon" height={1000} width={1000} className="h-auto w-auto" />
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            <Image src={DiscordIcon} alt="discord-icon" height={1000} width={1000} className="h-auto w-auto" />
-          </a>
+        <div className="flex flex-wrap justify-center gap-12 mr-8">
+          <SocialIcon
+            href="https://www.facebook.com/codechefvit/"
+            icon="./../assets/socialmediaicons/fb.svg"
+            altText="Facebook"
+          />
+          <SocialIcon
+            href="https://x.com/codechefvit"
+            icon="./../assets/socialmediaicons/twitter.svg"
+            altText="Twitter"
+          />
+          <SocialIcon
+            href="https://www.youtube.com/c/CodeChefVIT"
+            icon="./../assets/socialmediaicons/yt.svg"
+            altText="YouTube"
+          />
+          <SocialIcon
+            href="https://www.instagram.com/codechefvit/"
+            icon="./../assets/socialmediaicons/ig.svg"
+            altText="Instagram"
+          />
+          <SocialIcon
+            href="https://www.linkedin.com/company/codechefvit/"
+            icon="./../assets/socialmediaicons/linkedin.svg"
+            altText="LinkedIn"
+          />
+          <SocialIcon 
+          href="https://github.com/CodeChefVIT" 
+          icon="./../assets/socialmediaicons/github.svg" 
+          altText="Discord" />
         </div>
       </div>
     </footer>
@@ -110,7 +112,7 @@ const FooterButton = ({
   return (
     <Link href={redirect}>
       <div className="h-full relative">
-        <div className="absolute w-full bg-white  rounded transition hex4 p-2 sm:p-4 ">
+        <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4">
           p
         </div>
         <div className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base">
@@ -120,3 +122,37 @@ const FooterButton = ({
     </Link>
   );
 };
+const SocialIcon = ({
+  href,
+  icon,
+  altText,
+}: {
+  href: string;
+  icon: string;
+  altText: string;
+}) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative flex items-center justify-center w-12 h-12 group"
+    >
+      {/* Shadow Circle */}
+      <div className="absolute w-12 h-12  bg-gray-500 rounded-full -bottom-0.5 -right-0.5"></div>
+      {/* Main Circle */}
+      <div className="relative flex items-center justify-center  w-12 h-12 bg-white rounded-full hover:bg-[#FF3B00] transition transform hover:scale-110">
+        <Image
+          src={icon}
+          alt={altText}
+          width={24}
+          height={24}
+          className="transition group-hover:filter group-hover:invert"
+        />
+      </div>
+    </a>
+  );
+};
+
+
+

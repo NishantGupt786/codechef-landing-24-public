@@ -52,7 +52,7 @@ const Component1 = () => {
         />
         <div className="absolute top-0 left-0 p-4 flex flex-col">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
-          <h1 className="text-red-600 xs:text-6xl lg:text-8xl font-bold">
+          <h1 className="text-red-600 xs:text-6xl lg:text-[128px] font-bold">
             Events
           </h1>
         </div>

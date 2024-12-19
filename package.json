@@ -30,7 +30,7 @@
     "embla-carousel-react": "^8.2.0",
     "express": "^4.21.1",
     "framer-motion": "^11.5.4",
-    "graphql": "^15.8.0", 
+    "graphql": "^15.8.0",
     "husky": "^9.1.5",
     "lucide-react": "^0.428.0",
     "next": "14.2.8",
@@ -40,7 +40,7 @@
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.167.0"
+    "three": "^0.167.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
@@ -57,7 +57,7 @@
   },
   "pnpm": {
     "overrides": {
-      "graphql": "^15.8.0" 
+      "graphql": "^15.8.0"
     }
   }
 }

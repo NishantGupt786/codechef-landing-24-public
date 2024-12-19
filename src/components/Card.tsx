@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
 import colored from "../assets/images/image2.svg";
-import blackandwhite from "../assets/images/people.png";
+import { color } from "framer-motion";
 
 interface CardProps {
   title: string;
@@ -12,11 +12,11 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, reverse = false }) => {
-  const [currentImage, setCurrentImage] = useState<string | StaticImageData>(imageSrc);
+
+  const [grayFilter, setGrayFilter] = useState<string>("grayscale");
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Preload the colored image
     const preloadImage = new window.Image();
     preloadImage.src = colored;
 
@@ -25,11 +25,13 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
         const rect = cardRef.current.getBoundingClientRect();
         const isFullyVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
 
-        // Switch images only when the card is fully visible in the viewport
+
         if (isFullyVisible) {
-          setCurrentImage(colored);
+
+          setGrayFilter("grayscale-0");
         } else {
-          setCurrentImage(blackandwhite);
+
+          setGrayFilter("grayscale");
         }
       }
     };
@@ -41,12 +43,14 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col lg:flex-row items-center justify-center mt-12 sm:mt-20 lg:mt-36 relative z-10 flex-wrap w-full sm:w-[1000px] ${reverse ? "lg:flex-row-reverse" : ""}`}
+      className={`${grayFilter} flex lg:flex-row flex-col items-center justify-center mt-12 sm:mt-20 lg:mt-36 relative z-10 flex-wrap w-full sm:w-[1000px] ${
+        reverse ? "lg:flex-row-reverse" : ""
+      }`}
     >
       {/* Image Section */}
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center px-4 mb-6 md:mb-0">
         <Image
-          src={currentImage}
+          src={colored}
           alt={imageAlt}
           width={300}
           height={300}

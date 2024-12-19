@@ -26,8 +26,8 @@ const SLIDES = [
 
 export default function Project() {
   return (
-    <section className="bg-black w-screen overflow-hidden z-0">
-      <h1 className="text-white z-20 font-semibold font-enigma text-3xl text-center md:text-7xl lg:text-[128px] pb-10 pt-5">
+    <section className="bg-black w-screen overflow-hidden z-0 ">
+      <h1 className="text-white z-20 font-semibold font-enigma text-3xl text-center md:text-7xl lg:text-[128px] pb-10 pt-5 mt-28">
         PROJECTS
       </h1>
       <Image

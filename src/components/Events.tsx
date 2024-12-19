@@ -75,7 +75,7 @@ const Component1 = () => {
               L 700, 980  
               L 700, 1450 
               L 100, 1450
-              L 100, 1700"
+              L 100, 2000"
             stroke="url(#gradient)" // Add a gradient for color transition
             strokeWidth="2"
             fill="transparent"

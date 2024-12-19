@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
 import colored from "../assets/images/image2.svg";
-import { color } from "framer-motion";
 
 interface CardProps {
   title: string;

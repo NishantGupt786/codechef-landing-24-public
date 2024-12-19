@@ -37,7 +37,7 @@ const Footer: React.FC = ({}) => {
 
   return (
     <footer className={`bg-black text-white  ${1}`}>
-      <div className="text-center mb-16 mt-44 font-enigma">
+      <div className="text-center mb-16 mt-36 font-enigma">
         <span
           className={`text-5xl sm:text-7xl md:text-8xl  ${isAtBottom ? "text-[#FF3B00]" : "text-white"
             }`}
@@ -54,7 +54,7 @@ const Footer: React.FC = ({}) => {
         </p>
         <div className="sm:w-auto w-full grid item-center grid-row-3 sm:border-l-2 border-white grid-container sm:h-full">
           <div className="grid-item grid grid-cols-2 w-full h-[50px]">
-            <FooterButton label={"HOME"} redirect={"/"} />
+            <FooterButton label={"HOME"} redirect={"/home"} />
             <FooterButton label={"PROJECTS"} redirect={"/projects"} />
           </div>
 
@@ -64,7 +64,7 @@ const Footer: React.FC = ({}) => {
           </div>
 
           <div className="grid-item grid grid-cols-2   w-full  h-[50px]">
-            <FooterButton label={"EVENTS"} redirect={"#"} />
+            <FooterButton label={"EVENTS"} redirect={"/"} />
             <FooterButton label={"BLOG"} redirect={"/blog"} />
           </div>
         </div>

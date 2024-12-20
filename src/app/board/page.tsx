@@ -61,12 +61,12 @@ export default function BoardPage() {
   {
     boardPos: "Publicity and Outreach Head",
     boardName: "Soham Chhajed",
-    boardDesc: "Vedant is a research enthusiast with a keen eye for detail and innovation. He excels in driving forward-thinking initiatives and fostering intellectual growth."
+    boardDesc: "Soham is a networking pro with an ability to connect and engage effectively. He excels in amplifying the team's initiatives to reach a wider audience."
   },
   {
     boardPos: "Vice Chair: Management",
     boardName: "Tanvi Jain",
-    boardDesc: "Vedant is a research enthusiast with a keen eye for detail and innovation. He excels in driving forward-thinking initiatives and fostering intellectual growth."
+    boardDesc: "Tanvi drives operational excellence, ensuring seamless team coordination. Her strategic approach guarantees efficient project execution."
   },
   {
     boardPos: "Backend Head",

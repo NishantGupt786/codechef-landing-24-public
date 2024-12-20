@@ -4,7 +4,7 @@ import { useState } from 'react';
 import hooman from '@/assets/images/hooman.png';
 import hooman2 from '@/assets/images/hooman2.png';
 import './style.css';
-import nishant from "@/assets/images/nishant.png";
+// import nishant from "@/assets/images/nishant.png";
 
 
 

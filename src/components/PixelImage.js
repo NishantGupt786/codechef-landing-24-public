@@ -74,7 +74,7 @@ const PixelImage = () => {
       };
 
       planeMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(5.2, 2),
+        new THREE.PlaneGeometry(4.8, 3.7),
         new THREE.ShaderMaterial({
           uniforms: shaderUniforms,
           vertexShader,
@@ -151,7 +151,7 @@ const PixelImage = () => {
 
   return (
     <div id="imageContainer" ref={containerRef} className="filter-saturate-0 hover:filter-saturate-100 background-repeat:no-repeat">
-      <img id="myImage" ref={imageRef} src="/assets/images/blog16.webp" alt="Palm Tree" className="absolute  w-full h-full " />
+      <img id="myImage" ref={imageRef} src="/assets/images/France.jpg" alt="Palm Tree" className="absolute  w-full h-full " />
     </div>
   );
 };

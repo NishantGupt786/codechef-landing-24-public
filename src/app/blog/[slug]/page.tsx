@@ -1,5 +1,5 @@
 'use client';
-import AlsoRead from "@/components/AlsoRead";
+import AlsoRead from "@/components/alsoread";
 import Spinner from "@/components/ui/Spinner";
 import "@/styles/globals.css";
 import { ChevronLeft, MoveRight } from 'lucide-react';

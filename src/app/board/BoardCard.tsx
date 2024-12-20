@@ -4,14 +4,18 @@ import { useState } from 'react';
 import hooman from '@/assets/images/hooman.png';
 import hooman2 from '@/assets/images/hooman2.png';
 import './style.css';
+// import nishant from "@/assets/images/nishant.png";
 
 
 
 type BoardCardProps = {
   num: number;
+  boardName: string;
+  boardDesc: string;
+  boardPos: string;
 };
 
-export default function BoardCard({ num }: BoardCardProps) {
+export default function BoardCard({ num, boardName, boardDesc, boardPos }: BoardCardProps) {
   const [isHovering, setIsHovering] = useState(false);
   const cardHoverStyle = {
     transform: "rotateY(180deg)",
@@ -34,8 +38,8 @@ export default function BoardCard({ num }: BoardCardProps) {
 
       <Image
 
-        className="h-img transition-all duration-200"
-        src={num % 2 === 0 ? hooman : hooman2}
+        className="h-img transition-all duration-200 bottom-[-14px]"
+        src={hooman}
         alt="alt"
         layout="responsive"
         width={1310}
@@ -43,11 +47,11 @@ export default function BoardCard({ num }: BoardCardProps) {
         style={isHovering?{opacity: "0"}:{opacity: "100"}}
       />
       {!isHovering ? <>
-        <div className="flex flex-col items-center mt-[-15px] p-parent transition-all duration-300">
-          <p className="text-black text-[20px] name">vashistha</p>
-          <p className="text-black text-[10px] role">creative lead</p>
+        <div className="flex flex-col items-center mt-[-20px] p-parent transition-all duration-300 ">
+          <p className="text-black text-[16px] name mx-5 text-center">{boardName}</p>
+          <p className="text-black text-[10px] text-center mx-5 role">{boardPos}</p>
         </div></> :
-        <div className='cursor-default absolute top-0 p-parent h-[70%] flex justify-center items-center mx-[40px] my-[50px]'><p className='text-white text-[14px] name t-r'>Lorem ipsum dolor sit amet consectetur. Ac ac enim viverra lacus eget a viverra quam. Id ipsum congue purus.</p></div>
+        <div className='cursor-default absolute top-0  p-parent h-[70%] flex justify-center items-center mx-[40px] my-[50px]'><p className='text-white text-[14px] name t-r'>{boardDesc}</p></div>
       }
     </div>
   );

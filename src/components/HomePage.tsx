@@ -51,8 +51,12 @@ const CodeChefHeader = () => {
 
         </div>
 
-        <div className="mt-8 ml-4 text-sm text-black">
-          CodeChef is a dynamic technical chapter dedicated to elevating coding skills across campus. We operate at the intersection of technology, management, and design, fostering a collaborative environment where students learn, share, and excel.
+        <div
+          className="mt-8 ml-4 text-lg font-bold text-gray-800 leading-relaxed text-center bg-clip-text shadow-md"
+        >
+          CodeChef is a dynamic technical chapter dedicated to elevating coding skills across campus. We operate at the
+          intersection of technology, management and design, fostering a
+          collaborative environment where students learn, share, and excel.
         </div>
       </div>
     </div>

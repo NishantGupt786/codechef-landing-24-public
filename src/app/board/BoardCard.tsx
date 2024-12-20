@@ -47,11 +47,11 @@ export default function BoardCard({ num, boardName, boardDesc, boardPos }: Board
         style={isHovering?{opacity: "0"}:{opacity: "100"}}
       />
       {!isHovering ? <>
-        <div className="flex flex-col items-center mt-[-18px] p-parent transition-all duration-300 ">
+        <div className="flex flex-col items-center mt-[-20px] p-parent transition-all duration-300 ">
           <p className="text-black text-[16px] name mx-5 text-center">{boardName}</p>
-          <p className="text-black text-[10px] role">{boardPos}</p>
+          <p className="text-black text-[10px] text-center mx-5 role">{boardPos}</p>
         </div></> :
-        <div className='cursor-default absolute top-0 p-parent h-[70%] flex justify-center items-center mx-[40px] my-[50px]'><p className='text-white text-[14px] name t-r'>{boardDesc}</p></div>
+        <div className='cursor-default absolute top-0  p-parent h-[70%] flex justify-center items-center mx-[40px] my-[50px]'><p className='text-white text-[14px] name t-r'>{boardDesc}</p></div>
       }
     </div>
   );

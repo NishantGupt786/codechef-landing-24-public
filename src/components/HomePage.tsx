@@ -13,12 +13,12 @@ const CodeChefHeader = () => {
           
           
           <div className="absolute top-0 left-0">
-            <div className="relative border-r border-b border-black px-4 py-2 inline-block">
+            <div className="relative border-r border-b border-black md:px-4 pxl-4 py-2 inline-block">
               <div className="absolute w-1.5 h-1.5 bg-black -top-1 -left-1"></div>
               <div className="absolute w-1.5 h-1.5 bg-black -top-1 -right-1"></div>
               <div className="absolute w-1.5 h-1.5 bg-black -bottom-1 -left-1"></div>
               <div className="absolute w-1.5 h-1.5 bg-black -bottom-1 -right-1"></div>
-              <h1 className="font-enigma font-bold text-2xl md:text-xl tracking-widest">
+              <h1 className="font-enigma font-bold text-sm md:text-xl tracking-widest">
                 CODECHEF-VIT
               </h1>
             </div>

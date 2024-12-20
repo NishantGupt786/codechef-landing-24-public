@@ -1,5 +1,4 @@
 "use client";
-import Events from "@/app/events/page";
 import ClientComponent from "@/components/ClientComponent";
 import Ripple from "@/components/Ripple";
 import { useEffect, useState } from "react";

@@ -1,6 +1,6 @@
+import colored from "@/assets/images/image2.svg";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
-import colored from "@/assets/images/image2.svg";
 
 interface CardProps {
   title: string;
@@ -11,7 +11,6 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, reverse = false }) => {
-
   const [grayFilter, setGrayFilter] = useState<string>("grayscale");
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -24,12 +23,9 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
         const rect = cardRef.current.getBoundingClientRect();
         const isFullyVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
 
-
         if (isFullyVisible) {
-
           setGrayFilter("grayscale-0");
         } else {
-
           setGrayFilter("grayscale");
         }
       }
@@ -59,8 +55,12 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
 
       {/* Text Section */}
       <div className="w-full lg:w-1/2 px-6 sm:px-12 flex flex-col items-center text-center lg:text-left mb-6 md:mb-0">
-        <div className="text-white border max-w-xs sm:max-w-sm lg:w-64 flex justify-center mx-auto lg:mx-0">
-          <h1 className="text-sm sm:text-base lg:text-xl">{title}</h1>
+        <div
+          className={`text-white border max-w-xs sm:max-w-sm lg:w-64 flex justify-center mx-auto lg:mx-0 `}
+        >
+          <h1 className={`text-sm sm:text-base lg:text-xl font-enigma ${
+            grayFilter === "grayscale-0" ? "text-[#FF3B00]" : "text-white"
+          }`} >{title}</h1>
         </div>
         <p className="text-white mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-4">
           {description}
@@ -71,4 +71,3 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
 };
 
 export default Card;
-

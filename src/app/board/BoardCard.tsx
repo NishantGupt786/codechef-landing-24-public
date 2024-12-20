@@ -39,7 +39,7 @@ export default function BoardCard({ num, boardName, boardDesc, boardPos }: Board
       <Image
 
         className="h-img transition-all duration-200 bottom-[-14px]"
-        src={nishant}
+        src={hooman}
         alt="alt"
         layout="responsive"
         width={1310}
@@ -47,7 +47,7 @@ export default function BoardCard({ num, boardName, boardDesc, boardPos }: Board
         style={isHovering?{opacity: "0"}:{opacity: "100"}}
       />
       {!isHovering ? <>
-        <div className="flex flex-col items-center mt-[18px] p-parent transition-all duration-300 ">
+        <div className="flex flex-col items-center mt-[-18px] p-parent transition-all duration-300 ">
           <p className="text-black text-[16px] name mx-5 text-center">{boardName}</p>
           <p className="text-black text-[10px] role">{boardPos}</p>
         </div></> :

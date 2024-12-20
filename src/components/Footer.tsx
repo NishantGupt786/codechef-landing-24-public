@@ -45,17 +45,17 @@ const Footer: React.FC = ({}) => {
         </p>
         <div className="sm:w-auto w-full grid item-center grid-row-3 sm:border-l-2 border-white grid-container sm:h-full">
           <div className="grid-item grid grid-cols-2 w-full h-[50px]">
-            <FooterButton label={"HOME"} redirect={"/home"} />
+            <FooterButton label={"HOME"} redirect={"/"} />
             <FooterButton label={"PROJECTS"} redirect={"/projects"} />
           </div>
 
           <div className="grid-item grid grid-cols-2  w-full  h-[50px]">
             <FooterButton label={"BOARD"} redirect={"/board"} />
-            <FooterButton label={"DEVSOC"} redirect={"#"} />
+            <FooterButton label={"DEVSOC"} redirect={"https://devsoc.codechefvit.com/"} />
           </div>
 
           <div className="grid-item grid grid-cols-2   w-full  h-[50px]">
-            <FooterButton label={"EVENTS"} redirect={"/"} />
+            <FooterButton label={"EVENTS"} redirect={"/events"} />
             <FooterButton label={"BLOG"} redirect={"/blog"} />
           </div>
         </div>

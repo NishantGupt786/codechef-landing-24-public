@@ -1,8 +1,8 @@
 "use client";
 
+import Card from "@/app/events/Card";
 import headImage from "@/assets/images/image.png";
 import people from "@/assets/images/people.png";
-import Card from "@/components/Card";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useRef } from "react";
@@ -50,30 +50,28 @@ const Component1 = () => {
     []
   );
 
-  
-  const svgHeight = 2250; 
-const cardGap = svgHeight / (cards.length + 1); 
-const svgPath = useMemo(() => {
-  const path = [];
-  let y = 0;
-  let currentX = 700; 
-  path.push(`M ${currentX},${y}`); 
+  const svgHeight = 2250;
+  const cardGap = svgHeight / (cards.length + 1);
+  const svgPath = useMemo(() => {
+    const path = [];
+    let y = 0;
+    let currentX = 700;
+    path.push(`M ${currentX},${y}`);
 
-  for (let i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
+      y += cardGap;
+      path.push(`L ${currentX},${y}`);
+      const nextX = currentX === 700 ? 100 : 700;
+
+      if (i != cards.length - 1) {
+        path.push(`L ${nextX},${y}`);
+        currentX = nextX;
+      }
+    }
     y += cardGap;
     path.push(`L ${currentX},${y}`);
-    const nextX = currentX === 700 ? 100 : 700; 
-    
-    if (i!=cards.length-1){
-      path.push(`L ${nextX},${y}`);
-      currentX = nextX; 
-    }
-  }
-  y += cardGap;
-  path.push(`L ${currentX},${y}`);
-  return path.join(" ");
-}, [cards.length, cardGap]);
-
+    return path.join(" ");
+  }, [cards.length, cardGap]);
 
   useEffect(() => {
     if (pathRef.current) {

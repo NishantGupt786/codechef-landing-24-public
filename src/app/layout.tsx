@@ -64,7 +64,7 @@ export default function RootLayout({
           {children}
           
 
-          {!isLoaderActive && pathname !== "/home" && <Footer />}
+          {!isLoaderActive && pathname !== "/" && <Footer />}
           {!isLoaderActive && <Navbar />}
           <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
           <Script

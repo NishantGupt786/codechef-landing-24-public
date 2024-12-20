@@ -1,10 +1,10 @@
-
-"use client"
+"use client";
+import Events from "@/app/events/page";
 import ClientComponent from "@/components/ClientComponent";
-import Events from "@/components/Events";
 import Ripple from "@/components/Ripple";
 import { useEffect, useState } from "react";
-const Home: React.FC = () => {
+import Home from "./home/page";
+const HomeMain: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -27,11 +27,11 @@ const Home: React.FC = () => {
   return (
     <main>
       <ClientComponent isLoading={isLoading}>
-        <Events  />
-        <Ripple/>
+        <Home />
+        <Ripple />
       </ClientComponent>
     </main>
   );
 };
 
-export default Home;
+export default HomeMain;

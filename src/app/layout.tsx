@@ -59,7 +59,7 @@ export default function RootLayout({
       <html lang="en">
         <head></head>
         <body
-          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto max-w-[1440px] mx-auto`}
+          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto  mx-auto`}
         >
           {children}
           

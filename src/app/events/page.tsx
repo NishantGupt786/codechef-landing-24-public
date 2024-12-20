@@ -1,8 +1,7 @@
 "use client";
-
 import Card from "@/app/events/Card";
 import headImage from "@/assets/images/image.png";
-import people from "@/assets/images/people.png";
+import devsoc from "@/assets/images/people.svg";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useRef } from "react";
@@ -21,30 +20,31 @@ const Component1 = () => {
   const cards = useMemo(
     () => [
       {
-        title: "Devsoc'24",
-        description:
-          "Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights.",
-        imageSrc: people,
-        reverse: true,
-      },
-      {
-        title: "Cook-Off 8.0",
-        description:
-          "Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights.",
-        imageSrc: people,
-      },
-      {
-        title: "Cookoff 9.0",
-        description:
-          "Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights.",
-        imageSrc: people,
-        reverse: true,
-      },
-      {
         title: "Devsoc'25",
         description:
-          "Devsoc'25 promises to bring another wave of innovation and collaboration, allowing students to participate in hackathons that challenge their creativity and problem-solving abilities.",
-        imageSrc: people,
+          "Devsoc'25, the upcoming edition by CodeChef-VIT, promises to be bigger and better, uniting innovators and tech enthusiasts from across the globe. With cutting-edge challenges, expert mentorship, and grand rewards, it’s set to redefine the hackathon experience and inspire groundbreaking ideas.",
+        imageSrc: devsoc,
+        reverse: true,
+      },
+      {
+        title: "Cook-Off 9.0",
+        description:
+          "CookOff 9.0, hosted by CodeChef-VIT, is a competitive coding contest that challenges participants to solve intriguing problems. It promotes logical thinking, algorithmic skills, and fast-paced coding. With exciting rewards and tough competition, it's a must-attend event for coders.",
+        imageSrc: "/cookoff.png",
+        
+      },
+      {
+        title: "Clueminati 2.0",
+        description:
+          "Clueminati 2.0, hosted by CodeChef-VIT, is an exhilarating treasure hunt that tests participants’ problem-solving, teamwork, and critical thinking skills. Combining tech and mystery, it offers engaging challenges and thrilling rewards, making it a unique and unforgettable experience.",
+        imageSrc: "/clueminati.png",
+        reverse: true,
+      },
+      {
+        title: "DevSoc'24",
+        description:
+          "Devsoc'24, hosted by CodeChef-VIT, is South Asia's largest student-run hackathon, bringing together tech enthusiasts to innovate and collaborate. With expert mentorship, exciting challenges, and rewarding prizes, it’s a hub for creativity and groundbreaking solutions.",
+        imageSrc: devsoc,
       },
     ],
     []
@@ -96,7 +96,7 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY, strokeDashoffset]);
 
   return (
-    <div className="bg-black min-h-screen w-full ">
+    <div className="bg-black min-h-screen w-screen ">
       {/* Header Section */}
       <div className="relative h-3/4 w-5/6 mx-auto mt-12">
         <Image
@@ -149,7 +149,7 @@ const Component1 = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col gap-8 items-center justify-center font-Space_Grotesk">
+      <div className="flex flex-col gap-12 items-center justify-center font-Space_Grotesk text-center">
         {cards.map((card, index) => (
           <Card
             key={index}

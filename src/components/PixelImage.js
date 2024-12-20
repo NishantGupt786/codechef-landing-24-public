@@ -74,7 +74,7 @@ const PixelImage = () => {
       };
 
       planeMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(5.2, 2),
+        new THREE.PlaneGeometry(4.8, 3.7),
         new THREE.ShaderMaterial({
           uniforms: shaderUniforms,
           vertexShader,

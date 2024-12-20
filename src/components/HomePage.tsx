@@ -1,4 +1,3 @@
-import React from "react";
 import PixelImage from "./PixelImage";
 
 const CodeChefHeader = () => {
@@ -52,7 +51,7 @@ const CodeChefHeader = () => {
         </div>
 
         <div
-          className="mt-8 ml-4 text-lg font-bold text-gray-800 leading-relaxed text-center bg-clip-text shadow-md"
+          className="mt-8 ml-4 text-lg font-enigma text-gray-800 leading-relaxed text-center bg-clip-text "
         >
           CodeChef is a dynamic technical chapter dedicated to elevating coding skills across campus. We operate at the
           intersection of technology, management and design, fostering a

@@ -1,4 +1,3 @@
-import colored from "@/assets/images/image2.svg";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -16,7 +15,7 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
 
   useEffect(() => {
     const preloadImage = new window.Image();
-    preloadImage.src = colored;
+    preloadImage.src = imageSrc as string;
 
     const handleScroll = () => {
       if (cardRef.current) {
@@ -38,19 +37,23 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
   return (
     <div
       ref={cardRef}
-      className={`${grayFilter} flex lg:flex-row flex-col items-center justify-center mt-12 sm:mt-20 lg:mt-36 relative z-10 flex-wrap w-full sm:w-[1000px] ${
+      className={`${grayFilter} flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
       {/* Image Section */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center px-4 mb-6 md:mb-0">
+      <div className={`w-full lg:w-1/2 flex flex-col items-center justify-center mb-6 md:mb-0 `}>
+        <div className={`${
+            grayFilter === "grayscale-0" ? "border border-[#FF3B00]" : ""
+          }`}>
         <Image
-          src={colored}
+          src={imageSrc}
           alt={imageAlt}
           width={300}
           height={300}
-          className="lg:h-64 lg:w-96 mx-auto transition-opacity duration-500"
+          className={`lg:h-64 lg:w-96  transition-opacity duration-500 `}
         />
+        </div>
       </div>
 
       {/* Text Section */}

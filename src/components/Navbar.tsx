@@ -35,8 +35,9 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a href="/home">
+              <a href="/">
               {/* Change this to / later */}
+              {/* okii */}
                 <Image 
                   src={nav.home} 
                   alt="home icon" 
@@ -47,8 +48,9 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a href="/">    
+              <a href="/events">    
               {/* Change this route to /events later */}
+              {/* aye aye  */}
                 <Image 
                   src={nav.list} 
                   alt="list icon" 

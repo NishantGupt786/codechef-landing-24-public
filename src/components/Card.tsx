@@ -62,7 +62,7 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
         <div className="text-white border max-w-xs sm:max-w-sm lg:w-64 flex justify-center mx-auto lg:mx-0">
           <h1 className="text-sm sm:text-base lg:text-xl">{title}</h1>
         </div>
-        <p className="text-white mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg">
+        <p className="text-white mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-4">
           {description}
         </p>
       </div>

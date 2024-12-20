@@ -3,11 +3,11 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import {ReactLenis, useLenis} from "@studio-freight/react-lenis";
+import { ReactLenis } from "@studio-freight/react-lenis";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -59,7 +59,7 @@ export default function RootLayout({
       <html lang="en">
         <head></head>
         <body
-          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto`}
+          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto max-w-[1440px] mx-auto`}
         >
           {children}
           

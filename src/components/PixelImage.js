@@ -1,6 +1,6 @@
-"use client"
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+"use client";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 const PixelImage = () => {
   const containerRef = useRef(null);
@@ -62,7 +62,7 @@ const PixelImage = () => {
         80,
         containerElement.offsetWidth / containerElement.offsetHeight,
         0.01,
-        10
+        10,
       );
       camera.position.z = 1;
 
@@ -70,7 +70,7 @@ const PixelImage = () => {
         u_mouse: { type: "v2", value: new THREE.Vector2() },
         u_prevMouse: { type: "v2", value: new THREE.Vector2() },
         u_aberrationIntensity: { type: "f", value: 0.0 },
-        u_texture: { type: "t", value: texture }
+        u_texture: { type: "t", value: texture },
       };
 
       planeMesh = new THREE.Mesh(
@@ -78,14 +78,17 @@ const PixelImage = () => {
         new THREE.ShaderMaterial({
           uniforms: shaderUniforms,
           vertexShader,
-          fragmentShader
-        })
+          fragmentShader,
+        }),
       );
 
       scene.add(planeMesh);
 
       renderer = new THREE.WebGLRenderer();
-      renderer.setSize(containerElement.offsetWidth, containerElement.offsetHeight);
+      renderer.setSize(
+        containerElement.offsetWidth,
+        containerElement.offsetHeight,
+      );
       containerElement.appendChild(renderer.domElement);
     }
 
@@ -103,17 +106,18 @@ const PixelImage = () => {
 
       planeMesh.material.uniforms.u_mouse.value.set(
         mousePosition.x,
-        1.0 - mousePosition.y
+        1.0 - mousePosition.y,
       );
 
       planeMesh.material.uniforms.u_prevMouse.value.set(
         prevPosition.x,
-        1.0 - prevPosition.y
+        1.0 - prevPosition.y,
       );
 
       aberrationIntensity = Math.max(0.0, aberrationIntensity - 0.05);
 
-      planeMesh.material.uniforms.u_aberrationIntensity.value = aberrationIntensity;
+      planeMesh.material.uniforms.u_aberrationIntensity.value =
+        aberrationIntensity;
 
       renderer.render(scene, camera);
     }
@@ -133,8 +137,10 @@ const PixelImage = () => {
       easeFactor = 0.02;
       const rect = containerElement.getBoundingClientRect();
 
-      mousePosition.x = targetMousePosition.x = (event.clientX - rect.left) / rect.width;
-      mousePosition.y = targetMousePosition.y = (event.clientY - rect.top) / rect.height;
+      mousePosition.x = targetMousePosition.x =
+        (event.clientX - rect.left) / rect.width;
+      mousePosition.y = targetMousePosition.y =
+        (event.clientY - rect.top) / rect.height;
     }
 
     function handleMouseLeave() {
@@ -145,13 +151,21 @@ const PixelImage = () => {
     containerElement.addEventListener("mousemove", handleMouseMove);
     containerElement.addEventListener("mouseenter", handleMouseEnter);
     containerElement.addEventListener("mouseleave", handleMouseLeave);
-
-    
-  },[] );
+  }, []);
 
   return (
-    <div id="imageContainer" ref={containerRef} className="filter-saturate-0 hover:filter-saturate-100 background-repeat:no-repeat">
-      <img id="myImage" ref={imageRef} src="/assets/images/France.jpg" alt="Palm Tree" className="absolute  w-full h-full " />
+    <div
+      id="imageContainer"
+      ref={containerRef}
+      className="filter-saturate-0 hover:filter-saturate-100 background-repeat:no-repeat"
+    >
+      <img
+        id="myImage"
+        ref={imageRef}
+        src="/assets/images/blog16.webp"
+        alt="Palm Tree"
+        className="absolute h-full w-full sm:object-contain "
+      />
     </div>
   );
 };

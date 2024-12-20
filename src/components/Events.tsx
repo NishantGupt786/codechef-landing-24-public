@@ -5,7 +5,7 @@ import people from "@/assets/images/people.png";
 import Card from "@/components/Card";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 const Component1 = () => {
   const { scrollYProgress } = useScroll();
@@ -17,6 +17,64 @@ const Component1 = () => {
   const circleRadius = 40;
   const circleOffset = circleRadius / 20;
 
+  // Cards Data
+  const cards = useMemo(
+    () => [
+      {
+        title: "Devsoc'24",
+        description:
+          "Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights.",
+        imageSrc: people,
+        reverse: true,
+      },
+      {
+        title: "Cook-Off 8.0",
+        description:
+          "Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights.",
+        imageSrc: people,
+      },
+      {
+        title: "Cookoff 9.0",
+        description:
+          "Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights.",
+        imageSrc: people,
+        reverse: true,
+      },
+      {
+        title: "Devsoc'25",
+        description:
+          "Devsoc'25 promises to bring another wave of innovation and collaboration, allowing students to participate in hackathons that challenge their creativity and problem-solving abilities.",
+        imageSrc: people,
+      },
+    ],
+    []
+  );
+
+  
+  const svgHeight = 2250; 
+const cardGap = svgHeight / (cards.length + 1); 
+const svgPath = useMemo(() => {
+  const path = [];
+  let y = 0;
+  let currentX = 700; 
+  path.push(`M ${currentX},${y}`); 
+
+  for (let i = 0; i < cards.length; i++) {
+    y += cardGap;
+    path.push(`L ${currentX},${y}`);
+    const nextX = currentX === 700 ? 100 : 700; 
+    
+    if (i!=cards.length-1){
+      path.push(`L ${nextX},${y}`);
+      currentX = nextX; 
+    }
+  }
+  y += cardGap;
+  path.push(`L ${currentX},${y}`);
+  return path.join(" ");
+}, [cards.length, cardGap]);
+
+
   useEffect(() => {
     if (pathRef.current) {
       const pathElement = pathRef.current;
@@ -27,7 +85,7 @@ const Component1 = () => {
         const point = pathElement.getPointAtLength(progress);
         progressX.set(point.x);
         progressY.set(point.y);
-        strokeDashoffset.set(1 - scrollPercent); // Update stroke offset for the red transition
+        strokeDashoffset.set(1 - scrollPercent);
       };
 
       updateCirclePosition(scrollYProgress.get());
@@ -40,7 +98,7 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY, strokeDashoffset]);
 
   return (
-    <div className="bg-black min-h-screen w-full font-enigma">
+    <div className="bg-black min-h-screen w-full ">
       {/* Header Section */}
       <div className="relative h-3/4 w-5/6 mx-auto mt-12">
         <Image
@@ -50,7 +108,7 @@ const Component1 = () => {
           width={1310}
           height={512}
         />
-        <div className="absolute top-0 left-0 p-4 flex flex-col">
+        <div className="absolute top-0 left-0 p-4 flex flex-col font-enigma">
           <h1 className="text-white xs:text-4xl lg:text-6xl font-bold">Our</h1>
           <h1 className="text-red-600 xs:text-6xl lg:text-[128px] font-bold">
             Events
@@ -62,26 +120,17 @@ const Component1 = () => {
       <div className="relative hidden lg:block">
         <svg
           className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
-          viewBox="0 0 800 2200"
+          viewBox={`0 0 800 ${svgHeight}`}
           preserveAspectRatio="xMidYMid meet"
         >
           <motion.path
             ref={pathRef}
-            d="M 700, 0
-              L 700, 80 
-              L 700, 500  
-              L 100, 500  
-              L 100, 980  
-              L 700, 980  
-              L 700, 1450 
-              L 100, 1450
-              L 100, 2000"
-            stroke="url(#gradient)" // Add a gradient for color transition
+            d={svgPath}
+            stroke="url(#gradient)"
             strokeWidth="2"
             fill="transparent"
-            strokeDashoffset={strokeDashoffset} // Animate based on scroll
+            strokeDashoffset={strokeDashoffset}
           />
-
           <defs>
             <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
               <stop offset="0%" stopColor="white" />
@@ -102,38 +151,20 @@ const Component1 = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col gap-6 items-center justify-center ">
-        <Card
-          title="Devsoc'24"
-          description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."
-          imageSrc={people}
-          imageAlt="People"
-          reverse
-        />
-        <Card
-          title="Cook-Off 8.0"
-          description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."
-          imageSrc={people}
-          imageAlt="People"
-        />
-        <Card
-          title="Cookoff 9.0"
-          description="Events and hackathons are the two cornerstones that make CodeChef-VIT one of the campus' most reputed chapters. Our teamwork, dedication, and determination propel and inspire our events to achieve greater heights."
-          imageSrc={people}
-          imageAlt="People"
-          reverse
-        />
-        <Card
-          title="Devsoc'25"
-          description="Devsoc'25 promises to bring another wave of innovation and collaboration, allowing students to participate in hackathons that challenge their creativity and problem-solving abilities."
-          imageSrc={people}
-          imageAlt="People"
-        />
+      <div className="flex flex-col gap-8 items-center justify-center font-Space_Grotesk">
+        {cards.map((card, index) => (
+          <Card
+            key={index}
+            title={card.title}
+            description={card.description}
+            imageSrc={card.imageSrc}
+            imageAlt={card.title}
+            reverse={card.reverse}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
 export default Component1;
-
-

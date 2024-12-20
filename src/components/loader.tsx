@@ -1,6 +1,6 @@
 "use client";
 
-import Rive, { Layout, Fit, Alignment } from "@rive-app/react-canvas";
+import Rive, { Alignment, Fit, Layout } from "@rive-app/react-canvas";
 
 export default function Loader() {
   return (

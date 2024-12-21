@@ -57,15 +57,15 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, imageAlt, rev
       </div>
 
       {/* Text Section */}
-      <div className="w-full lg:w-1/2 px-6 sm:px-12 flex flex-col items-center text-center lg:text-left mb-6 md:mb-0">
+      <div className="w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left mb-6 md:mb-0">
         <div
-          className={`text-white border max-w-xs sm:max-w-sm lg:w-64 flex justify-center mx-auto lg:mx-0 `}
+          className={`text-white max-w-xs sm:max-w-sm lg:w-full flex lg:mx-0 `}
         >
-          <h1 className={`text-sm sm:text-base lg:text-xl font-enigma ${
+          <h1 className={`sm:text-base lg:text-[34.5px] text-left font-enigma ${
             grayFilter === "grayscale-0" ? "text-[#FF3B00]" : "text-white"
           }`} >{title}</h1>
         </div>
-        <p className="text-white mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-4">
+        <p className="text-white mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-3">
           {description}
         </p>
       </div>

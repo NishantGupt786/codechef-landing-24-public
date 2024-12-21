@@ -6,8 +6,6 @@ import hooman2 from '@/assets/images/hooman2.png';
 import './style.css';
 // import nishant from "@/assets/images/nishant.png";
 
-
-
 type BoardCardProps = {
   num: number;
   boardName: string;

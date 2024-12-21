@@ -74,7 +74,7 @@ export default function BoardPage() {
   }])
   return (
     <>
-      <div className="bg-black flex flex-col items-center">
+      <div className=" flex flex-col items-center">
         <div className=" pt-[4rem] text-center text-white p-parent">
           <p className="sm:text-[4rem] text-[1.95rem] uppercase">meet our</p>
           <p className="sm:text-[128px] text-[80px] uppercase font-normal">board</p>

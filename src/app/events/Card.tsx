@@ -21,6 +21,8 @@ const Card: React.FC<CardProps> = ({
   const [grayFilter, setGrayFilter] = useState(true);
   const [isLargeScreen, setIsLargeScreen] = useState(false); // Default to false
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const [theComp, setTheComp] = useState<JSX.Element[]>([]);
+  
 
   useEffect(() => {
     // Execute only on the client
@@ -35,6 +37,38 @@ const Card: React.FC<CardProps> = ({
       window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
+  useEffect(() => {
+    const backgroundImageCount = isLargeScreen ? 30 : 10;
+    const newAni = setInterval(() => {
+      setTheComp((prevComponents) => {
+        const updatedComponents = prevComponents.length >= 2 ? prevComponents.slice(1) : prevComponents;
+        console.log("Updated Components:", updatedComponents);
+        return[
+        ...updatedComponents,
+        <motion.div
+          key={Date.now()}
+          className="absolute inset-0 overflow-hidden w-[100vw]"
+          style={{ zIndex: -1 }}
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{ duration: 12, ease: "linear" }}
+        >
+          <div className="flex h-full">
+            {Array.from({ length: 3 }, (_, index) => (
+              <Image
+                key={index}
+                src={imageSrc}
+                alt={`Background SVG ${index}`}
+                width={1000}
+                height={1000}
+                className="mx-2 grayscale opacity-50"
+              />
+            ))}
+          </div>
+        </motion.div>,]
+    });
+    }, 6000);
+    return () => clearInterval(newAni);
+  }, [isLargeScreen, imageSrc, isVisible]);
 
   // Intersection Observer for visibility detection
   useEffect(() => {
@@ -65,25 +99,27 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`${grayFilter ? "grayscale" : ""} flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
+      className={`${
+        grayFilter ? "grayscale" : ""
+      } flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
       {isVisible && isLargeScreen && (
+      <>
         <motion.div
-          className="absolute inset-0 overflow-hidden"
+          className="absolute inset-0 overflow-hidden w-[100vw]"
           style={{ zIndex: -1 }}
           animate={{
             x: ["-100%", "100%"],
           }}
           transition={{
-            repeat: Infinity,
             duration: 12,
             ease: "linear",
           }}
         >
           <div className="flex h-full">
-            {Array.from({ length: backgroundImageCount }, (_, index) => (
+            {Array.from({ length: 3 }, (_, index) => (
               <Image
                 key={index}
                 src={imageSrc}
@@ -95,6 +131,8 @@ const Card: React.FC<CardProps> = ({
             ))}
           </div>
         </motion.div>
+        {theComp}
+       </>
       )}
 
       {/* Image Section */}

@@ -40,7 +40,7 @@ const Footer: React.FC = ({}) => {
         <p className="sm:text-left text-center sm:text-xl text-base mx-auto p-4">
           CODECHEF-VIT IS A NON-COMMERCIAL ORGANISATION WITH A GOAL TO PROVIDE A
           PLATFORM FOR PROGRAMMERS AND DEVELOPERS EVERYWHERE TO MEET, COMPETE &
-          HAVE FUN. AT CODECHEF-VIT, WE BELIEVE IN THE WORDS OF MATT MULLENWEG –
+          HAVE FUN. AT CODECHEF-VIT, WE BELIEVE IN THE WORDS OF MATT MULLENWEG -
           “TECHNOLOGY IS THE BEST WHEN IT BRINGS PEOPLE TOGETHER”.
         </p>
         <div className="sm:w-auto w-full grid item-center grid-row-3 sm:border-l-2 border-white grid-container sm:h-full">

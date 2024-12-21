@@ -19,35 +19,34 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [grayFilter, setGrayFilter] = useState(true);
+  const [isLargeScreen, setIsLargeScreen] = useState(false); // Default to false
   const cardRef = useRef<HTMLDivElement | null>(null);
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
+    // Execute only on the client
     const checkScreenSize = () => {
       setIsLargeScreen(window.innerWidth >= 1024);
-    }
-    checkScreenSize();
+    };
+
+    checkScreenSize(); // Check screen size on mount
     window.addEventListener("resize", checkScreenSize);
+
     return () => {
       window.removeEventListener("resize", checkScreenSize);
     };
-  }, []
-  )
+  }, []);
+
+  // Intersection Observer for visibility detection
   useEffect(() => {
     const preloadImage = new window.Image();
     preloadImage.src = imageSrc as string;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          setGrayFilter(false);
-        } else {
-          setIsVisible(false);
-          setGrayFilter(true);
-        }
+        setIsVisible(entry.isIntersecting);
+        setGrayFilter(!entry.isIntersecting);
       },
-      { threshold: 0.5 } // Adjust threshold for better visibility detection
+      { threshold: 0.3 } // Adjust threshold for better detection
     );
 
     if (cardRef.current) {
@@ -61,12 +60,14 @@ const Card: React.FC<CardProps> = ({
     };
   }, [imageSrc]);
 
+  const backgroundImageCount = isLargeScreen ? 30 : 10;
+
   return (
     <div
       ref={cardRef}
-      className={`${grayFilter ? "grayscale" : ""
-        } flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] ${reverse ? "lg:flex-row-reverse" : ""
-        }`}
+      className={`${grayFilter ? "grayscale" : ""} flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
+        reverse ? "lg:flex-row-reverse" : ""
+      }`}
     >
       {isVisible && isLargeScreen && (
         <motion.div
@@ -82,7 +83,7 @@ const Card: React.FC<CardProps> = ({
           }}
         >
           <div className="flex h-full">
-            {Array.from({ length: 1000 }, (_, index) => (
+            {Array.from({ length: backgroundImageCount }, (_, index) => (
               <Image
                 key={index}
                 src={imageSrc}
@@ -97,7 +98,7 @@ const Card: React.FC<CardProps> = ({
       )}
 
       {/* Image Section */}
-      <div className={`w-full lg:w-1/2 flex flex-col items-center justify-center mb-5 mt-5 md:mb-0`}>
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center md:mb-0">
         <div className={`${grayFilter ? "" : "border border-[#FF3B00]"}`}>
           <Image
             src={imageSrc}
@@ -110,11 +111,12 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       {/* Text Section */}
-      <div className="w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left mb-5 mt-5 md:mb-0">
+      <div className="w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left md:mb-0">
         <div className="text-white max-w-xs sm:max-w-sm lg:w-full flex lg:mx-0">
           <h1
-            className={`sm:text-base lg:text-[34.5px] text-left font-enigma ${grayFilter ? "text-white" : "text-[#FF3B00]"
-              }`}
+            className={`sm:text-base lg:text-[34.5px] text-left font-enigma ${
+              grayFilter ? "text-white" : "text-[#FF3B00]"
+            }`}
           >
             {title}
           </h1>

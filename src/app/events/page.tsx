@@ -149,7 +149,7 @@ const Component1 = () => {
       </div>
   
       {/* Content Section */}
-      <div className="flex flex-col gap-10 items-center justify-center font-Space_Grotesk text-center w-full mx-auto">
+      <div className="flex flex-col gap-6 items-center justify-center font-Space_Grotesk text-center w-full mx-auto">
         {cards.map((card, index) => (
           <Card
             key={index}

@@ -78,7 +78,7 @@ export default function Blog() {
   }
 
   return (
-    <div className="bg-black text-white px-6 py-10 mt-8">
+    <div className="bg-black text-white px-6  mt-8">
       <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-[128px] pt-5">
         BLOGS
       </h1>

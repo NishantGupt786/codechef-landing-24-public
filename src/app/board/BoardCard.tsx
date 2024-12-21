@@ -1,8 +1,7 @@
 'use client';
+import hooman from '@/assets/images/hooman.png';
 import Image from 'next/image';
 import { useState } from 'react';
-import hooman from '@/assets/images/hooman.png';
-import hooman2 from '@/assets/images/hooman2.png';
 import './style.css';
 // import nishant from "@/assets/images/nishant.png";
 
@@ -46,7 +45,7 @@ export default function BoardCard({ num, boardName, boardDesc, boardPos }: Board
       />
       {!isHovering ? <>
         <div className="flex flex-col items-center mt-[-20px] p-parent transition-all duration-300 ">
-          <p className="text-black text-[16px] name mx-5 text-center">{boardName}</p>
+          <p className="text-black text-[16px] name mx-5 text-center pt-1">{boardName}</p>
           <p className="text-black text-[10px] text-center mx-5 role">{boardPos}</p>
         </div></> :
         <div className='cursor-default absolute top-0  p-parent h-[70%] flex justify-center items-center mx-[40px] my-[50px]'><p className='text-white text-[14px] name t-r'>{boardDesc}</p></div>

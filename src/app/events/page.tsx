@@ -50,7 +50,7 @@ const Component1 = () => {
     []
   );
 
-  const svgHeight = 2250;
+  const svgHeight = 2200;
   const cardGap = svgHeight / (cards.length + 1);
   const svgPath = useMemo(() => {
     const path = [];
@@ -117,7 +117,7 @@ const Component1 = () => {
       {/* SVG Section */}
       <div className="relative hidden lg:block max-w-screen-xl mx-auto">
         <svg
-          className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2300px] z-0"
+          className="absolute left-1/2 transform -translate-x-1/2 w-full h-[2200px] z-0"
           viewBox={`0 0 800 ${svgHeight}`}
           preserveAspectRatio="xMidYMid meet"
         >

@@ -26,11 +26,17 @@ const HomeMain: React.FC = () => {
   }, []);
   return (
     <main>
-      <ClientComponent isLoading={isLoading}>
-        <Home />
-        <Ripple />
-       
-      </ClientComponent>
+<ClientComponent isLoading={isLoading}>
+  <div className="relative bg-white">
+    <div>
+      <Home />
+    </div>
+    <div className="absolute top-0 left-0 w-full h-full -z-10">
+      <Ripple />
+    </div>
+  </div>
+</ClientComponent>
+
     </main>
   );
 };

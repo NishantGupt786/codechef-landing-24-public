@@ -5,6 +5,7 @@ import Ripplest from '@/components/Ripplest';
 import Spinner from "@/components/ui/Spinner";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import RippleStatic from '@/components/Ripplest';
 
 interface Post {
   title: string;
@@ -80,8 +81,12 @@ export default function Blog() {
   }
 
   return (
-    <div className="bg-black text-white px-6  mt-8">
-      <Ripple></Ripple>
+    <div className="bg-transparent text-white px-6  mt-8">
+            <div className="absolute inset-0 z-[-1]">
+        <Ripple></Ripple>
+        <RippleStatic x={0} y={1} duration={15000} />
+        <RippleStatic x={1300} y={700} duration={15000} />
+      </div>
       
       <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-[128px] pt-5">
         BLOGS

@@ -6,73 +6,73 @@ import "./style.css";
 import RippleStatic from '@/components/Ripplest';
 
 export default function BoardPage() {
-  const [theBoards, setTheBoards] = useState([
-    {
-      boardPos: "Events Head",
-      boardName: "Aarushi Kumari",
-      boardDesc: "Aarushi is a dynamic leader specializing in orchestrating innovative events. Her exceptional planning and organizational skills ensure memorable experiences.",
-    },
-    {
-      boardPos: "Projects Head",
-      boardName: "Abhinav Ganeshan",
-      boardDesc: "Abhinav spearheads impactful projects with a focus on creativity and precision. His technical expertise drives the team to deliver exceptional results.",
-    },
-    {
-      boardPos: "Research Head",
-      boardName: "Vedant Matanhelia",
-      boardDesc: "Vedant is a research enthusiast with a keen eye for detail and innovation. He excels in driving forward-thinking initiatives and fostering intellectual growth.",
-    },
-    {
-      boardPos: "Media and Compi Head",
-      boardName: "Divyanshu Kumar",
-      boardDesc: "Divyanshu is a media expert ensuring impactful communication and outreach. He excels in leveraging platforms to amplify the team’s initiatives",
-    },
-    {
-      boardPos: "Chairperson",
-      boardName: "Karan Dugar",
-      boardDesc: "Karan leads with vision and strategy, fostering collaboration across all domains. His leadership ensures the team's seamless functioning and success.",
-    },
-    {
-      boardPos: "Secretary",
-      boardName: "Mrudul Mamtani",
-      boardDesc: "Mrudul is the backbone of the team, managing schedules and maintaining smooth operations. His meticulous approach ensures efficient coordination.",
-    },
-    {
-      boardPos: "Frontend Head",
-      boardName: "Nishant Gupta",
-      boardDesc: "Nishant excels in crafting intuitive and seamless user interfaces. His expertise in frontend technologies drives the team's digital presence.",
-    },
-    {
-      boardPos: "Vice Chair: Tech",
-      boardName: "Prateek Srivastava",
-      boardDesc: "Prateek is a tech innovator dedicated to driving technological advancements. His mentorship and expertise ensure robust and scalable solutions.",
-    },
-    {
-      boardPos: "UI/UX Head",
-      boardName: "Samyak Jain",
-      boardDesc: "Samyak focuses on user-centric designs, delivering aesthetic and functional experiences. His keen sense of design elevates the team's projects.",
-    },
-    {
-      boardPos: "Finance Head",
-      boardName: "Shourya Jain",
-      boardDesc: "Shourya ensures financial stability with strategic budget planning and resource management. His insights keep the team’s finances on track.",
-    },
-    {
-      boardPos: "Publicity and Outreach Head",
-      boardName: "Soham Chhajed",
-      boardDesc: "Soham is a networking pro with an ability to connect and engage effectively. He excels in amplifying the team's initiatives to reach a wider audience.",
-    },
-    {
-      boardPos: "Vice Chair: Management",
-      boardName: "Tanvi Jain",
-      boardDesc: "Tanvi drives operational excellence, ensuring seamless team coordination. Her strategic approach guarantees efficient project execution.",
-    },
-    {
-      boardPos: "Backend Head",
-      boardName: "Aman L",
-      boardDesc: "Aman is a backend wizard building scalable and secure systems. His expertise ensures the backbone of the team's technical projects is robust and efficient.",
-    },
-  ]);
+const [theBoards, setTheBoards] = useState([
+  {
+    boardPos: "Research Lead",
+    boardName: "Aaditya Mahanta",
+    boardDesc: "Aaditya is a detail-oriented thinker with a passion for innovation and uncovering insights to shape strategic decisions.",
+  },
+  {
+    boardPos: "Technical Lead - Events",
+    boardName: "Achintya Gupta",
+    boardDesc: "Achintya is a tech-savvy problem solver, ensuring every event is powered by cutting-edge solutions.",
+  },
+  {
+    boardPos: "General Secretary - External",
+    boardName: "Amlan Srivastava",
+    boardDesc: "Amlan is a charismatic communicator and bridge-builder, excelling at forging meaningful connections.",
+  },
+  {
+    boardPos: "Outreach and Media Lead",
+    boardName: "Anoushka Balamurugan",
+    boardDesc: "Anoushka is a creative storyteller with a knack for crafting impactful campaigns and engaging content.",
+  },
+  {
+    boardPos: "General Secretary - Internal",
+    boardName: "Aradhya Sehgal",
+    boardDesc: "Aradhya is a natural organizer with exceptional coordination skills, keeping operations smooth and efficient.",
+  },
+  {
+    boardPos: "Finance Lead",
+    boardName: "Leora Kumar",
+    boardDesc: "Leora is a meticulous planner with a sharp eye for numbers, ensuring financial stability and transparency.",
+  },
+  {
+    boardPos: "Vice Chairperson",
+    boardName: "Satyam Ashutosh Rai",
+    boardDesc: "Satyam is a dynamic leader with strategic foresight, committed to driving the organization forward.",
+  },
+  {
+    boardPos: "Chairperson",
+    boardName: "Shivam Gutgutia",
+    boardDesc: "Shivam is a visionary leader with unparalleled dedication to steering the team toward success.",
+  },
+  {
+    boardPos: "Web Lead",
+    boardName: "Shivam Sharma",
+    boardDesc: "Shivam excels in building robust and user-friendly digital platforms, enhancing the team's online presence.",
+  },
+  {
+    boardPos: "Technical Lead - Projects",
+    boardName: "Souvik Mukherjee",
+    boardDesc: "Souvik is an innovative technologist with a passion for executing impactful technical projects.",
+  },
+  {
+    boardPos: "Publicity Lead",
+    boardName: "Tarran Siddharth",
+    boardDesc: "Tarran is a persuasive communicator skilled at crafting and delivering compelling messages.",
+  },
+  {
+    boardPos: "Design Lead",
+    boardName: "Vaibhav Pathak",
+    boardDesc: "Vaibhav is a creative visionary with a flair for aesthetics, translating ideas into stunning visuals.",
+  },
+  {
+    boardPos: "Creative Lead",
+    boardName: "Vashishtha Kothamasu",
+    boardDesc: "Vashishtha is a trailblazer in ideation, bringing fresh perspectives and imaginative solutions to the table.",
+  },
+]);
 
   return (
     <>

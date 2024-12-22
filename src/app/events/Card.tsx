@@ -8,6 +8,9 @@ interface CardProps {
   imageSrc: string | StaticImageData;
   imageAlt: string;
   reverse?: boolean;
+  ballY: number;
+  cardNum: number;
+  ballKaHeight: number;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -16,13 +19,17 @@ const Card: React.FC<CardProps> = ({
   imageSrc,
   imageAlt,
   reverse = false,
+  ballY,
+  cardNum,
+  ballKaHeight
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [grayFilter, setGrayFilter] = useState(true);
   const [isLargeScreen, setIsLargeScreen] = useState(false); // Default to false
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [theComp, setTheComp] = useState<JSX.Element[]>([]);
-  
+
+  const [isBallBehind, setIsBallBehind] = useState(false);
 
   useEffect(() => {
     // Execute only on the client
@@ -38,61 +45,83 @@ const Card: React.FC<CardProps> = ({
     };
   }, []);
   useEffect(() => {
+    const checkIfBallIsBehind = () => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        console.log(cardNum + " wala " + rect.top);
+        const isBehind = ballY + ballKaHeight - 60> rect.y &&   ballY <rect.y + rect.height;
+        console.log(cardNum + "se " + isBehind);
+        if(isBehind){
+          setGrayFilter(false);
+          setIsVisible(true);
+        }else{
+          setGrayFilter(true)
+          setIsVisible(false)
+        }
+        setIsBallBehind(isBallBehind);
+      }
+    };
+
+    checkIfBallIsBehind();
+    console.log(ballY);
+  }, [ballY]);
+  useEffect(() => {
     const backgroundImageCount = isLargeScreen ? 30 : 10;
     const newAni = setInterval(() => {
       setTheComp((prevComponents) => {
-        const updatedComponents = prevComponents.length >= 2 ? prevComponents.slice(1) : prevComponents;
-        console.log("Updated Components:", updatedComponents);
-        return[
-        ...updatedComponents,
-        <motion.div
-          key={Date.now()}
-          className="absolute inset-0 overflow-hidden w-[100vw]"
-          style={{ zIndex: -1 }}
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{ duration: 12, ease: "linear" }}
-        >
-          <div className="flex h-full">
-            {Array.from({ length: 3 }, (_, index) => (
-              <Image
-                key={index}
-                src={imageSrc}
-                alt={`Background SVG ${index}`}
-                width={1000}
-                height={1000}
-                className="mx-2 grayscale opacity-50"
-              />
-            ))}
-          </div>
-        </motion.div>,]
-    });
+        const updatedComponents =
+          prevComponents.length >= 2 ? prevComponents.slice(1) : prevComponents;
+        return [
+          ...updatedComponents,
+          <motion.div
+            key={Date.now()}
+            className="absolute inset-0 overflow-hidden w-[100vw]"
+            style={{ zIndex: -1 }}
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ duration: 12, ease: "linear" }}
+          >
+            <div className="flex h-full">
+              {Array.from({ length: 3 }, (_, index) => (
+                <Image
+                  key={index}
+                  src={imageSrc}
+                  alt={`Background SVG ${index}`}
+                  width={1000}
+                  height={1000}
+                  className="mx-2 grayscale opacity-50"
+                />
+              ))}
+            </div>
+          </motion.div>,
+        ];
+      });
     }, 6000);
     return () => clearInterval(newAni);
   }, [isLargeScreen, imageSrc, isVisible]);
 
-  // Intersection Observer for visibility detection
-  useEffect(() => {
-    const preloadImage = new window.Image();
-    preloadImage.src = imageSrc as string;
+  // // Intersection Observer for visibility detection
+  // useEffect(() => {
+  //   const preloadImage = new window.Image();
+  //   preloadImage.src = imageSrc as string;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-        setGrayFilter(!entry.isIntersecting);
-      },
-      { threshold: 0.3 } // Adjust threshold for better detection
-    );
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setIsVisible(entry.isIntersecting);
+  //       setGrayFilter(!entry.isIntersecting);
+  //     },
+  //     { threshold: 0.3 } // Adjust threshold for better detection
+  //   );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
+  //   if (cardRef.current) {
+  //     observer.observe(cardRef.current);
+  //   }
 
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, [imageSrc]);
+  //   return () => {
+  //     if (cardRef.current) {
+  //       observer.unobserve(cardRef.current);
+  //     }
+  //   };
+  // }, [imageSrc]);
 
   const backgroundImageCount = isLargeScreen ? 30 : 10;
 
@@ -106,33 +135,33 @@ const Card: React.FC<CardProps> = ({
       }`}
     >
       {isVisible && isLargeScreen && (
-      <>
-        <motion.div
-          className="absolute inset-0 overflow-hidden w-[100vw]"
-          style={{ zIndex: -1 }}
-          animate={{
-            x: ["-100%", "100%"],
-          }}
-          transition={{
-            duration: 12,
-            ease: "linear",
-          }}
-        >
-          <div className="flex h-full">
-            {Array.from({ length: 3 }, (_, index) => (
-              <Image
-                key={index}
-                src={imageSrc}
-                alt={`Background SVG ${index}`}
-                width={1000}
-                height={1000}
-                className="mx-2 grayscale opacity-50"
-              />
-            ))}
-          </div>
-        </motion.div>
-        {theComp}
-       </>
+        <>
+          <motion.div
+            className="absolute inset-0 overflow-hidden w-[100vw]"
+            style={{ zIndex: -1 }}
+            animate={{
+              x: ["-100%", "100%"],
+            }}
+            transition={{
+              duration: 12,
+              ease: "linear",
+            }}
+          >
+            <div className="flex h-full">
+              {Array.from({ length: 3 }, (_, index) => (
+                <Image
+                  key={index}
+                  src={imageSrc}
+                  alt={`Background SVG ${index}`}
+                  width={1000}
+                  height={1000}
+                  className="mx-2 grayscale opacity-50"
+                />
+              ))}
+            </div>
+          </motion.div>
+          {theComp}
+        </>
       )}
 
       {/* Image Section */}

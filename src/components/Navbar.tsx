@@ -1,6 +1,5 @@
-import React from "react";
-import Image from "next/image";
 import { nav } from "@/lib/navicons";
+import Image from "next/image";
 interface NavItemsProps {
   name: string;
   route: string;
@@ -45,7 +44,7 @@ const Navbar = () => {
             <NavItems route="blog" name="Blogs" idName="blog" />
             <NavItems route="projects" name="Projects" idName="projects" />
             <NavItems route="" name="Home" idName="home" />
-            <NavItems route="events" name="Event" idName="events" />
+            <NavItems route="events" name="Events" idName="events" />
             <NavItems route="board" name="Board" idName="people" />
           </ul>
         </div>

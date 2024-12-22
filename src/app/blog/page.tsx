@@ -68,7 +68,7 @@ export default function Blog() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-black">
-        <Spinner />
+        <Spinner color="#FF3B00" />
       </div>
     );
   }

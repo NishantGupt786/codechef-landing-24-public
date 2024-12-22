@@ -6,10 +6,16 @@ const Navbar = () => {
   return (
     <div className="container">
       <div className="component">
-        <button className="cn-button" id="cn-button">
-          +
+      <button className="cn-button" id="cn-button">
+          <Image
+            src={nav.main}
+            alt="menu icon"
+            width={24}
+            height={24}
+            className="menu-icon"
+            priority={true}
+          />
         </button>
-        {/* Add the custom icon for the button too later */}
         <div className="cn-wrapper" id="cn-wrapper">
           <ul>
             <li>

@@ -1,4 +1,4 @@
-(function () {
+(function() {
   var firstTime = sessionStorage.getItem("firstTime");
 
   if (firstTime == null || firstTime == "true") {
@@ -42,7 +42,7 @@
       function handler(e) {
         if (!e) var e = window.event;
         e.stopPropagation();
-
+        
         if (!open) {
           openNav();
         } else {
@@ -52,7 +52,7 @@
 
       function openNav() {
         open = true;
-        button.innerHTML = "-";
+        button.querySelector('.menu-icon').classList.add('rotate');
         classie.add(overlay, "on-overlay");
         classie.add(wrapper, "opened-nav");
         console.log("Clicked!");
@@ -60,7 +60,7 @@
 
       function closeNav() {
         open = false;
-        button.innerHTML = "+";
+        button.querySelector('.menu-icon').classList.remove('rotate');
         classie.remove(overlay, "on-overlay");
         classie.remove(wrapper, "opened-nav");
         console.log("Closed!");

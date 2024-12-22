@@ -2,7 +2,7 @@ import PixelImage from "./PixelImage";
 
 const CodeChefHeader = () => {
   return (
-    <div className="bg-white min-h-screen flex justify-center items-center p-4">
+    <div className="bg-transparent min-h-screen flex justify-center items-center p-4">
       
       
       {/* Outer Container */}

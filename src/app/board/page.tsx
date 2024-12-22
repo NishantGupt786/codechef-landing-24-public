@@ -3,6 +3,7 @@ import Ripple from '@/components/Ripple';
 import { useState } from 'react';
 import BoardCard from './BoardCard';
 import "./style.css";
+import RippleStatic from '@/components/Ripplest';
 
 export default function BoardPage() {
   const [theBoards, setTheBoards] = useState([
@@ -76,6 +77,11 @@ export default function BoardPage() {
   return (
     <>
       <div className="flex flex-col items-center">
+      <div className="absolute inset-0 z-[-1]">
+        <Ripple></Ripple>
+        <RippleStatic x={0} y={1} duration={15000} />
+        <RippleStatic x={1300} y={700} duration={15000} />
+      </div>
         <div className="pt-10 text-center text-white p-parent">
           <p className="sm:text-[4rem] text-[50px] uppercase ">meet our</p>
           <p className="sm:text-[128px] text-[70px] uppercase font-normal">board</p>
@@ -99,7 +105,7 @@ export default function BoardPage() {
           })}
         </div>
       </div>
-      <Ripple />
+      
     </>
   );
 }

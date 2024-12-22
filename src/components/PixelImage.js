@@ -1,173 +1,149 @@
 "use client";
-import { useEffect, useRef } from "react";
+
+import { useRef, useState, useMemo } from "react";
+import { Canvas, useFrame, useLoader, useThree, extend } from "@react-three/fiber";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
 import * as THREE from "three";
+import { shaderMaterial } from "@react-three/drei";
 
-const PixelImage = () => {
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
+const vertexShader = `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
 
-  useEffect(() => {
-    const imageElement = imageRef.current;
-    const containerElement = containerRef.current;
+const fragmentShader = `
+  varying vec2 vUv;
+  uniform sampler2D u_texture;
+  uniform vec2 u_mouse;
+  uniform vec2 u_prevMouse;
+  uniform float u_aberrationIntensity;
 
-    if (!imageElement || !containerElement) return;
+  void main() {
+    // Grid to create that pixel-like effect
+    vec2 gridUV = floor(vUv * vec2(20.0, 20.0)) / vec2(20.0, 20.0);
+    vec2 centerOfPixel = gridUV + vec2(1.0/20.0, 1.0/20.0);
 
-    let easeFactor = 0.02;
-    let scene, camera, renderer, planeMesh;
-    let mousePosition = { x: 0.5, y: 0.5 };
-    let targetMousePosition = { x: 0.5, y: 0.5 };
-    let prevPosition = { x: 0.5, y: 0.5 };
-    let aberrationIntensity = 0.0;
+    // Mouse direction
+    vec2 mouseDirection = u_mouse - u_prevMouse;
 
-    const vertexShader = `
-      varying vec2 vUv;
-      void main() {
-        vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-    `;
+    // Distance from the pixel center to mouse position
+    vec2 pixelToMouseDirection = centerOfPixel - u_mouse;
+    float pixelDistanceToMouse = length(pixelToMouseDirection);
+    float strength = smoothstep(0.3, 0.0, pixelDistanceToMouse);
 
-    const fragmentShader = `
-      varying vec2 vUv;
-      uniform sampler2D u_texture;    
-      uniform vec2 u_mouse;
-      uniform vec2 u_prevMouse;
-      uniform float u_aberrationIntensity;
+    // Offset the UV by the strength and mouse direction
+    vec2 uvOffset = strength * -mouseDirection * 0.2;
+    vec2 uv = vUv - uvOffset;
 
-      void main() {
-        vec2 gridUV = floor(vUv * vec2(20.0, 20.0)) / vec2(20.0, 20.0);
-        vec2 centerOfPixel = gridUV + vec2(1.0/20.0, 1.0/20.0);
-        
-        vec2 mouseDirection = u_mouse - u_prevMouse;
-        
-        vec2 pixelToMouseDirection = centerOfPixel - u_mouse;
-        float pixelDistanceToMouse = length(pixelToMouseDirection);
-        float strength = smoothstep(0.3, 0.0, pixelDistanceToMouse);
- 
-        vec2 uvOffset = strength * - mouseDirection * 0.2;
-        vec2 uv = vUv - uvOffset;
+    // Chromatic aberration: sample R, G, B with slight offsets
+    vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.01, 0.0));
+    vec4 colorG = texture2D(u_texture, uv);
+    vec4 colorB = texture2D(u_texture, uv - vec2(strength * u_aberrationIntensity * 0.01, 0.0));
 
-        vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.01, 0.0));
-        vec4 colorG = texture2D(u_texture, uv);
-        vec4 colorB = texture2D(u_texture, uv - vec2(strength * u_aberrationIntensity * 0.01, 0.0));
+    gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, 1.0);
+  }
+`;
 
-        gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, 1.0);
-      }
-    `;
 
-    function initializeScene(texture) {
-      scene = new THREE.Scene();
+const PixelShaderMaterial = shaderMaterial(
+  {
+    u_texture: null,
+    u_mouse: new THREE.Vector2(0.5, 0.5),
+    u_prevMouse: new THREE.Vector2(0.5, 0.5),
+    u_aberrationIntensity: 0.0,
+  },
+  vertexShader,
+  fragmentShader
+);
 
-      camera = new THREE.PerspectiveCamera(
-        80,
-        containerElement.offsetWidth / containerElement.offsetHeight,
-        0.01,
-        10,
-      );
-      camera.position.z = 1;
+extend({ PixelShaderMaterial });
 
-      const shaderUniforms = {
-        u_mouse: { type: "v2", value: new THREE.Vector2() },
-        u_prevMouse: { type: "v2", value: new THREE.Vector2() },
-        u_aberrationIntensity: { type: "f", value: 0.0 },
-        u_texture: { type: "t", value: texture },
-      };
+function PixelPlane({ textureUrl }) {
+  const meshRef = useRef();
+  const materialRef = useRef();
 
-      planeMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(4.8, 3.7),
-        new THREE.ShaderMaterial({
-          uniforms: shaderUniforms,
-          vertexShader,
-          fragmentShader,
-        }),
-      );
+  const texture = useLoader(TextureLoader, textureUrl);
 
-      scene.add(planeMesh);
 
-      renderer = new THREE.WebGLRenderer();
-      renderer.setSize(
-        containerElement.offsetWidth,
-        containerElement.offsetHeight,
-      );
-      containerElement.appendChild(renderer.domElement);
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
+  const [targetMousePosition, setTargetMousePosition] = useState({ x: 0.5, y: 0.5 });
+  const [prevPosition, setPrevPosition] = useState({ x: 0.5, y: 0.5 });
+  const [easeFactor, setEaseFactor] = useState(0.02);
+  const [aberration, setAberration] = useState(0);
+
+
+  const { viewport } = useThree();
+
+
+  const geometry = useMemo(() => {
+    return new THREE.PlaneGeometry(viewport.width, viewport.height);
+  }, [viewport.width, viewport.height]);
+
+
+  useFrame(() => {
+
+    const newX = mousePosition.x + (targetMousePosition.x - mousePosition.x) * easeFactor;
+    const newY = mousePosition.y + (targetMousePosition.y - mousePosition.y) * easeFactor;
+    setMousePosition({ x: newX, y: newY });
+
+    if (materialRef.current) {
+      materialRef.current.u_mouse.set(newX,newY);
+      materialRef.current.u_prevMouse.set(prevPosition.x,  prevPosition.y);
+      materialRef.current.u_aberrationIntensity = Math.max(0, aberration - 0.05);
+
+      setAberration((prev) => Math.max(0, prev - 0.05));
     }
+  });
 
-    const textureLoader = new THREE.TextureLoader();
-    textureLoader.load(imageElement.src, (texture) => {
-      initializeScene(texture);
-      animateScene();
-    });
+  const handlePointerMove = (event) => {
+    setEaseFactor(0.02);
+    setPrevPosition({ x: targetMousePosition.x, y: targetMousePosition.y });
+    setTargetMousePosition({ x: event.uv.x, y: event.uv.y });
+    setAberration(1);
+  };
 
-    function animateScene() {
-      requestAnimationFrame(animateScene);
+  const handlePointerEnter = (event) => {
+    setEaseFactor(0.02);
+    setMousePosition({ x: event.uv.x, y: event.uv.y });
+    setTargetMousePosition({ x: event.uv.x, y: event.uv.y });
+  };
 
-      mousePosition.x += (targetMousePosition.x - mousePosition.x) * easeFactor;
-      mousePosition.y += (targetMousePosition.y - mousePosition.y) * easeFactor;
-
-      planeMesh.material.uniforms.u_mouse.value.set(
-        mousePosition.x,
-        1.0 - mousePosition.y,
-      );
-
-      planeMesh.material.uniforms.u_prevMouse.value.set(
-        prevPosition.x,
-        1.0 - prevPosition.y,
-      );
-
-      aberrationIntensity = Math.max(0.0, aberrationIntensity - 0.05);
-
-      planeMesh.material.uniforms.u_aberrationIntensity.value =
-        aberrationIntensity;
-
-      renderer.render(scene, camera);
-    }
-
-    function handleMouseMove(event) {
-      easeFactor = 0.02;
-      const rect = containerElement.getBoundingClientRect();
-      prevPosition = { ...targetMousePosition };
-
-      targetMousePosition.x = (event.clientX - rect.left) / rect.width;
-      targetMousePosition.y = (event.clientY - rect.top) / rect.height;
-
-      aberrationIntensity = 1;
-    }
-
-    function handleMouseEnter(event) {
-      easeFactor = 0.02;
-      const rect = containerElement.getBoundingClientRect();
-
-      mousePosition.x = targetMousePosition.x =
-        (event.clientX - rect.left) / rect.width;
-      mousePosition.y = targetMousePosition.y =
-        (event.clientY - rect.top) / rect.height;
-    }
-
-    function handleMouseLeave() {
-      easeFactor = 0.05;
-      targetMousePosition = { ...prevPosition };
-    }
-
-    containerElement.addEventListener("mousemove", handleMouseMove);
-    containerElement.addEventListener("mouseenter", handleMouseEnter);
-    containerElement.addEventListener("mouseleave", handleMouseLeave);
-  }, []);
+  const handlePointerLeave = () => {
+    setEaseFactor(0.05);
+    setTargetMousePosition({ x: prevPosition.x, y: prevPosition.y });
+  };
 
   return (
-    <div
-      id="imageContainer"
-      ref={containerRef}
-      className="filter-saturate-0 hover:filter-saturate-100 background-repeat:no-repeat"
+    <mesh
+      ref={meshRef}
+      geometry={geometry}
+      onPointerMove={handlePointerMove}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
     >
-      <img
-        id="myImage"
-        ref={imageRef}
-        src="/assets/images/blog16.webp"
-        alt="Palm Tree"
-        className="absolute h-full w-full sm:object-contain "
+      <pixelShaderMaterial
+        ref={materialRef}
+        u_texture={texture}
+        transparent={false}
       />
+    </mesh>
+  );
+}
+
+export default function PixelImage() {
+  return (
+   
+    <div className="relative w-full h-full ">
+      <Canvas
+   
+        camera={{ fov: 80, near: 0.01, far: 100, position: [0, 0, 5] }}
+        className="w-full h-full transition-all duration-500 ease-in-out grayscale-0 hover:grayscale"
+      >
+        <PixelPlane textureUrl="/assets/images/France.jpg" />
+      </Canvas>
     </div>
   );
-};
-
-export default PixelImage;
+}

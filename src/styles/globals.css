@@ -284,14 +284,16 @@ html {
   height: 20px;
   background-color: white;
   border-radius: 50%;
+  
 }
 
 .ripple-container {
   position: absolute;
   width: 0px;
   height: 0px;
-  animation: ripple 25s ease-out forwards;
+  animation: ripple 15s ease-out forwards;
   transform-origin: center;
+  overflow: visible;
 }
 
 .ripple-border {
@@ -308,10 +310,40 @@ html {
 @keyframes ripple {
   0% {
     transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.ripplest-container {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  animation: ripplest 20s ease-out forwards;
+  transform-origin: center;
+}
+
+.ripplest-border {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid #9e0404;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes ripplest {
+  0% {
+    transform: scale(0);
     opacity: 0.7;
   }
   100% {
-    transform: scale(5);
+    transform: scale(3);
     opacity: 0;
   }
 }

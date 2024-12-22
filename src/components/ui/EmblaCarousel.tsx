@@ -40,7 +40,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className="embla bg-[#010101] overflow-x-hidden">
+    <section className="embla bg-transparent overflow-x-hidden ">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (

@@ -15,10 +15,10 @@ const Navbar = () => {
             <li>
               <a href="/blog">
                 <Image 
-                  src={nav.grid} 
-                  alt="grid icon" 
-                  width={31} 
-                  height={31} 
+                  src={nav.blogs} 
+                  alt="blogs icon" 
+                  width={24} 
+                  height={24} 
                   priority={true}
                 />
               </a>
@@ -26,36 +26,32 @@ const Navbar = () => {
             <li>
               <a href="/projects">
                 <Image 
-                  src={nav.message} 
-                  alt="message icon" 
-                  width={31} 
-                  height={31} 
+                  src={nav.projects} 
+                  alt="projects icon" 
+                  width={24} 
+                  height={24} 
                   priority={true}
                 />
               </a>
             </li>
             <li>
               <a href="/">
-              {/* Change this to / later */}
-              {/* okii */}
                 <Image 
                   src={nav.home} 
                   alt="home icon" 
-                  width={31} 
-                  height={31} 
+                  width={24} 
+                  height={24} 
                   priority={true}
                 />
               </a>
             </li>
             <li>
               <a href="/events">    
-              {/* Change this route to /events later */}
-              {/* aye aye  */}
                 <Image 
-                  src={nav.list} 
-                  alt="list icon" 
-                  width={31} 
-                  height={31} 
+                  src={nav.events} 
+                  alt="events icon" 
+                  width={24} 
+                  height={24} 
                   priority={true}
                 />
               </a>
@@ -63,10 +59,10 @@ const Navbar = () => {
             <li>
               <a href="/board">
                 <Image 
-                  src={nav.user} 
-                  alt="user icon" 
-                  width={31} 
-                  height={31} 
+                  src={nav.people} 
+                  alt="people icon" 
+                  width={24} 
+                  height={24} 
                   priority={true}
                 />
               </a>

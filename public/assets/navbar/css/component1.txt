@@ -23,9 +23,9 @@
   -moz-transform: scale(0.1);
   transform: scale(0.1);
   pointer-events: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .csstransforms .opened-nav {
@@ -48,9 +48,9 @@
   right: 0;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 2;
 }
 
@@ -101,9 +101,9 @@
   margin-top: -1.3em;
   margin-left: -10em;
   margin-bottom: 1.5em;
-  -webkit-transition: border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .csstransforms .cn-wrapper li a {
@@ -123,9 +123,9 @@
   -ms-transform: skew(-50deg) rotate(-70deg) scale(1);
   -moz-transform: skew(-50deg) rotate(-70deg) scale(1);
   transform: skew(-50deg) rotate(-70deg) scale(1);
-  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: opacity 0.3s, color 0.3s;
+  -moz-transition: opacity 0.3s, color 0.3s;
+  transition: opacity 0.3s, color 0.3s;
   border: 1px solid #FFF;
 }
 
@@ -204,6 +204,7 @@
   background-color: #FF3B00;
   scale: 1.15;
 }
+
 
 @media screen and (max-width: 480px) {
   .csstransforms .cn-wrapper {

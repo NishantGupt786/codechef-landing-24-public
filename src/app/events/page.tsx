@@ -4,12 +4,12 @@ import headImage from "@/assets/images/image.png";
 import devsoc from "@/assets/images/people.png";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const Component1 = () => {
   const { scrollYProgress } = useScroll();
   const pathRef = useRef<SVGPathElement | null>(null);
-
+  const [ballY, setBallY] = useState<number>(0);
   const progressX = useMotionValue(0);
   const progressY = useMotionValue(0);
   const strokeDashoffset = useMotionValue(1);
@@ -74,6 +74,7 @@ const Component1 = () => {
   }, [cards.length, cardGap]);
 
   useEffect(() => {
+    
     if (pathRef.current) {
       const pathElement = pathRef.current;
       const totalPathLength = pathElement.getTotalLength();
@@ -81,8 +82,11 @@ const Component1 = () => {
       const updateCirclePosition = (scrollPercent: number) => {
         const progress = scrollPercent * totalPathLength;
         const point = pathElement.getPointAtLength(progress);
+        const svgTopOffset = pathElement.getBoundingClientRect().top;
+        const screenRelativeY = point.y + svgTopOffset;
         progressX.set(point.x);
         progressY.set(point.y);
+        setBallY(screenRelativeY);
         strokeDashoffset.set(1 - scrollPercent);
       };
 
@@ -152,7 +156,10 @@ const Component1 = () => {
       <div className="flex flex-col gap-6 items-center justify-center font-Space_Grotesk text-center w-full mx-auto">
         {cards.map((card, index) => (
           <Card
+            ballY={ballY }
+            ballKaHeight = {circleRadius*2}
             key={index}
+            cardNum={index}
             title={card.title}
             description={card.description}
             imageSrc={card.imageSrc}

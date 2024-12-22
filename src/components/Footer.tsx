@@ -23,7 +23,7 @@ const Footer: React.FC = ({}) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // <- Closing the useEffect block here
+  }, []); 
 
   return (
     <footer className={`bg-black text-white  ${1}`}>
@@ -168,9 +168,9 @@ const SocialIcon = ({
       rel="noopener noreferrer"
       className="relative flex items-center justify-center w-12 h-12 group"
     >
-      {/* Shadow Circle */}
+      
       <div className="absolute w-12 h-12  bg-gray-500 rounded-full -bottom-0.5 -right-0.5"></div>
-      {/* Main Circle */}
+      
       <div className="relative flex items-center justify-center  w-12 h-12 bg-white rounded-full hover:bg-[#FF3B00] transition transform hover:scale-110">
         <Image
           src={icon}

@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 const Component1 = () => {
   const { scrollYProgress } = useScroll();
+  const [render, setRender] = useState(false);
   const pathRef = useRef<SVGPathElement | null>(null);
   const [ballY, setBallY] = useState<number>(0);
   const progressX = useMotionValue(0);
@@ -31,7 +32,6 @@ const Component1 = () => {
         description:
           "CookOff 9.0, hosted by CodeChef-VIT, is a competitive coding contest that challenges participants to solve intriguing problems. It promotes logical thinking, algorithmic skills, and fast-paced coding. With exciting rewards and tough competition, it's a must-attend event for coders.",
         imageSrc: "/cookoff.png",
-        
       },
       {
         title: "Clueminati 2.0",
@@ -74,7 +74,6 @@ const Component1 = () => {
   }, [cards.length, cardGap]);
 
   useEffect(() => {
-    
     if (pathRef.current) {
       const pathElement = pathRef.current;
       const totalPathLength = pathElement.getTotalLength();
@@ -99,6 +98,10 @@ const Component1 = () => {
     }
   }, [scrollYProgress, progressX, progressY, strokeDashoffset]);
 
+  useEffect(() => {
+      setRender(true);
+  }, []);
+
   return (
     <div className="bg-black min-h-screen w-screen">
       {/* Header Section */}
@@ -117,7 +120,7 @@ const Component1 = () => {
           </h1>
         </div>
       </div>
-  
+
       {/* SVG Section */}
       <div className="relative hidden lg:block max-w-screen-xl mx-auto">
         <svg
@@ -139,25 +142,27 @@ const Component1 = () => {
               <stop offset="100%" stopColor="red" />
             </linearGradient>
           </defs>
-          <motion.circle
-            cx={progressX}
-            cy={progressY}
-            r={circleRadius}
-            fill="#FF3B00"
-            style={{
-              x: -circleOffset,
-              y: -circleOffset,
-            }}
-          />
+          {render && (
+            <motion.circle
+              cx={progressX}
+              cy={progressY}
+              r={circleRadius}
+              fill="#FF3B00"
+              style={{
+                x: -circleOffset,
+                y: -circleOffset,
+              }}
+            />
+          )}
         </svg>
       </div>
-  
+
       {/* Content Section */}
       <div className="flex flex-col gap-4 items-center justify-center font-Space_Grotesk text-center w-full mx-auto">
         {cards.map((card, index) => (
           <Card
-            ballY={ballY }
-            ballKaHeight = {circleRadius*2}
+            ballY={ballY}
+            ballKaHeight={circleRadius * 2}
             key={index}
             cardNum={index}
             title={card.title}
@@ -170,7 +175,6 @@ const Component1 = () => {
       </div>
     </div>
   );
-  
 };
 
 export default Component1;

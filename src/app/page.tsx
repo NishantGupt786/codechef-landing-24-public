@@ -1,9 +1,8 @@
 "use client";
 import ClientComponent from "@/components/ClientComponent";
+import CodeChefHeader from "@/components/HomePage";
 import Ripple from "@/components/Ripple";
 import { useEffect, useState } from "react";
-import Home from "./home/page";
-import Ripplest from "@/components/Ripplest";
 const HomeMain: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
@@ -29,7 +28,7 @@ const HomeMain: React.FC = () => {
 <ClientComponent isLoading={isLoading}>
   <div className="relative bg-white">
     <div>
-      <Home />
+      <CodeChefHeader />
     </div>
     <div className="absolute top-0 left-0 w-full h-full -z-10">
       <Ripple />

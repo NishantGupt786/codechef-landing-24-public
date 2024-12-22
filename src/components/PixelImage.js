@@ -134,16 +134,28 @@ function PixelPlane({ textureUrl }) {
 }
 
 export default function PixelImage() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-   
-    <div className="relative w-full h-full ">
-      <Canvas
-   
-        camera={{ fov: 80, near: 0.01, far: 100, position: [0, 0, 5] }}
-        className="w-full h-full transition-all duration-500 ease-in-out grayscale-0 hover:grayscale"
+    <div className="relative w-full h-full">
+     
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`w-full h-full transition-all ease-out duration-300 ${
+          isHovered ? "grayscale-0" : "grayscale"
+        }`}
       >
-        <PixelPlane textureUrl="/assets/images/France.jpg" />
-      </Canvas>
+        <Canvas
+          camera={{ fov: 80, near: 0.01, far: 100, position: [0, 0, 5] }}
+          className="w-full h-full"
+        >
+          <PixelPlane
+            textureUrl="/assets/images/France.jpg"
+
+          />
+        </Canvas>
+      </div>
     </div>
   );
 }

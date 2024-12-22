@@ -1,16 +1,30 @@
 (function () {
   var firstTime = sessionStorage.getItem("firstTime");
+
   if (firstTime == null || firstTime == "true") {
     const timer = setTimeout(() => {
       main();
       console.log("timer is running ");
-
       sessionStorage.setItem("firstTime", "false");
     }, 15000);
     return () => clearTimeout(timer);
   } else {
+    hideNavbarForOneSecond();
     main();
   }
+
+  function hideNavbarForOneSecond() {
+    const navbar = document.getElementById("cn-wrapper"); // Assuming this is the navbar element
+    if (navbar) {
+      navbar.style.display = "none"; // Hide the navbar
+      setTimeout(() => {
+        navbar.style.display = ""; // Show the navbar after 1 second
+      }, 1000);
+    } else {
+      console.warn("Navbar (cn-wrapper) not found.");
+    }
+  }
+
   function main() {
     var button = document.getElementById("cn-button");
     var wrapper = document.getElementById("cn-wrapper");

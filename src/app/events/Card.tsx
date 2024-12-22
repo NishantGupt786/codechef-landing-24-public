@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({
   reverse = false,
   ballY,
   cardNum,
-  ballKaHeight
+  ballKaHeight,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [grayFilter, setGrayFilter] = useState(true);
@@ -64,7 +64,7 @@ const Card: React.FC<CardProps> = ({
       }`}
     >
       {isVisible && isLargeScreen && (
-        <div className="absolute  overflow-hidden w-[100vw] h-full z-[-1] flex duration-300">
+        <div className="absolute overflow-hidden w-[100vw] h-full z-[-1] flex duration-100">
           {Array.from({ length: 15 }, (_, index) => (
             <Image
               key={index}
@@ -72,7 +72,12 @@ const Card: React.FC<CardProps> = ({
               alt={`Background SVG ${index}`}
               width={1000}
               height={1000}
-              className="mx-2 opacity-20 grayscale "
+              className={`mx-2 grayscale ${
+                isVisible
+                  ? "opacity-0 animate-fade-in"
+                  : "opacity-20 animate-fade-out"
+              }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             />
           ))}
         </div>

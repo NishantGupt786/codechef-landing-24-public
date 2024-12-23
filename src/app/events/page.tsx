@@ -77,9 +77,28 @@ const Component1 = () => {
     if (pathRef.current) {
       const pathElement = pathRef.current;
       const totalPathLength = pathElement.getTotalLength();
+      const startThreshold = 0.1;
+      const initialPoint = pathElement.getPointAtLength(0);
+      const svgTopOffset = pathElement.getBoundingClientRect().top;
+      const initialScreenY = initialPoint.y + svgTopOffset;
+          
+      progressX.set(initialPoint.x);
+      progressY.set(initialPoint.y);
+      setBallY(initialScreenY);
+      strokeDashoffset.set(1);
 
       const updateCirclePosition = (scrollPercent: number) => {
-        const progress = scrollPercent * totalPathLength;
+        if (scrollPercent < startThreshold){
+          const initialPoint = pathElement.getPointAtLength(0);
+          const svgTopOffset = pathElement.getBoundingClientRect().top;
+          const initialScreenY = initialPoint.y + svgTopOffset;
+          progressX.set(initialPoint.x);
+           progressY.set(initialPoint.y);
+           setBallY(initialScreenY);
+          strokeDashoffset.set(1)
+            return;
+        }
+        const progress = Math.max(0, (scrollPercent - startThreshold) / (1 - startThreshold)) * totalPathLength;
         const point = pathElement.getPointAtLength(progress);
         const svgTopOffset = pathElement.getBoundingClientRect().top;
         const screenRelativeY = point.y + svgTopOffset;
@@ -89,10 +108,10 @@ const Component1 = () => {
         strokeDashoffset.set(1 - scrollPercent);
       };
 
-      updateCirclePosition(scrollYProgress.get());
       const unsubscribe = scrollYProgress.onChange((scrollPercent) => {
         updateCirclePosition(scrollPercent);
       });
+      updateCirclePosition(0);
 
       return () => unsubscribe();
     }

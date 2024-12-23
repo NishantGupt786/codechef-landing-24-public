@@ -41,18 +41,54 @@ const Card: React.FC<CardProps> = ({
   }, []);
 
   useEffect(() => {
-    const checkIfBallIsBehind = () => {
-      if (cardRef.current) {
-        const rect = cardRef.current.getBoundingClientRect();
-        const isBehind =
-          ballY + ballKaHeight - 60 > rect.y && ballY < rect.y + rect.height;
-        setGrayFilter(!isBehind);
-        setIsVisible(isBehind);
-      }
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
     };
 
-    checkIfBallIsBehind();
-  }, [ballY, ballKaHeight]);
+    checkScreenSize(); // Check screen size on mount
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLargeScreen) {
+      const checkIfBallIsBehind = () => {
+        if (cardRef.current) {
+          const rect = cardRef.current.getBoundingClientRect();
+          const isBehind =
+            ballY + ballKaHeight - 60 > rect.y && ballY < rect.y + rect.height;
+          setGrayFilter(!isBehind);
+          setIsVisible(isBehind);
+        }
+      };
+
+      checkIfBallIsBehind();
+    } else {
+      const preloadImage = new window.Image();
+      preloadImage.src = imageSrc as string;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsVisible(entry.isIntersecting);
+          setGrayFilter(!entry.isIntersecting);
+        },
+        { threshold: 1 } 
+      );
+
+      if (cardRef.current) {
+        observer.observe(cardRef.current);
+      }
+
+      return () => {
+        if (cardRef.current) {
+          observer.unobserve(cardRef.current);
+        }
+      };
+    }
+  }, [ballY, ballKaHeight, isLargeScreen, imageSrc]);
 
   return (
     <div
@@ -97,7 +133,7 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       {/* Text Section */}
-      <div className=" w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left md:mb-0">
+      <div className=" w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left md:mb-0 mt-3">
         <div className="text-white max-w-xs sm:max-w-sm lg:w-full flex lg:mx-0">
           <h1
             className={`transition-all duration-500 sm:text-base lg:text-[34.5px] text-left font-enigma ${
@@ -107,7 +143,8 @@ const Card: React.FC<CardProps> = ({
             {title}
           </h1>
         </div>
-        <p className="text-white mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-3">
+        <p className="text-white mt-0 sm:mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-0 sm:p-3">
+
           {description}
         </p>
       </div>

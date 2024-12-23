@@ -20,6 +20,7 @@ import "./style.css";
 
 
 export default function BoardPage() {
+
 const [theBoards, setTheBoards] = useState([
   {
     boardPos: "Research Lead",

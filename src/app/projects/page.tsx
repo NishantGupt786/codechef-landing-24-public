@@ -1,6 +1,7 @@
 "use client";
 import ContactifyImg from "@/assets/images/contactify.svg";
-import KalculateImg from "@/assets/images/kalculate.svg";
+import ffcs from "@/assets/images/ffcs.svg";
+import papers from "@/assets/images/papers.svg";
 import Ripple from "@/components/Ripple";
 import RippleStatic from "@/components/Ripplest";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
@@ -15,10 +16,28 @@ const SLIDES = [
     image: ContactifyImg,
     classe: "h-[270px] w-[270px]",
   },
+  // {
+  //   title: "Devsoc",
+  //   index: 1,
+  //   image: KalculateImg,
+  //   classe: "h-[280px] w-[280px] scale-125",
+  // },
+  // {
+  //   title: "CookOff",
+  //   index: 2,
+  //   image: KalculateImg,
+  //   classe: "h-[280px] w-[280px] scale-125",
+  // },
   {
-    title: "Kalculate",
-    index: 1,
-    image: KalculateImg,
+    title: "FFCS",
+    index: 3,
+    image: ffcs,
+    classe: "h-[280px] w-[280px] scale-125",
+  },
+  {
+    title: "Papers",
+    index: 4,
+    image: papers,
     classe: "h-[280px] w-[280px] scale-125",
   },
 ];
@@ -50,4 +69,3 @@ export default function Project() {
     </div>
   );
 }
-

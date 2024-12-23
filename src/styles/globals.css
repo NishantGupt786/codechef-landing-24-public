@@ -369,3 +369,32 @@ canvas {
 .jux-linx {
   @apply flex flex-row items-center flex-wrap justify-start gap-2 absolute left-5 bottom-5;
 }
+
+::-webkit-scrollbar {
+  width: 0.6em;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff52;
+  border-radius: 0.5em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+  border-radius: 1em;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff52 transparent;
+  scrollbar-gutter: stable;
+}
+
+body:hover {
+  scrollbar-color: #a8a8a8 transparent;
+}

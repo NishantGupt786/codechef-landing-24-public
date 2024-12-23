@@ -21,9 +21,9 @@ const Component1 = () => {
   const cards = useMemo(
     () => [
       {
-        title: "Devsoc'25",
+        title: "DevSOC'25",
         description:
-          "Devsoc'25, the upcoming edition by CodeChef-VIT, promises to be bigger and better, uniting innovators and tech enthusiasts from across the globe. With cutting-edge challenges, expert mentorship, and grand rewards, it's set to redefine the hackathon experience and inspire groundbreaking ideas.",
+          "DevSOC'25, the upcoming edition by CodeChef-VIT, promises to be bigger and better, uniting innovators and tech enthusiasts from across the globe. With cutting-edge challenges, expert mentorship, and grand rewards, it's set to redefine the hackathon experience and inspire groundbreaking ideas.",
         imageSrc: devsoc,
         reverse: true,
       },
@@ -41,9 +41,9 @@ const Component1 = () => {
         reverse: true,
       },
       {
-        title: "DevSoc'24",
+        title: "DevSOC'24",
         description:
-          "Devsoc'24, hosted by CodeChef-VIT, is South Asia's largest student-run hackathon, bringing together tech enthusiasts to innovate and collaborate. With expert mentorship, exciting challenges, and rewarding prizes, it's a hub for creativity and groundbreaking solutions.",
+          "DevSOC'24, hosted by CodeChef-VIT, is South Asia's largest student-run hackathon, bringing together tech enthusiasts to innovate and collaborate. With expert mentorship, exciting challenges, and rewarding prizes, it's a hub for creativity and groundbreaking solutions.",
         imageSrc: devsoc,
       },
     ],

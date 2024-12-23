@@ -59,7 +59,7 @@ const Card: React.FC<CardProps> = ({
       ref={cardRef}
       className={`${
         grayFilter ? "grayscale" : ""
-      } flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
+      }  flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
@@ -72,7 +72,7 @@ const Card: React.FC<CardProps> = ({
               alt={`Background SVG ${index}`}
               width={1000}
               height={1000}
-              className={`mx-2 grayscale ${
+              className={` mx-2 grayscale ${
                 isVisible
                   ? "opacity-0 animate-fade-in"
                   : "opacity-20 animate-fade-out"
@@ -85,22 +85,23 @@ const Card: React.FC<CardProps> = ({
 
       {/* Image Section */}
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center md:mb-0">
-        <div className={`${grayFilter ? "" : "border border-[#FF3B00]"}`}>
+        <div className={`${grayFilter ? "" : "transition-all duration-500 border border-[#FF3B00]"}`}>
           <Image
             src={imageSrc}
             alt={imageAlt}
-            width={300}
-            height={300}
-            className="lg:h-64 lg:w-96 transition-opacity duration-500"
+            width={200}
+            height={200}
+            className=" lg:h-64 lg:w-96 w-auto transition duration-500 object-cover"
+            
           />
         </div>
       </div>
 
       {/* Text Section */}
-      <div className="w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left md:mb-0">
+      <div className=" w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left md:mb-0">
         <div className="text-white max-w-xs sm:max-w-sm lg:w-full flex lg:mx-0">
           <h1
-            className={`sm:text-base lg:text-[34.5px] text-left font-enigma ${
+            className={`transition-all duration-500 sm:text-base lg:text-[34.5px] text-left font-enigma ${
               grayFilter ? "text-white" : "text-[#FF3B00]"
             }`}
           >

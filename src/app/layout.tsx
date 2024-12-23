@@ -21,7 +21,7 @@ export default function RootLayout({
   const [changes, setChanges] = useState(0);
 
   useEffect(() => {
-    console.log(`Route changed to: ${pathname}`);
+    // console.log(`Route changed to: ${pathname}`);
     setChanges((prev) => prev + 1);
   }, [pathname]);
 

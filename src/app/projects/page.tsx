@@ -1,7 +1,6 @@
 "use client";
 import ContactifyImg from "@/assets/images/contactify.svg";
 import ffcs from "@/assets/images/ffcs.svg";
-import KalculateImg from "@/assets/images/kalculate.svg";
 import papers from "@/assets/images/papers.svg";
 import Ripple from "@/components/Ripple";
 import RippleStatic from "@/components/Ripplest";
@@ -17,18 +16,18 @@ const SLIDES = [
     image: ContactifyImg,
     classe: "h-[270px] w-[270px]",
   },
-  {
-    title: "Devsoc",
-    index: 1,
-    image: KalculateImg,
-    classe: "h-[280px] w-[280px] scale-125",
-  },
-  {
-    title: "CookOff",
-    index: 2,
-    image: KalculateImg,
-    classe: "h-[280px] w-[280px] scale-125",
-  },
+  // {
+  //   title: "Devsoc",
+  //   index: 1,
+  //   image: KalculateImg,
+  //   classe: "h-[280px] w-[280px] scale-125",
+  // },
+  // {
+  //   title: "CookOff",
+  //   index: 2,
+  //   image: KalculateImg,
+  //   classe: "h-[280px] w-[280px] scale-125",
+  // },
   {
     title: "FFCS",
     index: 3,
@@ -50,7 +49,7 @@ export default function Project() {
       <div className="absolute inset-0 z-[-1]">
         <Ripple></Ripple>
         <RippleStatic x={0} y={1} duration={15000} />
-        <RippleStatic x={1260} y={660} duration={15000} />
+        <RippleStatic x={1440} y={800} duration={15000} />
       </div>
 
       {/* Project Header */}
@@ -70,4 +69,3 @@ export default function Project() {
     </div>
   );
 }
-

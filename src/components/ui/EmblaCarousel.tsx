@@ -40,7 +40,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className="embla bg-transparent overflow-x-hidden ">
+    <section className="embla bg-transparent overflow-hidden ">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
@@ -53,7 +53,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                       alt="img"
                       className={`absolute mx-auto px-6 md:px-0 md:h-[475px] md:w-[400px] sm:bottom-0 sm:left-[10%] ${slide.classe}`}
                     />
-                    <h1 className="absolute z-50 font-enigma left-[90%] md:left-[85%] top-[75%] transform -rotate-90 inset-0 max-w-fit max-h-fit text-lg md:text-5xl font-bold bg-gradient-to-r from-[#ff3b00] to-[#f1f1f1] bg-clip-text text-[#ff3b00]">
+                    <h1 className="absolute z-50 font-enigma left-[90%] md:left-[85%] top-[75%] transform -rotate-90 inset-0 max-w-fit max-h-fit text-lg md:text-4xl font-bold bg-gradient-to-r whitespace-nowrap from-[#ff3b00] to-[#f1f1f1] bg-clip-text text-[#ff3b00]">
                       {slide.title}
                     </h1>
                   </div>

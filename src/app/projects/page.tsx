@@ -1,4 +1,5 @@
 "use client";
+import clueminati from "@/assets/images/clueminati.svg";
 import ContactifyImg from "@/assets/images/contactify.svg";
 import ffcs from "@/assets/images/ffcs.svg";
 import papers from "@/assets/images/papers.svg";
@@ -32,13 +33,19 @@ const SLIDES = [
     title: "FFCS",
     index: 3,
     image: ffcs,
-    classe: "h-[280px] w-[280px] scale-125",
+    classe: "h-[300px] w-[300px] scale-100",
   },
   {
     title: "Papers",
     index: 4,
     image: papers,
-    classe: "h-[280px] w-[280px] scale-125",
+    classe: "h-[300px] w-[300px] scale-100",
+  },
+  {
+    title: "Clueminati 2.0",
+    index: 5,
+    image: clueminati,
+    classe: "h-[300px] w-[300px] scale-100",
   },
 ];
 

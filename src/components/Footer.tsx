@@ -76,7 +76,7 @@ const Footer: React.FC = ({}) => {
         <div className="text-gray-400 text-sm lg:text-base ml-10 mb-4 lg:mb-0 font-enigma">
           © 2024 CODECHEF
         </div>
-        <div className="flex flex-wrap justify-center gap-12 mr-8">
+        <div className="flex flex-wrap justify-center mb-12 md:mb-0 gap-6 md:gap-12 md:mr-8">
           <SocialIcon
             href="https://www.facebook.com/codechefvit/"
             icon="./../assets/socialmediaicons/fb.svg"
@@ -166,18 +166,18 @@ const SocialIcon = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative flex items-center justify-center w-12 h-12 group"
+      className="relative flex items-center justify-center w-8 h-8 md:w-12 md:h-12 group"
     >
       
-      <div className="absolute w-12 h-12  bg-gray-500 rounded-full -bottom-0.5 -right-0.5"></div>
+      <div className="absolute w-8 h-8 md:w-12 md:h-12  bg-gray-500 rounded-full -bottom-0.5 -right-0.5"></div>
       
-      <div className="relative flex items-center justify-center  w-12 h-12 bg-white rounded-full hover:bg-[#FF3B00] transition transform hover:scale-110">
+      <div className="relative flex items-center justify-center  w-8 h-8 md:w-12 md:h-12 bg-white rounded-full hover:bg-[#FF3B00] transition transform hover:scale-110">
         <Image
           src={icon}
           alt={altText}
           width={24}
           height={24}
-          className="transition group-hover:filter group-hover:invert"
+          className="transition group-hover:filter w-4 h-4 md:w-8 md:h-8 group-hover:invert"
         />
       </div>
     </a>

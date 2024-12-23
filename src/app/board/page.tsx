@@ -35,19 +35,19 @@ const [theBoards, setTheBoards] = useState([
   },
   {
     boardPos: "General Secretary - External",
-    boardName: "Amlan Srivastava",
+    boardName: "Amlan",
     boardDesc: "Amlan is a charismatic communicator and bridge-builder, excelling at forging meaningful connections.",
     photo:amlan,
   },
   {
     boardPos: "Outreach and Media Lead",
-    boardName: "Anoushka Balamurugan",
+    boardName: "Anoushka",
     boardDesc: "Anoushka is a creative storyteller with a knack for crafting impactful campaigns and engaging content.",
     photo:anoushka,
   },
   {
     boardPos: "General Secretary - Internal",
-    boardName: "Aradhya Sehgal",
+    boardName: "Aradhya",
     boardDesc: "Aradhya is a natural organizer with exceptional coordination skills, keeping operations smooth and efficient.",
     photo:aradhya,
   },
@@ -77,7 +77,7 @@ const [theBoards, setTheBoards] = useState([
   },
   {
     boardPos: "Technical Lead - Projects",
-    boardName: "Souvik Mukherjee",
+    boardName: "Souvik ",
     boardDesc: "Souvik is an innovative technologist with a passion for executing impactful technical projects.",
     photo:souvik,
   },

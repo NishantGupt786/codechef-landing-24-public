@@ -4,7 +4,7 @@
   if (firstTime == null || firstTime == "true") {
     const timer = setTimeout(() => {
       main();
-      console.log("timer is running ");
+      // console.log("timer is running ");
       sessionStorage.setItem("firstTime", "false");
     }, 15000);
     return () => clearTimeout(timer);
@@ -21,7 +21,7 @@
         navbar.style.display = ""; // Show the navbar after 1 second
       }, 1000);
     } else {
-      console.warn("Navbar (cn-wrapper) not found.");
+      // console.warn("Navbar (cn-wrapper) not found.");
     }
   }
 
@@ -55,7 +55,7 @@
         button.querySelector('.menu-icon').classList.add('rotate');
         classie.add(overlay, "on-overlay");
         classie.add(wrapper, "opened-nav");
-        console.log("Clicked!");
+        // console.log("Clicked!");
       }
 
       function closeNav() {
@@ -63,14 +63,14 @@
         button.querySelector('.menu-icon').classList.remove('rotate');
         classie.remove(overlay, "on-overlay");
         classie.remove(wrapper, "opened-nav");
-        console.log("Closed!");
+        // console.log("Closed!");
       }
 
       document.addEventListener("click", closeNav);
     } else {
-      console.warn(
-        "One or more elements (cn-button, cn-wrapper, cn-overlay) not found."
-      );
+      // console.warn(
+      //   "One or more elements (cn-button, cn-wrapper, cn-overlay) not found."
+      // );
     }
   }
 })();

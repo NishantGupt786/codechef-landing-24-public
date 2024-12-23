@@ -30,10 +30,10 @@ export default function BoardCard({ num, boardName, boardDesc, boardPos, photo }
   return (
     <div onMouseEnter={() => {
       setIsHovering(true)
-      console.log("mouse come")
+      // console.log("mouse come")
     }} onMouseLeave={() => {
       setIsHovering(false)
-      console.log("mouse go")
+      // console.log("mouse go")
     }} className="transition-all duration-500 bg-no-repeat bg-cover h-[340px] w-[250px] card " style={isHovering ? cardHoverStyle : cardNotHover}>
 
       <Image

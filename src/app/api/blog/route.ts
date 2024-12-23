@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
     const posts = response.data.data.publication.postsViaPage;
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
-    console.error('Error fetching blogs:', error);
+    // console.error('Error fetching blogs:', error);
     return NextResponse.json({ error: 'Failed to fetch blogs' }, { status: 500 });
   }
 }

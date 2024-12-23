@@ -64,7 +64,7 @@ const Card: React.FC<CardProps> = ({
       }`}
     >
       {isVisible && isLargeScreen && (
-        <div className="absolute overflow-hidden w-[100vw] h-full z-[-1] flex duration-100">
+        <div className="absolute overflow-hidden w-[100vw] h-full z-[-1] flex duration-100 transition">
           {Array.from({ length: 15 }, (_, index) => (
             <Image
               key={index}
@@ -92,7 +92,6 @@ const Card: React.FC<CardProps> = ({
             width={200}
             height={200}
             className=" lg:h-64 lg:w-96 w-auto transition duration-500 object-cover"
-            
           />
         </div>
       </div>

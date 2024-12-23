@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
-import { Canvas, useFrame, useLoader, useThree, extend } from "@react-three/fiber";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
-import * as THREE from "three";
 import { shaderMaterial } from "@react-three/drei";
+import { Canvas, extend, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { useMemo, useRef, useState } from "react";
+import * as THREE from "three";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 const vertexShader = `
   varying vec2 vUv;
@@ -79,7 +79,7 @@ function PixelPlane({ textureUrl }) {
 
 
   const geometry = useMemo(() => {
-    return new THREE.PlaneGeometry(viewport.width, viewport.height);
+    return new THREE.PlaneGeometry(viewport.width, viewport.height+10);
   }, [viewport.width, viewport.height]);
 
 

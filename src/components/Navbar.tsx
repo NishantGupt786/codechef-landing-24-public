@@ -18,7 +18,7 @@ function NavItems({ name, route, idName }: NavItemsProps) {
           priority={true}
           className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
         />
-        <p className="mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5">
+        <p className="mt-1 hidden text-sm text-black font-Space_Grotesk transition-transform group-hover:block group-hover:-translate-y-5">
           {name}
         </p>
       </a>

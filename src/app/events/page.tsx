@@ -124,7 +124,8 @@ const Component1 = () => {
   return (
     <div className="bg-black min-h-screen w-screen">
       {/* Header Section */}
-      <div className="relative h-3/4 max-w-screen-xl mx-auto mt-12">
+      <div className="relative h-3/4 max-w-screen-xl mx-auto mt-12 mb-4 sm:mb-0">
+
         <Image
           src={headImage}
           alt="Header Image"

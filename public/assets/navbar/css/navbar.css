@@ -90,12 +90,12 @@
   height: 4.5em;
   width: 4.5em;
   background-color: black;
-  position: fixed;
+  position: sticky;
   bottom: 1em;
   left: 50%;
   margin-left: -2.25em;
   top: 100%;
-  z-index: 11;
+  z-index: 9999;
   margin-top: -2.25em;
   border-radius: 50%;
   text-align: center;

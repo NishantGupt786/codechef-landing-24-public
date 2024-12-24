@@ -9,8 +9,8 @@ import Script from "next/script";
 import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
 
-import Loader from "@/components/loader";   
-import MLoader from "@/components/Mloader"; 
+import Loader from "@/components/loader";
+import MLoader from "@/components/Mloader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,9 +39,9 @@ export default function RootLayout({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const handleResize = () => {
-        setIsMobile(window.innerWidth < 768); 
+        setIsMobile(window.innerWidth < 768);
       };
-      handleResize(); 
+      handleResize();
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
@@ -76,11 +76,16 @@ export default function RootLayout({
   return (
     <ReactLenis root options={lenisOptions}>
       <html lang="en">
-      <head>
-        <meta name="viewport" content="minimum-scale=1, width=device-width, initial-scale=1" />
-      </head>        <body
-          className={`${inter.className} bg-black overflow-x-hidden`}
-        >
+        <head>
+          <meta
+            name="viewport"
+            content="height=device-height, 
+                      width=device-width, initial-scale=1.0, 
+                      minimum-scale=1.0, maximum-scale=1.0, 
+                      user-scalable=no, target-densitydpi=device-dpi"
+          ></meta>
+        </head>
+        <body className={`${inter.className} overflow-x-hidden bg-black`}>
           {isLoaderActive ? (
             isMobile ? (
               <MLoader onRiveEventTrigger={handleRiveEvent} />
@@ -88,11 +93,9 @@ export default function RootLayout({
               <Loader />
             )
           ) : (
-            <div className="flex flex-col min-h-screen">
+            <div className="flex min-h-screen flex-col">
               <Navbar />
-              <main className="flex-grow">
-                {children}
-              </main>
+              <main className="flex-grow">{children}</main>
               {pathname !== "/" && <Footer />}
             </div>
           )}

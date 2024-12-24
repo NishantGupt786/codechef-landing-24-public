@@ -95,7 +95,7 @@ const Card: React.FC<CardProps> = ({
       ref={cardRef}
       className={`${
         grayFilter ? "grayscale" : ""
-      }  flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-9 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
+      }  flex lg:flex-row flex-col items-center justify-center sm:mt-20 lg:mt-28 relative z-10 flex-wrap w-full sm:w-[1000px] mb-6 mt-6 ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >

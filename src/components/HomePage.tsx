@@ -43,7 +43,7 @@ const CodeChefHeader = () => {
           {/* Static Image visible on small screens */}
           <div className="block w-full h-full lg:hidden">
             <img
-              src="/assets/images/Balaks.jpg"
+              src="/assets/images/jc.jpg"
               alt="Fallback Image"
               className="w-full h-full object-cover"
             />

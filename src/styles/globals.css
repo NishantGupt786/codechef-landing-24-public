@@ -398,3 +398,7 @@ body {
 body:hover {
   scrollbar-color: #a8a8a8 transparent;
 }
+
+a:focus {
+  outline: none;
+}

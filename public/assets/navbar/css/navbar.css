@@ -77,12 +77,13 @@
   margin-left: 18px;
 }
 
-.csstransforms .cn-wrapper li:nth-child(5) img{
+.csstransforms .cn-wrapper li:nth-child(5) img {
   margin-right: 18px;
 }
 
 .cn-button {
   border: none;
+
   background: none;
   color: white;
   padding-bottom: 1em;
@@ -90,6 +91,7 @@
   width: 4.5em;
   background-color: black;
   position: fixed;
+  bottom: 1em;
   left: 50%;
   margin-left: -2.25em;
   top: 100%;
@@ -190,9 +192,9 @@
 .csstransforms .cn-wrapper li a:hover,
 .csstransforms .cn-wrapper li a:active,
 .csstransforms .cn-wrapper li a:focus {
-  background: -webkit-radial-gradient(transparent 35%, #FF3B00 35%);
-  background: -moz-radial-gradient(transparent 35%, #FF3B00 35%);
-  background: radial-gradient(transparent 35%, #FF3B00 35%);
+  background: -webkit-radial-gradient(transparent 35%, #ff3b00 35%);
+  background: -moz-radial-gradient(transparent 35%, #ff3b00 35%);
+  background: radial-gradient(transparent 35%, #ff3b00 35%);
   scale: 1.1;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -252,20 +254,20 @@
 
 @media only screen and (max-width: 500px) {
   .no-ccstransforms .cn-wrapper {
-    padding: .5em;
+    padding: 0.5em;
   }
 
   .no-csstransforms .cn-wrapper li {
     width: 4em;
     height: 4em;
-    font-size: .9em;
+    font-size: 0.9em;
     line-height: 4em;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .csstransforms .cn-wrapper {
-    font-size: .68em;
+    font-size: 0.68em;
   }
 
   .cn-button {

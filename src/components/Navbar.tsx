@@ -3,10 +3,14 @@ import Image from "next/image";
 interface NavItemsProps {
   name: string;
   route: string;
-  idName: keyof typeof nav; 
+  idName: keyof typeof nav;
+  optionalClasses?: string;
 }
 
-function NavItems({ name, route, idName }: NavItemsProps) {
+function NavItems({ name, route, idName, optionalClasses }: NavItemsProps) {
+  if (optionalClasses == undefined) {
+    optionalClasses = "";
+  }
   return (
     <li className="group ">
       <a href={`/${route}`}>
@@ -18,7 +22,9 @@ function NavItems({ name, route, idName }: NavItemsProps) {
           priority={true}
           className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
         />
-        <p className="mt-1 hidden text-sm text-black font-Space_Grotesk transition-transform group-hover:block group-hover:-translate-y-5">
+        <p
+          className={`${optionalClasses} font-Space_Grotesk mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5 `}
+        >
           {name}
         </p>
       </a>
@@ -41,42 +47,22 @@ const Navbar = () => {
         </button>
         <div className="cn-wrapper" id="cn-wrapper">
           <ul>
-          
-          <li className="group">
-              <a href="/blog">
-                <Image 
-                  src={nav.blog} 
-                  alt="grid icon" 
-                  width={24} 
-                  height={24} 
-                  priority={true}
-                  className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
-                />
-                <p className="mt-1 text-sm text-black font-Space_Grotesk hidden group-hover:block transition-transform group-hover:-translate-y-5 ml-4">
-                  Blog
-                </p>
-              </a>
-            </li>
+            <NavItems
+              route="blog"
+              name="Blog"
+              idName="blog"
+              optionalClasses="ml-4"
+            />
 
             <NavItems route="projects" name="Projects" idName="projects" />
             <NavItems route="" name="Home" idName="home" />
             <NavItems route="events" name="Events" idName="events" />
-
-            <li className="group">
-              <a href="/board">
-                <Image 
-                  src={nav.people} 
-                  alt="user icon" 
-                  width={24} 
-                  height={24} 
-                  priority={true}
-                  className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
-                />
-                <p className="mt-1 text-sm text-black font-Space_Grotesk hidden group-hover:block transition-transform group-hover:-translate-y-5 mr-4">
-                  Board
-                </p>
-              </a>
-            </li>
+            <NavItems
+              route="board"
+              name="Board"
+              idName="people"
+              optionalClasses="mr-4"
+            />
           </ul>
         </div>
         <div id="cn-overlay" className="cn-overlay"></div>

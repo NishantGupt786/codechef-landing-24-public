@@ -1,4 +1,3 @@
-
 "use client";
 
 import Footer from "@/components/Footer";
@@ -9,6 +8,9 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import React, { useEffect, useState } from "react";
 import "../styles/globals.css";
+
+import Loader from "@/components/loader";   
+import MLoader from "@/components/Mloader"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +23,8 @@ export default function RootLayout({
   const [changes, setChanges] = useState(0);
 
   useEffect(() => {
-    // console.log(`Route changed to: ${pathname}`);
     setChanges((prev) => prev + 1);
   }, [pathname]);
-
-
 
   const lenisOptions = {
     lerp: 1,
@@ -34,37 +33,69 @@ export default function RootLayout({
     smooth: true,
   };
 
-  const [isLoaderActive, setIsLoaderActive] = useState<boolean | null>(true);
+  const [isLoaderActive, setIsLoaderActive] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasLoadedBefore2 = sessionStorage.getItem("hasLoadedBefore2");
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768); 
+      };
+      handleResize(); 
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
-      if (hasLoadedBefore2) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hasLoadedBefore = sessionStorage.getItem("hasLoadedBefore2");
+
+      if (hasLoadedBefore) {
         setIsLoaderActive(false);
       } else {
         setIsLoaderActive(true);
-        const timer = setTimeout(() => {
-          setIsLoaderActive(false);
+        if (!isMobile) {
+          const timer = setTimeout(() => {
+            setIsLoaderActive(false);
+            sessionStorage.setItem("hasLoadedBefore2", "true");
+          }, 15000);
 
-          sessionStorage.setItem("hasLoadedBefore2", "true");
-        }, 15000);
-
-        return () => clearTimeout(timer);
+          return () => clearTimeout(timer);
+        }
       }
     }
-  }, []);
+  }, [isMobile]);
+
+  const handleRiveEvent = () => {
+    console.log("Rive event triggered → Ending loader on mobile");
+    setIsLoaderActive(false);
+    sessionStorage.setItem("hasLoadedBefore2", "true");
+  };
 
   return (
     <ReactLenis root options={lenisOptions}>
       <html lang="en">
         <head></head>
         <body
-          className={`${inter.className} overflow-x-hidden w-screen  bg-black overflow-y-auto  mx-auto`}
+          className={`${inter.className} bg-black overflow-x-hidden`}
         >
-          {children}
+          {isLoaderActive ? (
+            isMobile ? (
+              <MLoader onRiveEventTrigger={handleRiveEvent} />
+            ) : (
+              <Loader />
+            )
+          ) : (
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-grow">
+                {children}
+              </main>
+              {pathname !== "/" && <Footer />}
+            </div>
+          )}
 
-          {!isLoaderActive && pathname !== "/" && <Footer />}
-          {!isLoaderActive && <Navbar />}
           <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
           <Script
             src="/assets/navbar/js/modernizr-2.6.2.min.js"

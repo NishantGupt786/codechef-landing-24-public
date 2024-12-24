@@ -76,15 +76,7 @@ export default function RootLayout({
   return (
     <ReactLenis root options={lenisOptions}>
       <html lang="en">
-        <head>
-          <meta
-            name="viewport"
-            content="height=device-height, 
-                      width=device-width, initial-scale=1.0, 
-                      minimum-scale=1.0, 
-                      user-scalable=no, target-densitydpi=device-dpi"
-          ></meta>
-        </head>
+        <head></head>
         <body className={`${inter.className} overflow-x-hidden bg-black`}>
           {isLoaderActive ? (
             isMobile ? (

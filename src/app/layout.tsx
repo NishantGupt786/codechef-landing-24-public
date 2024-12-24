@@ -76,8 +76,9 @@ export default function RootLayout({
   return (
     <ReactLenis root options={lenisOptions}>
       <html lang="en">
-        <head></head>
-        <body
+      <head>
+        <meta name="viewport" content="minimum-scale=1, width=device-width, initial-scale=1" />
+      </head>        <body
           className={`${inter.className} bg-black overflow-x-hidden`}
         >
           {isLoaderActive ? (

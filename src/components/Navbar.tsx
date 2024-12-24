@@ -3,7 +3,7 @@ import Image from "next/image";
 interface NavItemsProps {
   name: string;
   route: string;
-  idName: keyof typeof nav; // Ensure idName is a valid key of the nav object
+  idName: keyof typeof nav; 
 }
 
 function NavItems({ name, route, idName }: NavItemsProps) {
@@ -41,11 +41,42 @@ const Navbar = () => {
         </button>
         <div className="cn-wrapper" id="cn-wrapper">
           <ul>
-            <NavItems route="blog" name="Blogs" idName="blog" />
+          
+          <li className="group">
+              <a href="/blog">
+                <Image 
+                  src={nav.blog} 
+                  alt="grid icon" 
+                  width={24} 
+                  height={24} 
+                  priority={true}
+                  className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
+                />
+                <p className="mt-1 text-sm text-black font-Space_Grotesk hidden group-hover:block transition-transform group-hover:-translate-y-5 ml-4">
+                  Blog
+                </p>
+              </a>
+            </li>
+
             <NavItems route="projects" name="Projects" idName="projects" />
             <NavItems route="" name="Home" idName="home" />
             <NavItems route="events" name="Events" idName="events" />
-            <NavItems route="board" name="Board" idName="people" />
+
+            <li className="group">
+              <a href="/board">
+                <Image 
+                  src={nav.people} 
+                  alt="user icon" 
+                  width={24} 
+                  height={24} 
+                  priority={true}
+                  className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
+                />
+                <p className="mt-1 text-sm text-black font-Space_Grotesk hidden group-hover:block transition-transform group-hover:-translate-y-5 mr-4">
+                  Board
+                </p>
+              </a>
+            </li>
           </ul>
         </div>
         <div id="cn-overlay" className="cn-overlay"></div>

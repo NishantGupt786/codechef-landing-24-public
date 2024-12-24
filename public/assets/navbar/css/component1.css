@@ -73,6 +73,14 @@
   transform: rotate(180deg);
 }
 
+.csstransforms .cn-wrapper li:first-child img {
+  margin-left: 18px;
+}
+
+.csstransforms .cn-wrapper li:nth-child(5) img{
+  margin-right: 18px;
+}
+
 .cn-button {
   border: none;
   background: none;

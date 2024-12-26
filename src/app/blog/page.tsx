@@ -100,6 +100,7 @@ export default function Blog() {
               description={truncateContent(post.content.html, 20)}
               image={post.coverImage.url}
               slug={post.slug}
+
             />
           ))}
         </div>

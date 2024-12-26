@@ -18,6 +18,7 @@ type SlideType = {
   index: number;
   image: string;
   classe?: string;
+  url:string;
 };
 
 type PropType = {
@@ -39,7 +40,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className="embla bg-transparent overflow-hidden">
+    <section className="embla bg-transparent overflow-hidden !mt-[50px] md:mt-0">
       <div
         className="embla__viewport h-[400px] sm:h-[500px] md:h-[600px]"
         ref={emblaRef}
@@ -50,20 +51,22 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               className="embla__slide flex-[0_0_100%] relative flex justify-center items-center"
               key={index}
             >
-              <div className="polygon mx-auto">
-                <div className="overlay relative w-full h-full flex justify-center items-center">
+              <div className="polygon mx-auto flex items-end justify-center">
+                <div className="cursor-pointer  overlay  w-[90%] h-[90%] flex justify-center items-center">
+                <a href={slide.url} target="_blank" rel="noopener noreferrer">
                   <Image
                     src={slide.image}
                     alt="img"
                     layout="intrinsic"
                     width={600}
                     height={700}
-                    className={`rounded-lg shadow-lg object-cover ${slide.classe}`}
-                  />
+                    className={`!w-[230px] md:!w-[350px]  rounded-lg shadow-lg object-cover ${slide.classe}`}
+                  /></a>
                   <h1 className="absolute z-50 font-enigma left-[90%] md:left-[85%] top-[75%] transform -rotate-90 inset-0 max-w-fit max-h-fit text-lg md:text-4xl whitespace-nowrap font-bold from-[#ff3b00] to-[#f1f1f1] bg-clip-text text-[#ff3b00]">
                     {slide.title}
                   </h1>
                 </div>
+                <div className="pos2 absolute behind h-[90%] w-[90%] bg-[#ff3b00] z-[-1]"></div>
               </div>
             </div>
           ))}

@@ -1,4 +1,6 @@
 import PixelImage from "./PixelImage";
+import Image from "next/image";
+import balak from "@/assets/images/balak-1.jpg";
 
 const CodeChefHeader = () => {
   return (
@@ -42,11 +44,14 @@ const CodeChefHeader = () => {
 
           {/* Static Image visible on small screens */}
           <div className="block w-full h-full lg:hidden">
-            <img
-              src="/assets/images/jc.jpg"
+            <Image
+              src={balak}
               alt="Fallback Image"
-              className="w-full h-full object-cover"
+              layout="fill"
+              objectFit="cover"
+              
             />
+
           </div>
         </div>
 

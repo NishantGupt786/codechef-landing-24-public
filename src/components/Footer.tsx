@@ -37,7 +37,7 @@ const Footer: React.FC = ({}) => {
         </span>
       </div>
       <div className="sm:grid grid-cols-2 flex flex-col justify-center items-center border-t-2 border-b-2 border-white font-enigma">
-        <p className="sm:text-left text-center sm:text-xl text-sm mx-auto p-4">
+        <p className="sm:text-left text-center md:text-xl text-xs mx-auto p-4">
           CODECHEF-VIT IS A NON-COMMERCIAL ORGANISATION WITH A GOAL TO PROVIDE A
           PLATFORM FOR PROGRAMMERS AND DEVELOPERS EVERYWHERE TO MEET, COMPETE &
           HAVE FUN. AT CODECHEF-VIT, WE BELIEVE IN THE WORDS OF MATT MULLENWEG -

@@ -7,8 +7,6 @@ interface Ripple {
 }
 
 interface RippleStaticProps {
-  x?: number; // Static X coordinate
-  y?: number; // Static Y coordinate
   maxSize?: number;
   duration?: number;
   position?: 'top-left' | 'bottom-right'; // Added prop for responsive positioning
@@ -23,7 +21,7 @@ type RippleAction =
 const rippleReducer = (state: RippleState, action: RippleAction): RippleState => {
   switch (action.type) {
     case 'ADD_RIPPLE':
-      return [...state, action.payload].slice(-30);
+      return [...state, action.payload].slice(-30); // Limit ripple count
     case 'REMOVE_RIPPLE':
       return state.filter((ripple) => ripple.id !== action.payload);
     default:
@@ -32,29 +30,21 @@ const rippleReducer = (state: RippleState, action: RippleAction): RippleState =>
 };
 
 const RippleStatic: React.FC<RippleStaticProps> = ({
-  x = 0,
-  y = 0,
-  maxSize = .4,
+  maxSize = 0.4,
   duration = 1000,
   position,
 }) => {
   const [ripples, dispatch] = useReducer(rippleReducer, []);
 
   useEffect(() => {
-    let computedX = x;
-    let computedY = y;
-
-    if (position === 'bottom-right') {
-      // Calculate bottom-right coordinates
-      computedX = window.innerWidth - 50; // Adjust size offset
-      computedY = window.innerHeight - 50;
-    }
-
     const intervalId = setInterval(() => {
+      let ranx = Math.floor(Math.random() * window.innerWidth);
+      let rany = Math.floor(Math.random() * window.innerHeight);
+
       const ripple: Ripple = {
         id: `${Date.now()}-${Math.random()}`,
-        x: computedX,
-        y: computedY,
+        x: ranx,
+        y: rany,
       };
 
       dispatch({ type: 'ADD_RIPPLE', payload: ripple });
@@ -62,12 +52,12 @@ const RippleStatic: React.FC<RippleStaticProps> = ({
       setTimeout(() => {
         dispatch({ type: 'REMOVE_RIPPLE', payload: ripple.id });
       }, duration);
-    }, duration / 2);
+    }, duration);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, [x, y, duration, position]);
+  }, [duration, position]);
 
   return (
     <div className="fixed inset-0 pointer-events-none">

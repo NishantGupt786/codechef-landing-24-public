@@ -325,7 +325,7 @@ left: 1%;
   position: absolute;
   width: 0px;
   height: 0px;
-  animation: ripplest 20s ease-out forwards;
+  animation: ripplest 10s ease-out forwards;
   transform-origin: center;
 }
 
@@ -346,7 +346,7 @@ left: 1%;
     opacity: 0.7;
   }
   100% {
-    transform: scale(3);
+    transform: scale(2);
     opacity: 0;
   }
 }

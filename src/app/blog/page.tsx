@@ -47,7 +47,6 @@ export default function Blog() {
         const data = await response.json();
         if (data?.nodes) {
           setPosts(data.nodes);
-          console.log(data.nodes)
           setHasNextPage(data.pageInfo?.hasNextPage || false);
           setHasPreviousPage(data.pageInfo?.hasPreviousPage || false);
         } else {

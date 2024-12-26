@@ -31,7 +31,7 @@ const rippleReducer = (state: RippleState, action: RippleAction): RippleState =>
   }
 };
 
-const RippleStatic: React.FC<RippleStaticProps> = ({
+const RippleStatic2: React.FC<RippleStaticProps> = ({
   x = 0,
   y = 0,
   maxSize = .4,
@@ -87,4 +87,4 @@ const RippleStatic: React.FC<RippleStaticProps> = ({
   );
 };
 
-export default RippleStatic;
+export default RippleStatic2;

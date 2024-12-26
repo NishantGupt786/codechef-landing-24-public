@@ -153,9 +153,9 @@ html {
 }
 .embla__slide {
   transform: translate3d(0, 0, 0);
-  flex: 0 0 var(--slide-size);
+  flex: 0 0 100%;
   min-width: 0;
-  padding-left: var(--slide-spacing);
+  padding-left: 2rem;
 }
 
 .embla__controls {
@@ -235,33 +235,37 @@ html {
 }
 
 .polygon {
-  width: 600px;
-  height: 500px;
+  width: 570px;
+  height: 580px;
   position: relative;
   clip-path: polygon(13% 0, 100% 0, 100% 91%, 87% 100%, 0 100%, 0 9%);
-  background: #ff3b00;
+  /* background: #ff3b00; */
+}
+
+.pos2{
+  clip-path: polygon(13% 0, 100% 0, 100% 91%, 87% 100%, 0 100%, 0 9%);
 }
 
 .overlay {
-  width: 600px;
-  height: 500px;
+  /* width: 560px;
+  height: 570px; */ 
   position: absolute;
-  top: -15px;
-  left: -15px;
+bottom: 4%;
+left: 1%;
+
   clip-path: polygon(13% 0, 100% 0, 100% 91%, 87% 100%, 0 100%, 0 9%);
   background: #252525;
 }
 
 @media (max-width: 600px) {
   .polygon {
-    width: 250px;
-    height: 200px;
+    width: 320px;
+    height: 380px;
   }
   .overlay {
-    width: 250px;
-    height: 200px;
-    top: -10px;
-    left: -10px;
+    width: 300px;
+    height: 360px;
+    left: -3%;
   }
 }
 

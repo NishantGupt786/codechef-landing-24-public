@@ -84,8 +84,8 @@ export default function Blog() {
     <div className="bg-transparent text-white px-6  mt-8">
             <div className="absolute inset-0 z-[-1]">
         <Ripple></Ripple>
-        <RippleStatic x={0} y={1} duration={15000} />
-        <RippleStatic x={1300} y={700} duration={15000} />
+        <RippleStatic  duration={7000} />
+        {/* <RippleStatic duration={15000} /> */}
       </div>
       
       <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-[128px] pt-5">

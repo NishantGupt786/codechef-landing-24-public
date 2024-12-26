@@ -69,8 +69,8 @@ export default function Project() {
       {/* Ripple effect */}
       <div className="absolute inset-0 z-[-1]">
         <Ripple></Ripple>
-        {/* <RippleStatic2 duration={1000} />
-        <RippleStatic duration={1000} /> */}
+        <RippleStatic duration={7000}  />
+        {/* <RippleStatic duration={1000} /> */}
         {/* {!ripHid && (
         )} */}
       </div>

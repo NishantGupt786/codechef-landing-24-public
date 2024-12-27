@@ -37,14 +37,22 @@ export default function RootLayout({
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth < 768);
-      };
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    const spaceClick = (event: KeyboardEvent) => {
+      if (event.key === " " || event.key === "Spacebar") {
+        setIsLoaderActive(false);
+      }
+    };
+    window.addEventListener("keydown", spaceClick);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", spaceClick);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -92,12 +100,19 @@ export default function RootLayout({
             </div>
           )}
 
-          <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
-          <Script
-            src="/assets/navbar/js/modernizr-2.6.2.min.js"
-            strategy="lazyOnload"
-          />
-          <Script src="/assets/navbar/js/polyfills.js" strategy="lazyOnload" />
+          {!isLoaderActive && (
+            <>
+              <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
+              <Script
+                src="/assets/navbar/js/modernizr-2.6.2.min.js"
+                strategy="lazyOnload"
+              />
+              <Script
+                src="/assets/navbar/js/polyfills.js"
+                strategy="lazyOnload"
+              />
+            </>
+          )}
         </body>
       </html>
     </ReactLenis>

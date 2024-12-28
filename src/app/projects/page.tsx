@@ -4,8 +4,7 @@ import ContactifyImg from "@/assets/images/contactify.svg";
 import ffcs from "@/assets/images/ffcs.svg";
 import papers from "@/assets/images/papers.svg";
 import Ripple from "@/components/Ripple";
-import RippleStatic from "@/components/Ripplest";
-import RippleStatic2 from "@/components/RippleStatic";
+import RippleStatic from "@/components/RipplestStatic";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
 import "@/styles/globals.css";
 import { EmblaOptionsType } from "embla-carousel";
@@ -18,7 +17,7 @@ const SLIDES = [
     index: 0,
     image: ContactifyImg,
     classe: "h-[270px] w-[270px]",
-    url: "https://contactify.codechefvit.com/"
+    url: "https://contactify.codechefvit.com/",
   },
   // {
   //   title: "Devsoc",
@@ -37,42 +36,41 @@ const SLIDES = [
     index: 3,
     image: ffcs,
     classe: "h-[300px] w-[300px] scale-100",
-    url:"https://ffcs.codechefvit.com/"
+    url: "https://ffcs.codechefvit.com/",
   },
   {
     title: "Papers",
     index: 4,
     image: papers,
     classe: "h-[300px] w-[300px] scale-100",
-    url: "https://papers.codechefvit.com/"
+    url: "https://papers.codechefvit.com/",
   },
   {
     title: "Clueminati 2.0",
     index: 5,
     image: clueminati,
     classe: "h-[300px] w-[300px] scale-100",
-    url: "https://github.com/CodeChefVIT/clueminati-portal-2.0"
+    url: "https://github.com/CodeChefVIT/clueminati-portal-2.0",
   },
 ];
 
 export default function Project() {
   const [ripHid, setRipHid] = useState<boolean>(true);
-  useEffect(()=>{
+  useEffect(() => {
     const ripShow = setTimeout(() => {
       setRipHid(false);
       console.log("ab dikhega 2nd ripple");
     }, 2000);
-  },[])
+  }, []);
   
+
   return (
     <div className="bg-black w-screen min-h-[80vh] md:min-h-[100vh] overflow-visible z-0 mt-12 relative">
-      {/* Ripple effect */}
+
       <div className="absolute inset-0 z-[-1]">
-        <Ripple></Ripple>
-        <RippleStatic duration={7000}  />
-        {/* <RippleStatic duration={1000} /> */}
-        {/* {!ripHid && (
-        )} */}
+        <Ripple />
+        <RippleStatic duration={7000} />
+
       </div>
 
       {/* Project Header */}

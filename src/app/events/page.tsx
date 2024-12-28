@@ -2,6 +2,8 @@
 import Card from "@/app/events/Card";
 import headImage from "@/assets/images/image.png";
 import devsoc from "@/assets/images/people.png";
+import Ripple from "@/components/Ripple";
+import RippleStatic from "@/components/RipplestStatic";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -81,24 +83,26 @@ const Component1 = () => {
       const initialPoint = pathElement.getPointAtLength(0);
       const svgTopOffset = pathElement.getBoundingClientRect().top;
       const initialScreenY = initialPoint.y + svgTopOffset;
-          
+
       progressX.set(initialPoint.x);
       progressY.set(initialPoint.y);
       setBallY(initialScreenY);
       strokeDashoffset.set(1);
 
       const updateCirclePosition = (scrollPercent: number) => {
-        if (scrollPercent < startThreshold){
+        if (scrollPercent < startThreshold) {
           const initialPoint = pathElement.getPointAtLength(0);
           const svgTopOffset = pathElement.getBoundingClientRect().top;
           const initialScreenY = initialPoint.y + svgTopOffset;
           progressX.set(initialPoint.x);
-           progressY.set(initialPoint.y);
-           setBallY(initialScreenY);
-          strokeDashoffset.set(1)
-            return;
+          progressY.set(initialPoint.y);
+          setBallY(initialScreenY);
+          strokeDashoffset.set(1);
+          return;
         }
-        const progress = Math.max(0, (scrollPercent - startThreshold) / (1 - startThreshold)) * totalPathLength;
+        const progress =
+          Math.max(0, (scrollPercent - startThreshold) / (1 - startThreshold)) *
+          totalPathLength;
         const point = pathElement.getPointAtLength(progress);
         const svgTopOffset = pathElement.getBoundingClientRect().top;
         const screenRelativeY = point.y + svgTopOffset;
@@ -118,14 +122,14 @@ const Component1 = () => {
   }, [scrollYProgress, progressX, progressY, strokeDashoffset]);
 
   useEffect(() => {
-      setRender(true);
+    setRender(true);
   }, []);
 
   return (
     <div className="bg-black min-h-screen w-screen">
-      {/* Header Section */}
+      <Ripple/>
+      <RippleStatic duration={7000} />
       <div className="relative h-3/4 max-w-screen-xl mx-auto mt-12 mb-4 sm:mb-0">
-
         <Image
           src={headImage}
           alt="Header Image"

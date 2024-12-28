@@ -1,11 +1,10 @@
-'use client';
-import BlogCard from '@/components/BlogCard';
-import Ripple from '@/components/Ripple';
-import Ripplest from '@/components/Ripplest';
+"use client";
+import BlogCard from "@/components/BlogCard";
+import Ripple from "@/components/Ripple";
+import RippleStatic from "@/components/RipplestStatic";
 import Spinner from "@/components/ui/Spinner";
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import RippleStatic from '@/components/Ripplest';
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Post {
   title: string;
@@ -34,7 +33,10 @@ export default function Blog() {
   const truncateContent = (html: string, wordLimit: number) => {
     const plainText = html.replace(/<[^>]+>/g, "");
     const words = plainText.split(/\s+/);
-    return words.slice(0, wordLimit).join(" ") + (words.length > wordLimit ? "..." : "");
+    return (
+      words.slice(0, wordLimit).join(" ") +
+      (words.length > wordLimit ? "..." : "")
+    );
   };
 
   useEffect(() => {
@@ -77,17 +79,16 @@ export default function Blog() {
   }
 
   if (!posts || posts.length === 0) {
-    return <div className="text-white text-center py-10">No posts available.</div>;
+    return (
+      <div className="text-white text-center py-10">No posts available.</div>
+    );
   }
 
   return (
     <div className="bg-transparent text-white px-6  mt-8">
-            <div className="absolute inset-0 z-[-1]">
-        <Ripple></Ripple>
-        <RippleStatic  duration={7000} />
-        {/* <RippleStatic duration={15000} /> */}
-      </div>
-      
+      <Ripple/>
+      <RippleStatic duration={7000} />
+
       <h1 className="text-white font-semibold font-enigma text-4xl text-center md:text-5xl lg:text-[128px] pt-5">
         BLOGS
       </h1>
@@ -100,14 +101,15 @@ export default function Blog() {
               description={truncateContent(post.content.html, 20)}
               image={post.coverImage.url}
               slug={post.slug}
-
             />
           ))}
         </div>
         <div className="flex justify-center items-center space-x-4 mt-6 font-enigma">
           <button
             onClick={() => handlePageChange(page - 1)}
-            className={`w-36 px-4 py-2 bg-slate-50 rounded text-black hover:bg-[#FF3B00] hover:text-white opacity-75 ${!hasPreviousPage ? "cursor-not-allowed opacity-50" : ""}`}
+            className={`w-36 px-4 py-2 bg-slate-50 rounded text-black hover:bg-[#FF3B00] hover:text-white opacity-75 ${
+              !hasPreviousPage ? "cursor-not-allowed opacity-50" : ""
+            }`}
             disabled={!hasPreviousPage}
             aria-label="Previous Page"
           >
@@ -115,7 +117,9 @@ export default function Blog() {
           </button>
           <button
             onClick={() => handlePageChange(page + 1)}
-            className={`w-36 px-4 py-2 bg-slate-50 rounded text-black hover:bg-[#FF3B00] hover:text-white opacity-75 ${!hasNextPage ? "cursor-not-allowed opacity-50" : ""}`}
+            className={`w-36 px-4 py-2 bg-slate-50 rounded text-black hover:bg-[#FF3B00] hover:text-white opacity-75 ${
+              !hasNextPage ? "cursor-not-allowed opacity-50" : ""
+            }`}
             disabled={!hasNextPage}
             aria-label="Next Page"
           >
@@ -123,6 +127,6 @@ export default function Blog() {
           </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }

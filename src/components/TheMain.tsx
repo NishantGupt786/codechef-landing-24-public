@@ -1,14 +1,14 @@
 "use client";
-import { usePathname } from "next/navigation";
-import React, { useEffect, useState, createContext  } from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-import MLoader from "./Mloader";
-import Loader from "./loader";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Script from "next/script";
 import { Inter } from "next/font/google";
+import Script from "next/script";
+import Footer from "./Footer";
+import Loader from "./loader";
+import MLoader from "./Mloader";
+import Navbar from "./Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function TheMain({
   const [isLoaderActive, setIsLoaderActive] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
-  const [spacePressed, setSpacePressed] = useState<boolean>(false)
+  const [spacePressed, setSpacePressed] = useState<boolean>(false);
 
   const lenisOptions = {
     lerp: 1,
@@ -35,8 +35,8 @@ export default function TheMain({
     };
 
     const pcLoaderHasLoaded = sessionStorage.getItem("pcLoaderHasLoaded");
-    if(pcLoaderHasLoaded === "true"){
-        setIsLoaderActive(false);
+    if (pcLoaderHasLoaded === "true") {
+      setIsLoaderActive(false);
     }
 
     const spaceClick = (event: KeyboardEvent) => {
@@ -78,29 +78,35 @@ export default function TheMain({
 
   return (
     <ReactLenis root options={lenisOptions}>
-    <div className={`${inter.className} overflow-x-hidden bg-black`}>
-      {isLoaderActive ? (
-        isMobile ? (
-          <MLoader onRiveEventTrigger={handleRiveEvent} />
+      <div className={`${inter.className} overflow-x-hidden bg-black`}>
+        {isLoaderActive ? (
+          isMobile ? (
+            <MLoader onRiveEventTrigger={handleRiveEvent} />
+          ) : (
+            <Loader />
+          )
         ) : (
-          <Loader />
-        )
-      ) : (
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          {pathname !== "/" && <Footer />}
-        </div>
-      )}
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            {pathname !== "/" && <Footer />}
+          </div>
+        )}
 
-      {!isLoaderActive && (
-        <>
-          <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
-          <Script src="/assets/navbar/js/modernizr-2.6.2.min.js" strategy="lazyOnload" />
-          <Script src="/assets/navbar/js/polyfills.js" strategy="lazyOnload" />
-        </>
-      )}
-    </div>
+        {!isLoaderActive && (
+          <>
+            <Script src="/assets/navbar/js/demo1.js" strategy="lazyOnload" />
+            <Script
+              src="/assets/navbar/js/modernizr-2.6.2.min.js"
+              strategy="lazyOnload"
+            />
+            <Script
+              src="/assets/navbar/js/polyfills.js"
+              strategy="lazyOnload"
+            />
+          </>
+        )}
+      </div>
     </ReactLenis>
   );
 }

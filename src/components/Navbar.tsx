@@ -20,11 +20,8 @@ function NavItems({ name, route, idName, optionalClasses }: NavItemsProps) {
           width={24}
           height={24}
           priority={true}
-          className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"
-        />
-        <p
-          className={`${optionalClasses} font-Space_Grotesk mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5 `}
-        >
+          className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"/>
+        <p className={`${optionalClasses} font-Urbanist mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5 `}>
           {name}
         </p>
       </a>
@@ -42,8 +39,7 @@ const Navbar = () => {
             width={24}
             height={24}
             className="menu-icon"
-            priority={true}
-          />
+            priority={true}/>
         </button>
         <div className="cn-wrapper" id="cn-wrapper">
           <ul>
@@ -51,9 +47,7 @@ const Navbar = () => {
               route="blog"
               name="Blog"
               idName="blog"
-              optionalClasses="ml-4"
-            />
-
+              optionalClasses="ml-4"/>
             <NavItems route="projects" name="Projects" idName="projects" />
             <NavItems route="" name="Home" idName="home" />
             <NavItems route="events" name="Events" idName="events" />
@@ -61,8 +55,7 @@ const Navbar = () => {
               route="board"
               name="Board"
               idName="people"
-              optionalClasses="mr-4"
-            />
+              optionalClasses="mr-4"/>
           </ul>
         </div>
         <div id="cn-overlay" className="cn-overlay"></div>

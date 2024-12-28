@@ -127,31 +127,36 @@ const FooterButton = ({
   return (
     <>
       {newTab ? (
-        <a href={redirect} target="_blank" rel="noopener noreferrer">
-          <div className="h-full relative">
-            <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4 focus:outline-none">
-              p
-            </div>
-            <div className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base">
-              {label}
-            </div>
+        <div className="h-full relative">
+          <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4">
+            p
           </div>
-        </a>
+          <a
+            href={redirect}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base"
+          >
+            {label}
+          </a>
+        </div>
       ) : (
-        <Link href={redirect}>
-          <div className="h-full relative">
-            <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4">
-              p
-            </div>
-            <div className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base">
-              {label}
-            </div>
+        <div className="h-full relative">
+          <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4">
+            p
           </div>
-        </Link>
+          <Link
+            href={redirect}
+            className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base"
+          >
+            {label}
+          </Link>
+        </div>
       )}
     </>
   );
 };
+
 const SocialIcon = ({
   href,
   icon,

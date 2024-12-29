@@ -12,7 +12,7 @@
   height: 27em;
   overflow: visible;
   position: fixed;
-  z-index: 11;
+  z-index: 12;
   top: 100%;
   left: 50%;
   border-radius: 50%;
@@ -57,7 +57,7 @@
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
+  z-index: 11;
 }
 
 .cn-overlay.on-overlay {
@@ -93,7 +93,7 @@
   left: 50%;
   margin-left: -2.25em;
   top: 100%;
-  z-index: 11;
+  z-index: 13;
   margin-top: -2.25em;
   border-radius: 50%;
   text-align: center;
@@ -101,7 +101,6 @@
   font-size: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
-  z-index: 11;
   border: 1px solid white;
   align-items: center;
   display: flex;

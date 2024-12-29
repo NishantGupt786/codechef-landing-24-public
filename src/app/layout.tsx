@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "CodeChef-VIT is a non-commercial organization with a goal to provide a platform for programmers and developers everywhere to meet, compete & have fun. At CodeChef-VIT, we believe in the words of Matt Mullenweg - “Technology is best when it brings people together”.",
   icons: [{ rel: "icon", url: "/codechef_logo.svg" }],
   openGraph: {
-    title: "Papers by CodeChef-VIT | Exam Resources",
+    title: "CodeChef-VIT",
     images: [{ url: "/codechef_logo.svg" }],
     url: "https://www.codechefvit.com/",
     type: "website",

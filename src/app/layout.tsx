@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/codechef_logo.svg" }],
   openGraph: {
     title: "CodeChef-VIT",
-    images: [{ url: "/codechef_logo.svg" }],
+    images: [{ url: "/codechef_logo.png" }],
     url: "https://www.codechefvit.com/",
     type: "website",
     description:

@@ -21,8 +21,8 @@ function NavItems({ name, route, idName, optionalClasses }: NavItemsProps) {
           height={24}
           priority={true}
           className="transition-transform group-hover:-translate-y-5 group-hover:invert group-hover:filter"/>
-        <p className={`${optionalClasses} font-Urbanist mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5 `}>
-          {name}
+        <p className={`${optionalClasses}  mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5 font-Space_Grotesk`}>
+          {name }
         </p>
       </a>
     </li>

@@ -1,5 +1,7 @@
 import { nav } from "@/lib/navicons";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
 interface NavItemsProps {
   name: string;
   route: string;
@@ -13,7 +15,7 @@ function NavItems({ name, route, idName, optionalClasses }: NavItemsProps) {
   }
   return (
     <li className="group ">
-      <a href={`/${route}`}>
+      <Link href={`/${route}`}>
         <Image
           src={nav[idName]}
           alt={`${idName} fill-current icon`}
@@ -24,14 +26,22 @@ function NavItems({ name, route, idName, optionalClasses }: NavItemsProps) {
         <p className={`${optionalClasses}  mt-1 hidden text-sm text-black transition-transform group-hover:block group-hover:-translate-y-5 font-Space_Grotesk`}>
           {name }
         </p>
-      </a>
+      </Link>
     </li>
   );
 }
 const Navbar = () => {
+  const [openHe, setOpenHe] = useState<boolean>(false);
+  const menuHandler = (event : React.MouseEvent)=>{
+    event.stopPropagation();
+    setOpenHe(!openHe)
+  }
+  const menuBandh = ()=>{
+    setOpenHe(false);
+  }
   return (
-    <div className="container">
-      <div className="component">
+    <div className="container" onClick={menuBandh}>
+      <div className="component" onClick={menuHandler}>
         <button className="cn-button" id="cn-button">
           <Image
             src={nav.main}
@@ -41,7 +51,7 @@ const Navbar = () => {
             className="menu-icon"
             priority={true}/>
         </button>
-        <div className="cn-wrapper" id="cn-wrapper">
+        <div className={`cn-wrapper ${openHe? "opened-nav": ""}`} id="cn-wrapper">
           <ul>
             <NavItems
               route="blog"
@@ -58,7 +68,7 @@ const Navbar = () => {
               optionalClasses="mr-4"/>
           </ul>
         </div>
-        <div id="cn-overlay" className="cn-overlay"></div>
+        <div id="cn-overlay" className={`cn-overlay ${openHe? "on-overlay": ""}`}></div>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ interface AlsoRead {
 
 const AlsoRead: React.FC<AlsoRead> = ({ title, image, slug }) => {
     return (
-        <div className="bg-white rounded-lg w-full max-w-md flex flex-col items-center p-3 h-[500px] relative font-enigma">
+        <div className="bg-white rounded-lg w-full max-w-md flex flex-col items-center p-3 h-[500px] relative font-enigma m-5 md:m-0">
             <Link href={`/blog/${slug}`} className="flex flex-col items-center space-y-4 h-full">
                 <div className="w-full h-[300px] relative overflow-hidden rounded-lg">
                     <Image

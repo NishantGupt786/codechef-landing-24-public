@@ -126,33 +126,18 @@ const FooterButton = ({
 }) => {
   return (
     <>
-      {newTab ? (
-        <div className="h-full relative">
-          <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4">
-            p
-          </div>
-          <a
-            href={redirect}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base"
-          >
-            {label}
-          </a>
-        </div>
-      ) : (
-        <div className="h-full relative">
+      <div className="h-full relative">
           <div className="absolute w-full bg-white rounded transition hex4 p-2 sm:p-4">
             p
           </div>
           <Link
+          {...newTab? {target:'__blank'}:""}
             href={redirect}
             className="absolute w-full right-[5px] top-[-5px] bg-gray-800 text-white p-2 py-[11px] sm:p-4 text-center rounded hover:bg-[#FF3B00] transition hex4 text-xs sm:text-base"
           >
             {label}
           </Link>
         </div>
-      )}
     </>
   );
 };

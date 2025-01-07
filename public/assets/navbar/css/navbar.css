@@ -8,6 +8,7 @@
 }
 
 .csstransforms .cn-wrapper {
+  display: block !important;
   width: 27em;
   height: 27em;
   overflow: visible;

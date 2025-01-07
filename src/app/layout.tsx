@@ -79,6 +79,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="./codechef_logo.png" sizes="any" />
+        
       </head>
       <body>
         <TheMain>{children}</TheMain> 

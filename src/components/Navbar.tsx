@@ -1,3 +1,4 @@
+"use client"
 import { nav } from "@/lib/navicons";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,7 +52,7 @@ const Navbar = () => {
             className="menu-icon"
             priority={true}/>
         </button>
-        <div className={`cn-wrapper ${openHe? "opened-nav": ""}`} id="cn-wrapper">
+        <div className={`cn-wrapper ${openHe? "opened-nav": ""}`} id="cn-wrapper" style={{display: "none"}}>
           <ul>
             <NavItems
               route="blog"

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/codechef_logo.svg" }],
   openGraph: {
     title: "CodeChef-VIT",
-    images: [{ url: "/codechef_logo.png" }],
+    images: [{ url: "/cc_og.png" }],
     url: "https://www.codechefvit.com/",
     type: "website",
     description:
@@ -79,6 +79,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="./codechef_logo.png" sizes="any" />
+        
       </head>
       <body>
         <TheMain>{children}</TheMain> 

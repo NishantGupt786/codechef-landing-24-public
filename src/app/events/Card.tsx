@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
-
+import Link from "next/link";
 interface CardProps {
   title: string;
   description: string;
@@ -10,6 +10,7 @@ interface CardProps {
   ballY: number;
   cardNum: number;
   ballKaHeight: number;
+  url: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -21,6 +22,7 @@ const Card: React.FC<CardProps> = ({
   ballY,
   cardNum,
   ballKaHeight,
+  url,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [grayFilter, setGrayFilter] = useState(true);
@@ -75,7 +77,7 @@ const Card: React.FC<CardProps> = ({
           setIsVisible(entry.isIntersecting);
           setGrayFilter(!entry.isIntersecting);
         },
-        { threshold: 1 } 
+        { threshold: 1 }
       );
 
       if (cardRef.current) {
@@ -121,30 +123,39 @@ const Card: React.FC<CardProps> = ({
 
       {/* Image Section */}
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center md:mb-0">
-        <div className={`${grayFilter ? "" : "transition-all duration-500 border border-[#FF3B00]"}`}>
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            width={200}
-            height={200}
-            className=" lg:h-64 lg:w-96 w-auto transition duration-500 object-cover"
-          />
+        <div
+          className={`${
+            grayFilter
+              ? ""
+              : "transition-all duration-500 border border-[#FF3B00]"
+          }`}
+        >
+          <Link href={url} target="__blank">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              width={200}
+              height={200}
+              className=" lg:h-64 lg:w-96 w-auto transition duration-500 object-cover"
+            />
+          </Link>
         </div>
       </div>
 
       {/* Text Section */}
       <div className=" w-full lg:w-1/2 px-0 sm:px-12 flex flex-col items-center text-center lg:text-left md:mb-0 mt-3">
         <div className="text-white max-w-xs sm:max-w-sm lg:w-full flex lg:mx-0">
-          <h1
-            className={`transition-all duration-500 sm:text-base lg:text-[34.5px] text-left font-enigma ${
-              grayFilter ? "text-white" : "text-[#FF3B00]"
-            }`}
-          >
-            {title}
-          </h1>
+          <Link href={url} target="__blank">
+            <h1
+              className={`transition-all duration-500 sm:text-base lg:text-[34.5px] text-left font-enigma ${
+                grayFilter ? "text-white" : "text-[#FF3B00]"
+              }`}
+            >
+              {title}
+            </h1>
+          </Link>
         </div>
         <p className="text-white mt-0 sm:mt-1 max-w-xs sm:max-w-sm lg:w-96 lg:ml-0 mx-auto text-xs sm:text-sm lg:text-lg p-0 sm:p-3">
-
           {description}
         </p>
       </div>

@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <div className="container" onClick={menuBandh}>
       <div className="component" onClick={menuHandler}>
-        <button className="cn-button" id="cn-button">
+        <button className="cn-button h-[2.5em] md:h-[2.2em] w-[4.5em]  items-end" id="cn-button">
           <Image
             src={nav.main}
             alt="menu icon"

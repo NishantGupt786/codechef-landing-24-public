@@ -27,6 +27,7 @@ const Component1 = () => {
         description:
           "DevSOC'25, the upcoming edition by CodeChef-VIT, promises to be bigger and better, uniting innovators and tech enthusiasts from across the globe. With cutting-edge challenges, expert mentorship, and grand rewards, it's set to redefine the hackathon experience and inspire groundbreaking ideas.",
         imageSrc: devsoc,
+        url: "https://www.youtube.com/shorts/SXHMnicI6Pg",
         reverse: true,
       },
       {
@@ -34,19 +35,23 @@ const Component1 = () => {
         description:
           "CookOff 9.0, hosted by CodeChef-VIT, is a competitive coding contest that challenges participants to solve intriguing problems. It promotes logical thinking, algorithmic skills, and fast-paced coding. With exciting rewards and tough competition, it's a must-attend event for coders.",
         imageSrc: "/cookoff.png",
+        url: "https://cookoff24.codechefvit.com/"
       },
       {
         title: "Clueminati 2.0",
         description:
           "Clueminati 2.0, hosted by CodeChef-VIT, is an exhilarating treasure hunt that tests participants' problem-solving, teamwork, and critical thinking skills. Combining tech and mystery, it offers engaging challenges and thrilling rewards, making it a unique and unforgettable experience.",
         imageSrc: "/clueminati.png",
+        url: "https://clueminati24.codechefvit.com/",
         reverse: true,
+
       },
       {
         title: "DevSOC'24",
         description:
           "DevSOC'24, hosted by CodeChef-VIT, is South Asia's largest student-run hackathon, bringing together tech enthusiasts to innovate and collaborate. With expert mentorship, exciting challenges, and rewarding prizes, it's a hub for creativity and groundbreaking solutions.",
         imageSrc: devsoc,
+        url: "https://devsoc.codechefvit.com/"
       },
     ],
     []
@@ -194,6 +199,7 @@ const Component1 = () => {
             imageSrc={card.imageSrc}
             imageAlt={card.title}
             reverse={card.reverse}
+            url={card.url}
           />
         ))}
       </div>

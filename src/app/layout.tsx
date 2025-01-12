@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import TheMain from "@/components/TheMain";
 import "../styles/globals.css";
 import { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -82,6 +83,7 @@ export default function RootLayout({
         
       </head>
       <body>
+      <Toaster position="top-right" reverseOrder={false} />
         <TheMain>{children}</TheMain> 
         {/* because we need TO use metadata */}
       </body>

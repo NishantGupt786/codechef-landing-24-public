@@ -27,7 +27,7 @@ const Component1 = () => {
         description:
           "DevSOC'25, the upcoming edition by CodeChef-VIT, promises to be bigger and better, uniting innovators and tech enthusiasts from across the globe. With cutting-edge challenges, expert mentorship, and grand rewards, it's set to redefine the hackathon experience and inspire groundbreaking ideas.",
         imageSrc: devsoc,
-        url: "https://www.youtube.com/shorts/SXHMnicI6Pg",
+        url: "https://devsoc.codechefvit.com/",
         reverse: true,
       },
       {

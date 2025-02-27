@@ -1,5 +1,33 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.hashnode.com",
+        pathname: "/**",
+      },
+    ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/whatsup",
+        destination: "https://www.youtube.com/watch?v=Ga0KBHmSLns",
+        permanent: false,
+      },
+      {
+        source: "/whatsapp",
+        destination: "https://www.youtube.com/watch?v=Ga0KBHmSLns",
+        permanent: false,
+      },
+      {
+        source: "/informal",
+        destination: "https://www.youtube.com/watch?v=Ga0KBHmSLns",
+        permanent: false,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
@@ -11,14 +39,6 @@ const nextConfig = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.hashnode.com",
-        pathname: "/**",
-      },
-    ],
-  },
 };
+
 export default nextConfig;

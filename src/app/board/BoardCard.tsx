@@ -59,7 +59,7 @@ export default function BoardCard({
         style={isHovering ? cardHoverStyle : cardNotHover}
       >
         <Image
-          className="h-img transition-all duration-200 bottom-[-14px]"
+          className="h-img transition-all duration-200"
           src={photo}
           alt="alt"
           layout="responsive"
@@ -69,7 +69,7 @@ export default function BoardCard({
         />
         {!isHovering ? (
           <>
-            <div className="flex flex-col items-center mt-[-25px] p-parent transition-all duration-300 ">
+            <div className="flex flex-col items-center mt-[18px] p-parent transition-all duration-300 ">
               <p className="text-black text-[16px] name mx-6 text-center pt-1">
                 {boardName}
               </p>

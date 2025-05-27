@@ -1,17 +1,18 @@
 "use client";
-import achintya from "@/assets/images/boardimages/achintya.png";
-import amlan from "@/assets/images/boardimages/amlan.png";
-import anna from "@/assets/images/boardimages/anna.png";
+import abhinav from "@/assets/images/boardimages/abhinav.png";
+import aarushi from "@/assets/images/boardimages/aarushi.png";
+import aman from "@/assets/images/boardimages/aman.png";
 import anoushka from "@/assets/images/boardimages/anoushka.png";
-import aradhya from "@/assets/images/boardimages/aradhya.png";
-import leora from "@/assets/images/boardimages/leora.png";
-import aaditya from "@/assets/images/boardimages/mahanta.png";
-import satyam from "@/assets/images/boardimages/satyam.png";
-import shivamG from "@/assets/images/boardimages/shivam.png";
-import souvik from "@/assets/images/boardimages/souvik.png";
-import tarran from "@/assets/images/boardimages/taran.png";
-import vaibhav from "@/assets/images/boardimages/vaibhav.png";
-import vashishtha from "@/assets/images/boardimages/vashishta.png";
+import divyanshu from "@/assets/images/boardimages/divyanshu.png";
+import karan from "@/assets/images/boardimages/karan.png";
+import mrudul from "@/assets/images/boardimages/mrudul.png";
+import nishant from "@/assets/images/boardimages/nishant.png";
+import prateek from "@/assets/images/boardimages/prateek.png";
+import samyak from "@/assets/images/boardimages/samyak.png";
+import soham from "@/assets/images/boardimages/soham.png";
+import tanvi from "@/assets/images/boardimages/tanvi.png";
+import vedant from "@/assets/images/boardimages/vedant.png";
+
 import Ripple from "@/components/Ripple";
 import RippleStatic from "@/components/RipplestStatic";
 import { useState } from "react";
@@ -21,95 +22,95 @@ import "./style.css";
 export default function BoardPage() {
   const [theBoards, setTheBoards] = useState([
     {
-      boardPos: "Research Lead",
-      boardName: "Aaditya Mahanta",
+      boardPos: "Projects Head",
+      boardName: "Abhinav",
       boardDesc:
-        "Aaditya is a detail-oriented thinker with a passion for innovation and uncovering insights to shape strategic decisions.",
-      photo: aaditya,
+        "Abhinav is a builder at heart, always focused on driving impactful and efficient project execution.",
+      photo: abhinav,
     },
     {
-      boardPos: "Technical Lead - Events",
-      boardName: "Achintya Gupta",
+      boardPos: "Events Head",
+      boardName: "Aarushi",
       boardDesc:
-        "Achintya is a tech-savvy problem solver, ensuring every event is powered by cutting-edge solutions.",
-      photo: achintya,
+        "Aarushi is a spirited organizer with a flair for curating unforgettable and well-managed events.",
+      photo: aarushi,
     },
     {
-      boardPos: "General Secretary - External",
-      boardName: "Amlan",
+      boardPos: "Web Dev Head",
+      boardName: "Aman L",
       boardDesc:
-        "Amlan is a charismatic communicator and bridge-builder, excelling at forging meaningful connections.",
-      photo: amlan,
+        "Aman is a coding enthusiast dedicated to creating seamless, high-performance digital experiences.",
+      photo: aman,
     },
     {
-      boardPos: "Outreach and Media Lead",
+      boardPos: "Graphic Design Head",
       boardName: "Anoushka",
       boardDesc:
-        "Anoushka is a creative storyteller with a knack for crafting impactful campaigns and engaging content.",
+        "Anoushka is a creative powerhouse with a passion for translating ideas into visual masterpieces.",
       photo: anoushka,
     },
     {
-      boardPos: "General Secretary - Internal",
-      boardName: "Aradhya",
+      boardPos: "Media and Compi Head",
+      boardName: "Divyanshu",
       boardDesc:
-        "Aradhya is a natural organizer with exceptional coordination skills, keeping operations smooth and efficient.",
-      photo: aradhya,
-    },
-    {
-      boardPos: "Finance Lead",
-      boardName: "Leora Kumar",
-      boardDesc:
-        "Leora is a meticulous planner with a sharp eye for numbers, ensuring financial stability and transparency.",
-      photo: leora,
-    },
-    {
-      boardPos: "Vice Chairperson",
-      boardName: "Satyam Ashutosh Rai",
-      boardDesc:
-        "Satyam is a dynamic leader with strategic foresight, committed to driving the organization forward.",
-      photo: satyam,
+        "Divyanshu is a versatile strategist with expertise in both media engagement and competition planning.",
+      photo: divyanshu,
     },
     {
       boardPos: "Chairperson",
-      boardName: "Shivam Gutgutia",
+      boardName: "Karan",
       boardDesc:
-        "Shivam is a visionary leader with unparalleled dedication to steering the team toward success.",
-      photo: shivamG,
+        "Karan is a visionary leader with a commitment to guiding the team toward innovation and impact.",
+      photo: karan,
     },
     {
-      boardPos: "Web Lead",
-      boardName: "Shivam Sharma",
+      boardPos: "Co-Secretary",
+      boardName: "Mrudul",
       boardDesc:
-        "Shivam excels in building robust and user-friendly digital platforms, enhancing the team's online presence.",
-      photo: anna,
+        "Mrudul is a reliable coordinator, bridging communication and fostering collaboration across domains.",
+      photo: mrudul,
     },
     {
-      boardPos: "Technical Lead - Projects",
-      boardName: "Souvik ",
+      boardPos: "General Secretary",
+      boardName: "Nishant",
       boardDesc:
-        "Souvik is an innovative technologist with a passion for executing impactful technical projects.",
-      photo: souvik,
+        "Nishant is a dynamic facilitator with the ability to streamline operations and keep everything on track.",
+      photo: nishant,
     },
     {
-      boardPos: "Publicity Lead",
-      boardName: "Tarran Siddharth",
+      boardPos: "Vice Chairperson (Tech)",
+      boardName: "Prateek",
       boardDesc:
-        "Tarran is a persuasive communicator skilled at crafting and delivering compelling messages.",
-      photo: tarran,
+        "Prateek is a tech leader with a sharp strategic mind, pushing boundaries in the digital space.",
+      photo: prateek,
     },
     {
-      boardPos: "Design Lead",
-      boardName: "Vaibhav Pathak",
+      boardPos: "UI/UX Head",
+      boardName: "Samyak",
       boardDesc:
-        "Vaibhav is a creative visionary with a flair for aesthetics, translating ideas into stunning visuals.",
-      photo: vaibhav,
+        "Samyak is a design-thinker passionate about creating intuitive, user-friendly interfaces.",
+      photo: samyak,
     },
     {
-      boardPos: "Creative Lead",
-      boardName: "Vashishtha Kothamasu",
+      boardPos: "Publicity and Outreach Head",
+      boardName: "Soham",
       boardDesc:
-        "Vashishtha is a trailblazer in ideation, bringing fresh perspectives and imaginative solutions to the table.",
-      photo: vashishtha,
+        "Soham is a networking expert and content promoter with an eye for amplifying the club’s presence.",
+      photo: soham,
+    },
+    {
+      boardPos: "Vice Chairperson (Management)",
+      boardName: "Tanvi",
+      boardDesc:
+        "Tanvi is an operations expert with exceptional leadership in managing people and processes.",
+      photo: tanvi,
+    },
+    {
+      boardPos: "Research Head",
+      boardName: "Vedant",
+      boardDesc:
+        "Vedant is a knowledge seeker with a keen analytical mind, driving impactful research and insights.",
+      photo: vedant,
     },
   ]);
 

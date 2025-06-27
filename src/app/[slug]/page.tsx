@@ -9,17 +9,57 @@ const slugData: Record<(typeof allowedSlugs)[number], {
 }[]> = {
   papers: [
     {
-      name: 'Jane Doe',
-      url: 'https://linkedin.com/in/janedoe',
-      domain: 'research',
+      name: 'Abhinav Ganeshan',
+      url: 'https://www.linkedin.com/in/abhinav-gk/',
+      domain: 'Developer',
     },
     {
-      name: 'John Doe',
-      url: 'https://github.com/johndoe-papers',
-      domain: 'machine-learning',
+      name: 'Abhinav Pant',
+      url: 'https://www.linkedin.com/in/abhinav-pant',
+      domain: 'Developer',
+    },
+    {
+      name: 'Arya Kiran Parge',
+      url: 'https://www.linkedin.com/in/arya-kiran-parge-a1095528a',
+      domain: 'UI/UX',
+    },
+    {
+      name: 'Harshit',
+      url: 'https://www.linkedin.com/in/harshit-sarma-247175179/',
+      domain: 'Frontend',
+    },
+    {
+      name: 'Heet Jatania',
+      url: 'https://in.linkedin.com/in/heet-jatania-4a1294275',
+      domain: 'Developer, Maintenance',
+    },
+    {
+      name: 'Karan Dugar',
+      url: 'https://www.linkedin.com/in/karan-dugar-680b81237/',
+      domain: 'UI/UX',
+    },
+    {
+      name: 'Monami Som Saha',
+      url: 'https://www.linkedin.com/in/monami-somsaha/',
+      domain: 'Maintenance',
+    },
+    {
+      name: 'Nishant Gupta',
+      url: 'https://www.linkedin.com/in/nishant-gupta-12913221b/',
+      domain: 'Developer',
+    },
+    {
+      name: 'Samya Mehta',
+      url: 'https://www.linkedin.com/in/samyamehta16/',
+      domain: 'Frontend, Maintenance',
     }
   ],
   'ffcs-inator': [
+    {
+      name: 'Abhinav Pant',
+      url: 'https://www.linkedin.com/in/abhinav-pant',
+      domain: 'Developer',
+    },
     {
       name: 'Atharva Sharma',
       url: 'https://www.linkedin.com/in/atharva-sharma-vit',
@@ -29,6 +69,21 @@ const slugData: Record<(typeof allowedSlugs)[number], {
       name: 'Edum Shivansh Gupta',
       url: 'https://www.linkedin.com/in/edum-shivansh-gupta-733aa426a',
       domain: 'Backend, Frontend',
+    },
+    {
+      name: 'Ishan Jindal',
+      url: 'https://www.linkedin.com/in/ishan-j25/',
+      domain: 'Product Design, Engineering, Development and Marketing',
+    },
+    {
+      name: 'Kuriak Tom Jacob',
+      url: 'https://www.linkedin.com/in/kuriak-tom-jacob-12298228a/',
+      domain: 'Design',
+    },
+    {
+      name: 'Mansi Sharma',
+      url: 'https://www.linkedin.com/in/mansi-sharma9218/',
+      domain: 'Design',
     },
     {
       name: 'Rohith Jayaraj Nambiar',
@@ -41,6 +96,21 @@ const slugData: Record<(typeof allowedSlugs)[number], {
       domain: 'Frontend',
     },
     {
+      name: 'Samya Mehta',
+      url: 'https://www.linkedin.com/in/samyamehta16/',
+      domain: 'Frontend, Management',
+    },
+    {
+      name: 'Sanjay J K',
+      url: 'https://www.linkedin.com/in/sanjay-j-k',
+      domain: 'Frontend',
+    },
+    {
+      name: 'Soham Mahapatra',
+      url: 'https://www.linkedin.com/in/soham-mahapatra-433bb428a/',
+      domain: 'Backend',
+    },
+    {
       name: 'Subhiksha SG',
       url: 'https://www.linkedin.com/in/subhikshasg',
       domain: 'Frontend',
@@ -49,18 +119,28 @@ const slugData: Record<(typeof allowedSlugs)[number], {
       name: 'Upayan Mazumder',
       url: 'https://www.linkedin.com/in/upayanmazumder',
       domain: 'Frontend',
+    },
+    {
+      name: 'Yashita Puri',
+      url: 'https://www.linkedin.com/in/yashita-puri/',
+      domain: 'Frontend',
     }
   ],
   contactify: [
     {
-      name: 'Jane Doe',
-      url: 'https://instagram.com/janedoe_contactify',
-      domain: 'marketing',
+      name: 'Aaditya Mahanta',
+      url: 'https://www.linkedin.com/in/aadityamahanta/',
+      domain: 'Frontend',
     },
     {
-      name: 'John Doe',
-      url: 'https://contactify.app/johndoe',
-      domain: 'product-management',
+      name: 'Shivam Gutgutia',
+      url: 'https://www.linkedin.com/in/shivamgutgutia/',
+      domain: 'Backend',
+    },
+    {
+      name: 'Vaibhav Pathak',
+      url: 'https://www.linkedin.com/in/thevaibhavpathak/',
+      domain: 'UI/UX',
     }
   ]
 };
@@ -81,7 +161,7 @@ export default function SlugPage({ params }: PageProps) {
 
   return (
     <div className="flex flex-col gap-16 font-enigma items-center py-8 text-center">
-      <h1 className="text-2xl sm:text-3xl lg:text-6xl font-bold text-[#ff3b00] mt-6">Meet The {slug} Team</h1>
+      <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold text-[#ff3b00] mt-6">Meet The {slug} Team</h1>
       {slugData[slug].map((item) => {
         return (<a href={item.url} target='_blank' className='text-white hover:text-[#ff3b00] mx-6 text-lg sm:text-xl'>{item.name} | {item.domain}</a>)
       })}

@@ -19,6 +19,11 @@ const slugData: Record<(typeof allowedSlugs)[number], {
       domain: 'Developer',
     },
     {
+      name: 'Aditi Saxena',
+      url: 'https://www.linkedin.com/in/aditi-saxena-4674ab222/',
+      domain: 'Maintainer, Frontend',
+    },
+    {
       name: 'Arya Kiran Parge',
       url: 'https://www.linkedin.com/in/arya-kiran-parge-a1095528a',
       domain: 'UI/UX',
@@ -52,6 +57,11 @@ const slugData: Record<(typeof allowedSlugs)[number], {
       name: 'Samya Mehta',
       url: 'https://www.linkedin.com/in/samyamehta16/',
       domain: 'Frontend, Maintenance',
+    },
+    {
+      name: 'Vansh Chani',
+      url: 'https://www.linkedin.com/in/vansh-chani-506250285/',
+      domain: 'Machine Learning'
     }
   ],
   'ffcs-inator': [
